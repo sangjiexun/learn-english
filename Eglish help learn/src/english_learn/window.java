@@ -14,7 +14,7 @@ public class window extends JFrame {
 	public ArrayList<String> word=null;
 	public Word wo;
 	public Tool_panel tp;
-	public String text;
+	public String text,t;
 	public int wnum;
 	/**
 	 * 

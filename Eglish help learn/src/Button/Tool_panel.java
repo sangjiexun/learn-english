@@ -51,7 +51,6 @@ public  class Tool_panel extends JPanel{
 		add(unknowl);
 		add(fy);
 		add(wordnumber);
-		
 		add(learning);
 		
 		
@@ -62,8 +61,13 @@ public  class Tool_panel extends JPanel{
 		add(t1);
 		add(t2);
 		JButton OT=new JButton("open");
-		OT.setBounds(10,370, 80, 70);
+		OT.setBounds(10,370, 70, 60);
 		OT.addActionListener(new openact(widd));
+		JButton OT2=new JButton("À¢–¬");
+		OT2.setBounds(90,370, 70, 30);
+		OT2.addActionListener(new sopenact(widd));
+		
+		
 		JButton FT=new JButton("ÃÌº”∑≠“Î");
 		FT.setBounds(20,540, 120, 30);
 		FT.addActionListener(new ActionListener(){
@@ -81,6 +85,7 @@ public  class Tool_panel extends JPanel{
 		
 		add(FT);
 		add(OT);//open text button;
+		add(OT2);
 		
 		
 //		TextField text1 = new TextField(" ‰»Î√‹¬Î£∫", 10);  

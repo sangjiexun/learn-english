@@ -28,10 +28,10 @@ public class openact implements ActionListener{
 		FileDialog my=new FileDialog(db);
         my.setVisible(true);
         String t=my.getDirectory()+my.getFile();
+        db.t=t;
 //        System.out.println(t);
         try {
-
-
+        	
 					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
 				                    new FileInputStream(t)));

@@ -89,6 +89,7 @@ public class EJPopupMenu extends JPopupMenu{
 	}
 
 
+	
 
 	protected void searchWords(String inputWord) {
 		try {
