@@ -1,5 +1,5 @@
 package english_learn;
-
+//创建一个窗口
 import java.awt.BorderLayout;
 import java.awt.TextArea;
 import java.util.ArrayList;
@@ -22,20 +22,16 @@ public class window extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public window() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300,30,900,700);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击关闭按钮后，程序结束
+		setBounds(300,30,900,700);//设置大小
 		setTitle("English help");
-		
-		System.out.println("hh");
-		tp=new Tool_panel(this);
-		add(tp,BorderLayout.EAST);
-		
+		tp=new Tool_panel(this);//添加工具栏
+		add(tp,BorderLayout.EAST);//工具栏放在右边
 		setVisible(true);
 
 	}
 	
 	public void zairu (){
-//		text="hello world";
 		wo=new Word(this);
 		add(wo);
 		setVisible(true);
