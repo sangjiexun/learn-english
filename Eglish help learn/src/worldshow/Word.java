@@ -47,7 +47,7 @@ public class Word extends JPanel{
 		word1=inword();
 		word2=innowword();
         String sentence =widd.text;
-        Scanner s = new Scanner(sentence).useDelimiter(" ");
+        Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
        
         
 //        while(s.hasNext()){
@@ -309,7 +309,7 @@ public class Word extends JPanel{
         
         
         
-    public void creatWJL( int x,int y,String z){
+    public void creatWJL( int x,int y,String z){//创建单词标签
 		Font wz=new Font("宋体",Font.PLAIN,16);
 		FontMetrics fm = new JLabel().getFontMetrics(wz);
     	int len=fm.stringWidth( z );
