@@ -30,7 +30,7 @@ public class sopenact implements ActionListener {
            String lineTxt = null;
            while(  (lineTxt = bufferedReader.readLine())!= null)  
            { 
-//           ta.append(lineTxt);
+
            ba.append(lineTxt+" $ "+"\r\n");
            }
            bufferedReader.close();
@@ -38,7 +38,6 @@ public class sopenact implements ActionListener {
    System.out.println("读取文件内容出错");
    e1.printStackTrace();
 }
-//System.out.println(ba);
 
 db.text=ba.toString();
 db.zairu();

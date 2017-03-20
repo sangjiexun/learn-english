@@ -17,8 +17,6 @@ public class wordshuxing extends JLabel {
 		
 	}
 	
-	
-	
-	
+
 
 }

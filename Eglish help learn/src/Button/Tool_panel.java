@@ -47,27 +47,25 @@ public  class Tool_panel extends JPanel{
 		add(new wordshuxing(10, 200,40, "陌生率："));
 		wordnumber=new wordshuxing(10, 260,40, "总单词数：");
 		learning=new wordshuxing(10, 320,40, "属性2");
-		add(unknow);
-		add(unknowl);
-		add(fy);
-		add(wordnumber);
-		add(learning);
-		
-		
 		t1 =new Etextfield(10 , 450 ,150 ,20);
 		t2=new Etextfield(10 , 490 ,150 ,20);
 		
 		
+		
+		add(unknow);
+		add(unknowl);
+		add(fy);
+		add(wordnumber);
+		add(learning);	
 		add(t1);
 		add(t2);
+		
 		JButton OT=new JButton("open");
 		OT.setBounds(10,370, 70, 60);
 		OT.addActionListener(new openact(widd));
 		JButton OT2=new JButton("刷新");
 		OT2.setBounds(90,370, 70, 30);
 		OT2.addActionListener(new sopenact(widd));
-		
-		
 		JButton FT=new JButton("添加翻译");
 		FT.setBounds(20,540, 120, 30);
 		FT.addActionListener(new ActionListener(){
@@ -88,30 +86,10 @@ public  class Tool_panel extends JPanel{
 		add(OT2);
 		
 		
-//		TextField text1 = new TextField("输入密码：", 10);  
-////        text1.setEditable(false);  
-//        TextField text2 = new TextField(10);  
-//        text2.setEchoChar('*');  
-//          
-//        add(text1);  
-//        add(text2);  
-//        setVisible(true);  
-//        validate();
+
 		
 		
 	}
-	
-//	public void show (){
-//		
-//		add(fy);
-//		add(new wordshuxing(10, 80,40, "未知单词："));
-//		add(new wordshuxing(10, 140,40, "未知："));
-//		add(new wordshuxing(10, 200,40, "陌生率："));
-//		add(new wordshuxing(10, 260,40, "属性2"));
-//		add(new wordshuxing(10, 320,40, "属性2"));
-//		add(new Etextfield(10 , 450 ,150 ,20));
-//		add(new Etextfield(10 , 490 ,150 ,20));
-//	}
 	
 	
 	

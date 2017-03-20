@@ -1,5 +1,5 @@
 package menu;
-
+//右击显示的内容
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,9 +41,13 @@ public class EJPopupMenu extends JPopupMenu{
 	public EJPopupMenu(wordjlabel wordjlabel,window widd){
 		this.wj=wordjlabel;
 		this.widd=widd;
-		item4.addActionListener(new ActionListener(){
+
+		
+		
+		item1.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
-	            searchWords( wj.name.toLowerCase());
+	           if (!(wj.ifknow)){
+	           outjiaf();}//加入字符串容器，并且保存到电脑；
 	        }
 	    });
 		
@@ -53,11 +57,18 @@ public class EJPopupMenu extends JPopupMenu{
 	        }
 	    });
 		
-		item1.addActionListener(new ActionListener(){
+		item3.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	           if (!(wj.ifknow)){
-//	           WriteDate(wj.name);
-	           outjiaf();}//加入字符串容器，并且保存到电脑；
+	           outnowjiaf();}//加入已学会
+	        }
+	    });
+		
+
+		
+		item4.addActionListener(new ActionListener(){
+	        public void actionPerformed(ActionEvent e){
+	            searchWords( wj.name.toLowerCase());
 	        }
 	    });
 		
@@ -65,18 +76,12 @@ public class EJPopupMenu extends JPopupMenu{
 		item5.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	           if (wj.ifknow){
-//	           WriteDate(wj.name);
 	           outjianf();}//删除字符串容器，并且保存到电脑；
 	        }
 	    });
 		
-		item3.addActionListener(new ActionListener(){
-	        public void actionPerformed(ActionEvent e){
-	           if (!(wj.ifknow)){
-//	           WriteDate(wj.name);
-	           outnowjiaf();}//加入已学会
-	        }
-	    });
+
+		
 		
 		
 		
@@ -93,7 +98,8 @@ public class EJPopupMenu extends JPopupMenu{
 
 	protected void searchWords(String inputWord) {
 		try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
+            BufferedReader br = new BufferedReader(
+         new FileReader("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
             String line ;
             boolean isFound = false;
              
@@ -107,9 +113,7 @@ public class EJPopupMenu extends JPopupMenu{
  
                 if(in.next().equals(inputWord)){
                     int offset = inputWord.length();
-//                    output.setText("\n\n\n\n"+line.substring(offset));
                     wj.widd.tp.fy.setText(line.substring(offset));
-//                    wj.widd.tp.show();
                     wj.widd.tp.repaint();
                     System.out.println(wj.widd.tp.fy.getText());
                     isFound = true;
@@ -130,9 +134,7 @@ public class EJPopupMenu extends JPopupMenu{
 		
 	}
 	
-	
-	
-	
+
 	
 	public static void WriteDate(String nfile) {
 
@@ -159,7 +161,8 @@ public class EJPopupMenu extends JPopupMenu{
 
 		System.out.println(sb.toString());
 
-		BufferedWriter output = new BufferedWriter(new FileWriter("src/know.txt"));//保存TXT位置
+		BufferedWriter output = new BufferedWriter(
+				new FileWriter("src/know.txt"));//保存TXT位置
 
 		output.write(String.valueOf(sb.toString()));
 
@@ -204,7 +207,8 @@ public class EJPopupMenu extends JPopupMenu{
     	try{
 	    		
 	    		ObjectOutputStream out=new ObjectOutputStream(
-	    				new FileOutputStream("C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
+	    				new FileOutputStream(
+	    						"C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
 	    		out.writeObject(widd.wo.word1);
 	    		out.close();
 	    	}catch(IOException e ){
@@ -241,7 +245,8 @@ public class EJPopupMenu extends JPopupMenu{
 	    	try{
 		    		
 		    		ObjectOutputStream out=new ObjectOutputStream(
-		    				new FileOutputStream("C:/Users/Administrator/Desktop/许云苏的机器人/now.txt"));
+		    				new FileOutputStream(
+		    						"C:/Users/Administrator/Desktop/许云苏的机器人/now.txt"));
 		    		out.writeObject(widd.wo.word2);
 		    		out.close();
 		    	}catch(IOException e ){
@@ -249,8 +254,6 @@ public class EJPopupMenu extends JPopupMenu{
 		    	}
 		    	
 		   }
-	   
-	
-	
+
 
 	}

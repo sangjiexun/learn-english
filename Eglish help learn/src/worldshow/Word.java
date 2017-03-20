@@ -337,7 +337,8 @@ public class Word extends JPanel{
     	try{
     		
     		ObjectOutputStream out=new ObjectOutputStream(
-    				new FileOutputStream("C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
+    				new FileOutputStream(
+    						"C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
     		out.writeObject(word1);
     		out.close();
     	}catch(IOException e ){
@@ -347,6 +348,5 @@ public class Word extends JPanel{
     	
     }
    
-
 
 }
