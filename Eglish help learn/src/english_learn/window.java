@@ -27,9 +27,12 @@ public class window extends JFrame {
 		setTitle("English help");
 		tp=new Tool_panel(this);//添加工具栏
 		add(tp,BorderLayout.EAST);//工具栏放在右边
+		
+		
 		setVisible(true);
 
 	}
+	
 	
 	public void zairu (){
 		wo=new Word(this);
@@ -37,8 +40,5 @@ public class window extends JFrame {
 		setVisible(true);
 	};
 	
-	
-	
-	
-	
+
 }
