@@ -79,7 +79,7 @@ public  class Tool_panel extends JPanel{
 		FT.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				if(!(t1.getText()=="")){
+				if(!(t1.getText()==""||t1.getText()=="")){
 				WriteDate(t1.getText()+"  "+t2.getText());
 				t1.setText("");
 				t2.setText("");
