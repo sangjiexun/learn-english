@@ -60,7 +60,7 @@ public class EJPopupMenu extends JPopupMenu{
 		item3.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	           if (!(wj.ifknow)){
-	           outnowjiaf();}//加入已学会
+	           outnowjiaf();}//加入正在学习的单词
 	        }
 	    });
 		
@@ -222,6 +222,7 @@ public class EJPopupMenu extends JPopupMenu{
 
 		   
 		   widd.wo.word2.add(wj.name.toLowerCase());
+	//	   widd.wo.word2.remove("objective");//bug解决区
 		   System.out.println("jiar");
 		   outnow();
 	    	

@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 import Lis.openact;
 import english_learn.window;
@@ -66,13 +67,19 @@ public  class Tool_panel extends JPanel{
 		
 		JButton OT=new JButton("open");
 		OT.setBounds(10,370, 70, 60);
-
+		OT.setBorder(new LineBorder(Color.CYAN));
+		
 		JButton OT2=new JButton("刷新");
 		OT2.setBounds(90,370, 70, 30);
-	
+		OT2.setBorder(new LineBorder(Color.CYAN));
+		
+		JButton OT3=new JButton("自留按钮");
+		OT3.setBounds(20,580, 120, 30);
+		OT3.setBorder(new LineBorder(Color.CYAN));
+		
 		JButton FT=new JButton("添加翻译");
 		FT.setBounds(20,540, 120, 30);
-	
+		FT.setBorder(new LineBorder(Color.CYAN));
 		
 		OT.addActionListener(new openact(widd));
 		OT2.addActionListener(new sopenact(widd));
@@ -94,6 +101,7 @@ public  class Tool_panel extends JPanel{
 		add(FT);
 		add(OT);//open text button;
 		add(OT2);
+		add(OT3);
 		
 	}
 	
@@ -105,7 +113,8 @@ public  class Tool_panel extends JPanel{
 		try{
 
 
-		FileReader read = new FileReader(new File("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//打开txt
+		FileReader read = new FileReader(new File
+				("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//打开txt
 
 		StringBuffer sb = new StringBuffer();
 
@@ -125,7 +134,8 @@ public  class Tool_panel extends JPanel{
 
 		System.out.println("添加了翻译： "+sb.toString());
 
-		BufferedWriter output = new BufferedWriter(new FileWriter("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//保存TXT位置
+		BufferedWriter output = new BufferedWriter(new FileWriter
+				("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//保存TXT位置
 
 		output.write(String.valueOf(sb.toString()));
 

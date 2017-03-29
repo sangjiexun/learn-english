@@ -20,6 +20,7 @@ public class window extends JFrame {
 	setBounds(300,30,900,700);
 	setTitle("English help");
 	add(new panel(this),BorderLayout.NORTH);
+	
 	addKeyListener(new mykey());  
 	
 	setVisible(true);

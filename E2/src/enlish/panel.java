@@ -53,6 +53,7 @@ public class panel extends JPanel{
 	setLayout(null);
 	setPreferredSize(new Dimension(200, 700));
 	setBackground(Color.CYAN);
+	
 	j4=new jtable(500,20,200,50,"等级");
 	j41=new jtable(500,70,200,50,"经验");
 	j1=new jtable(20,20,400,50,w1);
@@ -75,6 +76,9 @@ public class panel extends JPanel{
 	t2.setBounds(100, 500, 180, 30);
 	t2.setEchoChar((char) 0);
 	t2.setFont(new Font("Dialog",2, 20));
+	
+	System.out.println(e.size());
+	
 	t2.addKeyListener(new KeyAdapter() {
         @Override
         public void keyPressed(KeyEvent k) {
@@ -123,7 +127,8 @@ public class panel extends JPanel{
 	protected String searchWords(String inputWord) {
 		 String w=null;
 		try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
+            BufferedReader br = new BufferedReader(new FileReader
+            		("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
             String line ;
             boolean isFound = false;
              
@@ -183,7 +188,8 @@ public class panel extends JPanel{
 
 			try{
 
-			BufferedWriter output = new BufferedWriter(new FileWriter("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));//保存TXT位置
+			BufferedWriter output = new BufferedWriter(new FileWriter
+					("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));//保存TXT位置
 
 			output.write(String.valueOf(nfile)+"\r\n");
 
@@ -207,7 +213,8 @@ public class panel extends JPanel{
 			try{
            
             
-		    BufferedReader br = new BufferedReader(new FileReader("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));
+		    BufferedReader br = new BufferedReader(new FileReader
+		    		("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));
 			
             sb=br.readLine();
 
