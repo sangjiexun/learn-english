@@ -114,7 +114,7 @@ public  class Tool_panel extends JPanel{
 
 
 		FileReader read = new FileReader(new File
-				("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//打开txt
+				("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));//打开txt
 
 		StringBuffer sb = new StringBuffer();
 
@@ -135,7 +135,7 @@ public  class Tool_panel extends JPanel{
 		System.out.println("添加了翻译： "+sb.toString());
 
 		BufferedWriter output = new BufferedWriter(new FileWriter
-				("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));//保存TXT位置
+				("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));//保存TXT位置
 
 		output.write(String.valueOf(sb.toString()));
 

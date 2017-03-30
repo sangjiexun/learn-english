@@ -128,7 +128,7 @@ public class panel extends JPanel{
 		 String w=null;
 		try {
             BufferedReader br = new BufferedReader(new FileReader
-            		("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
+            		("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
             String line ;
             boolean isFound = false;
              
@@ -167,7 +167,7 @@ public class panel extends JPanel{
      	ArrayList<String> w1 = null;
      	try {
 				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/许云苏的机器人/now.txt"));
+		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
 				
 				w1=(ArrayList<String>) in.readObject();
 				
@@ -189,7 +189,7 @@ public class panel extends JPanel{
 			try{
 
 			BufferedWriter output = new BufferedWriter(new FileWriter
-					("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));//保存TXT位置
+					("C:/Users/Administrator/Desktop/代码合集/grade.txt"));//保存TXT位置
 
 			output.write(String.valueOf(nfile)+"\r\n");
 
@@ -214,7 +214,7 @@ public class panel extends JPanel{
            
             
 		    BufferedReader br = new BufferedReader(new FileReader
-		    		("C:/Users/Administrator/Desktop/许云苏的机器人/grade.txt"));
+		    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
 			
             sb=br.readLine();
 

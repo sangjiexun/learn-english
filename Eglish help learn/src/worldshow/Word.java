@@ -3,11 +3,8 @@ package worldshow;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.TextArea;
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -158,25 +155,25 @@ public class Word extends JPanel{
 	} 
 	
         
-        public ArrayList<String> getWal() {
-       	 ArrayList<String> w1;
-       	 w1=new ArrayList<String>();
-   		try {
-               BufferedReader br = new BufferedReader(new FileReader("src/know.txt"));
-               String line;
-      
-                            
-               while((line = br.readLine()) != null){
-                   Scanner in = new Scanner(line);
-                   w1.add(in.next());
-
-               }
-           }
-           catch (Exception ex) {
-               ex.printStackTrace();
-           }
-			return w1;
-   	}
+//        public ArrayList<String> getWal() {
+//       	 ArrayList<String> w1;
+//       	 w1=new ArrayList<String>();
+//   		try {
+//               BufferedReader br = new BufferedReader(new FileReader("src/know.txt"));
+//               String line;
+//      
+//                            
+//               while((line = br.readLine()) != null){
+//                   Scanner in = new Scanner(line);
+//                   w1.add(in.next());
+//
+//               }
+//           }
+//           catch (Exception ex) {
+//               ex.printStackTrace();
+//           }
+//			return w1;
+//   	}
         
         
         
@@ -185,7 +182,7 @@ public class Word extends JPanel{
         	ArrayList<String> w1 = null;
         	try {
 				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
+		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/obj.txt"));
 				
 				w1=(ArrayList<String>) in.readObject();
 				
@@ -207,7 +204,7 @@ public class Word extends JPanel{
         	ArrayList<String> w1 = null;
         	try {
 				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/许云苏的机器人/now.txt"));
+		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
 				
 				w1=(ArrayList<String>) in.readObject();
 				
@@ -338,7 +335,7 @@ public class Word extends JPanel{
     		
     		ObjectOutputStream out=new ObjectOutputStream(
     				new FileOutputStream(
-    						"C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
+    						"C:/Users/Administrator/Desktop/代码合集/obj.txt"));
     		out.writeObject(word1);
     		out.close();
     	}catch(IOException e ){

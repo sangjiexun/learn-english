@@ -99,7 +99,7 @@ public class EJPopupMenu extends JPopupMenu{
 	protected void searchWords(String inputWord) {
 		try {
             BufferedReader br = new BufferedReader(
-         new FileReader("C:/Users/Administrator/Desktop/许云苏的机器人/dictionary.txt"));
+         new FileReader("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
             String line ;
             boolean isFound = false;
              
@@ -135,50 +135,50 @@ public class EJPopupMenu extends JPopupMenu{
 	}
 	
 
-	
-	public static void WriteDate(String nfile) {
-
-		try{
-
-
-		FileReader read = new FileReader(new File("src/know.txt"));//打开txt
-
-		StringBuffer sb = new StringBuffer();
-
-		char ch[] = new char[1024];
-
-		int d = read.read(ch);
-
-		while(d!=-1){
-
-		String str = new String(ch,0,d);
-
-		sb.append(str);
-
-		d = read.read(ch);
-
-		}
-
-		System.out.println(sb.toString());
-
-		BufferedWriter output = new BufferedWriter(
-				new FileWriter("src/know.txt"));//保存TXT位置
-
-		output.write(String.valueOf(sb.toString()));
-
-
-		output.write(String.valueOf(nfile)+"\r\n");
-
-
-		output.close();
-
-		} catch (Exception ex) {
-
-		System.out.println(ex);
-
-		}
-
-		}
+//	
+//	public static void WriteDate(String nfile) {
+//
+//		try{
+//
+//
+//		FileReader read = new FileReader(new File("src/know.txt"));//打开txt
+//
+//		StringBuffer sb = new StringBuffer();
+//
+//		char ch[] = new char[1024];
+//
+//		int d = read.read(ch);
+//
+//		while(d!=-1){
+//
+//		String str = new String(ch,0,d);
+//
+//		sb.append(str);
+//
+//		d = read.read(ch);
+//
+//		}
+//
+//		System.out.println(sb.toString());
+//
+//		BufferedWriter output = new BufferedWriter(
+//				new FileWriter("src/know.txt"));//保存TXT位置
+//
+//		output.write(String.valueOf(sb.toString()));
+//
+//
+//		output.write(String.valueOf(nfile)+"\r\n");
+//
+//
+//		output.close();
+//
+//		} catch (Exception ex) {
+//
+//		System.out.println(ex);
+//
+//		}
+//
+//		}
 
   
 	
@@ -208,7 +208,7 @@ public class EJPopupMenu extends JPopupMenu{
 	    		
 	    		ObjectOutputStream out=new ObjectOutputStream(
 	    				new FileOutputStream(
-	    						"C:/Users/Administrator/Desktop/许云苏的机器人/obj.txt"));
+	    						"C:/Users/Administrator/Desktop/代码合集/obj.txt"));
 	    		out.writeObject(widd.wo.word1);
 	    		out.close();
 	    	}catch(IOException e ){
@@ -247,7 +247,7 @@ public class EJPopupMenu extends JPopupMenu{
 		    		
 		    		ObjectOutputStream out=new ObjectOutputStream(
 		    				new FileOutputStream(
-		    						"C:/Users/Administrator/Desktop/许云苏的机器人/now.txt"));
+		    						"C:/Users/Administrator/Desktop/代码合集/now.txt"));
 		    		out.writeObject(widd.wo.word2);
 		    		out.close();
 		    	}catch(IOException e ){
