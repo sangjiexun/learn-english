@@ -56,19 +56,24 @@ public class panel extends JPanel{
 	
 	j4=new jtable(500,20,200,50,"等级");
 	j41=new jtable(500,70,200,50,"经验");
+	
 	j1=new jtable(20,20,400,50,w1);
 	j11=new jtable(20,70,400,50,"starting");
 	w7=w1;
 	j2=new jtable(20,200,400,100,"中文");
-	j21=new jtable(20,300,400,100,"start");
+	j21=new jtable(20,300,400,100,"start"); 
+	
 	j3=new jtable(500,200,200,100,"start");
 	j31=new jtable(500,300,200,100,"start");
+	
 	j1.setFont(new Font("Dialog",2, 25));
 	j2.setFont(new Font("Dialog",2, 50));
-	j3.setFont(new Font("Dialog",2, 40));
+	j3.setFont(new Font("Dialog",2, 30));
+	
 	j11.setFont(new Font("Dialog",2, 25));
 	j21.setFont(new Font("Dialog",2, 50));
-	j31.setFont(new Font("Dialog",2, 40));
+	j31.setFont(new Font("Dialog",2, 30));
+	
 	j4.setFont(new Font("Dialog",2, 40));
 	j41.setFont(new Font("Dialog",2, 40));
 	t1=new TextField();
@@ -105,7 +110,12 @@ public class panel extends JPanel{
             	WriteDate(w5);
 //            	outg();
             	
-            	
+            	j41.setBackground(Color.GRAY);
+            }
+            else{
+            j41.setBackground(Color.red);	
+            grade1.ex=grade1.ex-((int)((Math.random()+0.12)));
+            j41.setText("经验"+w5);
             }
             t2.setText("");
             System.out.println(w7);
