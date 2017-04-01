@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import english_learn.window;
-
+ 
 
 public class Word extends JPanel{
 	/**

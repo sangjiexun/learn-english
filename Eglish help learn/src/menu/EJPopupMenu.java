@@ -29,7 +29,7 @@ public class EJPopupMenu extends JPopupMenu{
 	JMenuItem item1 = new JMenuItem("加入已会单词");
 
 	JMenuItem item2 = new JMenuItem("添加翻译"); 
-
+ 
 	JMenuItem item3 = new JMenuItem("加入正在学习的单词");
 	
 	JMenuItem item4 = new JMenuItem("翻译");

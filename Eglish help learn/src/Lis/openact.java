@@ -47,7 +47,7 @@ public class openact implements ActionListener{
            e1.printStackTrace();
        }
 //		System.out.println(ba);
-		
+	
 		db.text=ba.toString();
 		db.zairu();
 //		db.ta=ta;
