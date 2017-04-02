@@ -20,7 +20,6 @@ public class window extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	public window() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击关闭按钮后，程序结束
 		setBounds(300,30,900,700);//设置大小
@@ -34,10 +33,17 @@ public class window extends JFrame {
 	
 	
 	public void zairu (){
-		wo=new Word(this);
+		wo=new Word(this,text);
 		add(wo);
 		setVisible(true);
 	};
+	
+	public void qingkong (){
+		remove(wo);
+		repaint();
+		setVisible(true);
+	};
+	
 	
 
 }

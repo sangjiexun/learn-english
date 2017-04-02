@@ -83,8 +83,6 @@ public class EJPopupMenu extends JPopupMenu{
 
 		
 		
-		
-		
 		add(item1);
 		add(item2);
 		add(item3);
@@ -222,7 +220,7 @@ public class EJPopupMenu extends JPopupMenu{
 
 		   
 		   widd.wo.word2.add(wj.name.toLowerCase());
-	//	   widd.wo.word2.remove("objective");//bug解决区
+//		   widd.wo.word2.remove("hello world");//bug解决区
 		   System.out.println("jiar");
 		   outnow();
 	    	

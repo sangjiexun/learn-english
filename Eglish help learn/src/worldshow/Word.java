@@ -32,7 +32,7 @@ public class Word extends JPanel{
     int count1 =0;
 	int count2 =0;
 	
-	public  Word (window window){
+	public  Word (window window,String sentence){
 		
 		widd=window;
 		setLayout(null);
@@ -43,60 +43,10 @@ public class Word extends JPanel{
 //		outf();
 		word1=inword();
 		word2=innowword();
-        String sentence =widd.text;
+//        String sentence =widd.text;
         Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
        
-        
-//        while(s.hasNext()){
-//        
-//		String s1=s.next();
-//		Font wz=new Font("宋体",Font.PLAIN,16);
-//		FontMetrics fm = new JLabel().getFontMetrics(wz);
-//		int len=fm.stringWidth( s1 );
-//		if(x+len+10>=650){
-//			x=10;
-//			y=y+22;
-//		}
-////		System.out.println(s1);
-//		if(s1.equals("$$")){
-//			x=50;
-//			y=y+30;
-////			System.out.println("wwww");
-//		}
-//		else if(s1.substring(0,1).equals(",")){
-////			String send=s1.substring(0,s1.length()-1);
-//			s1=s1.substring(1,s1.length());
-//		add(new wordjlabel(x,y,10,",",wz,widd,true));
-//		x+=20;
-//		add(new wordjlabel(x,y,len+10,s1,wz,widd,ifWsords(s1)));
-//		
-//		}
-//		else if(s1.substring(s1.length()-1,s1.length()).equals(".")){
-////			String send=s1.substring(0,s1.length()-1);
-//			s1=s1.substring(0,s1.length()-1);
-//		
-//		add(new wordjlabel(x,y,len,s1,wz,widd,ifWsords(s1)));
-//		x+=len+10;
-//		add(new wordjlabel(x,y,10,".",wz,widd,true));
-//		x-=len;
-//		}
-//		
-//		else{
-//		
-//		add(new wordjlabel(x,y,len+10,s1,wz,widd,ifWsords(s1)));
-//		
-//
-//		
-//		}
-//		if(!(ifWsords(s1))){
-//			count1++;
-//		}
-//		
-//		
-//		count++;
-//		x+=len+20;
-//        }
-		
+
 //  改进方案：
         sentence+="%";
         int l=sentence.length();
@@ -155,26 +105,7 @@ public class Word extends JPanel{
 	} 
 	
         
-//        public ArrayList<String> getWal() {
-//       	 ArrayList<String> w1;
-//       	 w1=new ArrayList<String>();
-//   		try {
-//               BufferedReader br = new BufferedReader(new FileReader("src/know.txt"));
-//               String line;
-//      
-//                            
-//               while((line = br.readLine()) != null){
-//                   Scanner in = new Scanner(line);
-//                   w1.add(in.next());
-//
-//               }
-//           }
-//           catch (Exception ex) {
-//               ex.printStackTrace();
-//           }
-//			return w1;
-//   	}
-        
+
         
         
         public ArrayList<String> inword(){

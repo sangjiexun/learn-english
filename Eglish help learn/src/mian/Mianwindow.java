@@ -20,7 +20,6 @@ public class Mianwindow extends JFrame{
 		setTitle("主窗口");
 		tp1=new Toolpanel();//添加工具栏
 		add(tp1,BorderLayout.EAST);
-
 		setVisible(true);
 
 	}

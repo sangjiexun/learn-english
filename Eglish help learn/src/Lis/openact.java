@@ -46,7 +46,6 @@ public class openact implements ActionListener{
            System.out.println("读取文件内容出错");
            e1.printStackTrace();
        }
-//		System.out.println(ba);
 	
 		db.text=ba.toString();
 		db.zairu();

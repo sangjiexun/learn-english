@@ -1,5 +1,6 @@
 package Button;
 
+import java.awt.FileDialog;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,26 +23,34 @@ public class sopenact implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ba=new StringBuffer();
-		try {
-            t=db.t;
-			BufferedReader bufferedReader = new BufferedReader(
-					new InputStreamReader(
-		                    new FileInputStream(t)));
-           String lineTxt = null;
-           while(  (lineTxt = bufferedReader.readLine())!= null)  
-           { 
+        db.qingkong();
+        
+		ba=new StringBuffer();
+	
+        String  t=db.t;
+//        System.out.println(t);
+        try {
+        	
+					BufferedReader bufferedReader = new BufferedReader(
+							new InputStreamReader(
+				                    new FileInputStream(t)));
+                   String lineTxt = null;
+                   while(  (lineTxt = bufferedReader.readLine())!= null)  
+                   { 
 
-           ba.append(lineTxt+" $ "+"\r\n");
-           }
-           bufferedReader.close();
-}catch (Exception e1) {
-   System.out.println("读取文件内容出错");
-   e1.printStackTrace();
-}
+                   ba.append(lineTxt+" $ "+"\r\n");
+                   }
+                   bufferedReader.close();
+        }catch (Exception e1) {
+           System.out.println("读取文件内容出错");
+           e1.printStackTrace();
+       }
+	
+		db.text=ba.toString();
+		db.zairu();
 
-db.text=ba.toString();
-db.zairu();
-		
+        
 	}
+	
 
 }
