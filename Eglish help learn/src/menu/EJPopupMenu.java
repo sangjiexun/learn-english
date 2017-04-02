@@ -36,6 +36,9 @@ public class EJPopupMenu extends JPopupMenu{
 	
 	JMenuItem item5 = new JMenuItem("加入未知单词");
 	
+	JMenuItem item6 = new JMenuItem("百度搜索");
+	
+	
 	private wordjlabel wj;
 	private window  widd;
 	public EJPopupMenu(wordjlabel wordjlabel,window widd){
@@ -81,6 +84,31 @@ public class EJPopupMenu extends JPopupMenu{
 	    });
 		
 
+		item6.addActionListener(new ActionListener(){
+	        public void actionPerformed(ActionEvent e){ 
+	        	   try { 
+	        		    String url = "http://www.baidu.com/s?wd="+wj.name; 
+	        		    java.net.URI uri = java.net.URI.create(url); 
+	        		    // 获取当前系统桌面扩展 
+	        		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
+	        		    // 判断系统桌面是否支持要执行的功能 
+	        		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
+
+	        		      dp.browse(uri);// 获取系统默认浏览器打开链接 
+
+	        		    } 
+	        		   } catch (java.lang.NullPointerException f) { 
+	        		    // 此为uri为空时抛出异常 
+	        		    f.printStackTrace(); 
+	        		   } catch (java.io.IOException f) { 
+	        		    // 此为无法获取系统默认浏览器 
+	        		    f.printStackTrace(); 
+	        		   } 
+	        		  }
+	    });
+		
+		
+		
 		
 		
 		add(item1);
@@ -88,6 +116,7 @@ public class EJPopupMenu extends JPopupMenu{
 		add(item3);
 		add(item4);
 		add(item5);
+		add(item6);
 		
 	}
 
@@ -133,50 +162,6 @@ public class EJPopupMenu extends JPopupMenu{
 	}
 	
 
-//	
-//	public static void WriteDate(String nfile) {
-//
-//		try{
-//
-//
-//		FileReader read = new FileReader(new File("src/know.txt"));//打开txt
-//
-//		StringBuffer sb = new StringBuffer();
-//
-//		char ch[] = new char[1024];
-//
-//		int d = read.read(ch);
-//
-//		while(d!=-1){
-//
-//		String str = new String(ch,0,d);
-//
-//		sb.append(str);
-//
-//		d = read.read(ch);
-//
-//		}
-//
-//		System.out.println(sb.toString());
-//
-//		BufferedWriter output = new BufferedWriter(
-//				new FileWriter("src/know.txt"));//保存TXT位置
-//
-//		output.write(String.valueOf(sb.toString()));
-//
-//
-//		output.write(String.valueOf(nfile)+"\r\n");
-//
-//
-//		output.close();
-//
-//		} catch (Exception ex) {
-//
-//		System.out.println(ex);
-//
-//		}
-//
-//		}
 
   
 	

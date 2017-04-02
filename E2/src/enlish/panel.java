@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
@@ -39,6 +42,7 @@ public class panel extends JPanel{
     private TextField t1;
     private JPasswordField t2 ;
     private String w1,w2,w3,w4,w5,w6,w7;
+    private JButton b1;
     public ArrayList<String> e;
 	public grade grade1;
     public int i1;
@@ -76,13 +80,24 @@ public class panel extends JPanel{
 	
 	j4.setFont(new Font("Dialog",2, 40));
 	j41.setFont(new Font("Dialog",2, 40));
+	
 	t1=new TextField();
 	t2 = new JPasswordField();
-	t2.setBounds(100, 500, 180, 30);
+	t2.setBounds(80, 500, 180, 30);
 	t2.setEchoChar((char) 0);
 	t2.setFont(new Font("Dialog",2, 20));
 	
-	System.out.println(e.size());
+
+	
+	
+//	System.out.println(e.size());
+	
+	
+	
+	
+	
+	
+	
 	
 	t2.addKeyListener(new KeyAdapter() {
         @Override
@@ -123,10 +138,46 @@ public class panel extends JPanel{
         }
     });
 	
+	
+	b1=new JButton("问度娘");
+	b1.setBounds(320, 500, 95, 30);
+	b1.setBackground( new Color(28,134,238));
+	
+	b1.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){ 
+     	   try { 
+     		    String t=t2.getText();
+     		    String url = "http://www.baidu.com/s?wd="+t; 
+     		    java.net.URI uri = java.net.URI.create(url); 
+     		    // 获取当前系统桌面扩展 
+     		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
+     		    // 判断系统桌面是否支持要执行的功能 
+     		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
+
+     		      dp.browse(uri);// 获取系统默认浏览器打开链接 
+
+     		    } 
+     		   } catch (java.lang.NullPointerException f) { 
+     		    // 此为uri为空时抛出异常 
+     		    f.printStackTrace(); 
+     		   } catch (java.io.IOException f) { 
+     		    // 此为无法获取系统默认浏览器 
+     		    f.printStackTrace(); 
+     		   } 
+     		  }
+ });
+	
+	
+	
+	
+	
+	
+	
+	
 	add(j1);add(j11);
 	add(j2);add(j21);
 	add(j3);add(j31);
-	add(t2);
+	add(t2);add(b1);
     add(j4);add(j41);
 	
 	}
