@@ -56,7 +56,7 @@ public class panel extends JPanel{
 	w3=w1;
 	setLayout(null);
 	setPreferredSize(new Dimension(200, 700));
-	setBackground(Color.CYAN);
+	setBackground(new Color(199,237,204));
 	
 	j4=new jtable(500,20,200,50,"等级");
 	j41=new jtable(500,70,200,50,"经验");
@@ -86,19 +86,6 @@ public class panel extends JPanel{
 	t2.setBounds(80, 500, 180, 30);
 	t2.setEchoChar((char) 0);
 	t2.setFont(new Font("Dialog",2, 20));
-	
-
-	
-	
-//	System.out.println(e.size());
-	
-	
-	
-	
-	
-	
-	
-	
 	t2.addKeyListener(new KeyAdapter() {
         @Override
         public void keyPressed(KeyEvent k) {
@@ -168,18 +155,15 @@ public class panel extends JPanel{
  });
 	
 	
-	
-	
-	
-	
-	
+
 	
 	add(j1);add(j11);
 	add(j2);add(j21);
 	add(j3);add(j31);
 	add(t2);add(b1);
     add(j4);add(j41);
-	
+ 
+//	System.out.println(e.size());  
 	}
 	
 	
@@ -290,10 +274,7 @@ public class panel extends JPanel{
 			return sb;
 			
 			}
-	 
-	 
-    
-	 
+ 
 	 
 	
 }

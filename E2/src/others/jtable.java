@@ -16,7 +16,7 @@ public class jtable extends JLabel{
 
 		this.setBounds(x,y,i,j);
 		setOpaque(true);
-		setBackground(Color.gray);
+		setBackground(new Color(0,174,239));
 		
 	}
 

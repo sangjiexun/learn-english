@@ -25,11 +25,6 @@ public class Emouselistener implements MouseListener{
           }
 		
 
-//		        if ((mods & InputEvent.BUTTON3_MASK) != 0) {
-//
-//		            
-////		            jPopupMenu1.show(this, e.getX(), e.getY());
-//		        }
 	}
 
 	@Override

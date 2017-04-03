@@ -49,8 +49,7 @@ public class openact implements ActionListener{
 	
 		db.text=ba.toString();
 		db.zairu();
-//		db.ta=ta;
-//		db.wo.wordshow();
+
 	}
 
 }

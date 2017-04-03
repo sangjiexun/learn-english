@@ -156,47 +156,11 @@ public class Word extends JPanel{
         
         
         
-        
-   //备用判断方法     
-//        public boolean ifWords(String input) {
-//        	 boolean isFound = false;
-//    		try {
-//                BufferedReader br = new BufferedReader(new FileReader("src/dictionary.txt"));
-//                String line;
-//       
-//                             
-//                while((line = br.readLine()) != null){
-//                    Scanner in = new Scanner(line);
-//     
-//                    if(in.next().equals(input.toLowerCase())){
-////                        wj.widd.tp.show();
-//                    	
-//                        isFound = true;
-//                        break;
-//                    }
-//                }
-//                 
-//               
-//            }
-//            catch (Exception ex) {
-//                ex.printStackTrace();
-//            }
-//			return isFound;
-// 
-//    	}
+   
         
         public boolean ifWsords(String input) {
        	boolean isFound = false;
-//   		int z0=0;
-//   		int z1=word1.size();
-//   		while (true){
-//   			if(input.compareTo(word1.get((z0+z1)/2))==0){
-//   				return true;
-//   			}else if(input.compareTo(word1.get((z0+z1)/2))>0){
-//   				z0=(z0+z1)/2;
-//   			}else{
-//   				z1=(z0+z1)/2;
-//   			}
+
 //	
 //   		}
    		if (word1.contains(input.toLowerCase())){
@@ -212,18 +176,7 @@ public class Word extends JPanel{
         
         public boolean ifnowWords(String input) {
        	boolean isFound = false;
-//   		int z0=0;
-//   		int z1=word1.size();
-//   		while (true){
-//   			if(input.compareTo(word1.get((z0+z1)/2))==0){
-//   				return true;
-//   			}else if(input.compareTo(word1.get((z0+z1)/2))>0){
-//   				z0=(z0+z1)/2;
-//   			}else{
-//   				z1=(z0+z1)/2;
-//   			}
-//	
-//   		}
+
    		if (word2.contains(input.toLowerCase())){
    			isFound=true;
    		}

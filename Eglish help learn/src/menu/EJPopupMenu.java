@@ -50,7 +50,7 @@ public class EJPopupMenu extends JPopupMenu{
 		item1.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	           if (!(wj.ifknow)){
-	           outjiaf();}//加入字符串容器，并且保存到电脑；
+	           outjiaf();}//加入字符串容器，并且保存到本地；
 	        }
 	    });
 		
