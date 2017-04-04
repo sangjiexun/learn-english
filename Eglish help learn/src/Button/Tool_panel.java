@@ -78,6 +78,7 @@ public  class Tool_panel extends JPanel{
 		OT3.setBorder(new LineBorder(Color.CYAN));
 		
 		JButton FT=new JButton("ÃÌº”∑≠“Î");
+		FT.setBackground(new Color(0,166,80));
 		FT.setBounds(20,540, 120, 30);
 		FT.setBorder(new LineBorder(Color.CYAN));
 		

@@ -1,6 +1,8 @@
 package mian;
 
 import java.awt.BorderLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
@@ -20,6 +22,13 @@ public class Mianwindow extends JFrame{
 		setTitle("主窗口");
 		tp1=new Panel1();//添加工具栏
 		add(tp1,BorderLayout.WEST);
+//		MouseListener iconbig = null;
+		
+		
+		
+		
+		
+		
 		setVisible(true);
 
 	}
