@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import english_learn.window;
+import mian.Mianwindow;
+import reciteenlish.recitewindow;
+
 //主界面的工具栏
 public class Panel1 extends JPanel{
 /**
@@ -18,7 +22,7 @@ public class Panel1 extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-public Panel1(){
+public Panel1(Mianwindow w1){
 	setLayout(null);
 	setPreferredSize(new Dimension(800, 50));//工具栏的宽度；
 	setBackground(new Color(0,174,239));
@@ -34,8 +38,8 @@ public Panel1(){
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-
+			englishreader();//执行函数，打开阅读器。
+            w1.setVisible(false);
 			
 		}
 		
@@ -131,6 +135,9 @@ public Panel1(){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
+				reciteword();
+				w1.setVisible(false);
+				
 				
 			}
 
@@ -221,5 +228,30 @@ public Panel1(){
     add(MB1);
     add(MB2);
     add(MB3);
+    
+    
+    
+    
+
+    
+    
+    
+    
 }
+
+//函数调用下
+public void englishreader(){
+	@SuppressWarnings("unused")
+	
+	window wid = new window();
+
+}
+
+public void reciteword(){
+	@SuppressWarnings("unused")
+	recitewindow Win=new recitewindow();
+	
+}
+
+
 }
