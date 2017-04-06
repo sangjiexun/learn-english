@@ -89,8 +89,10 @@ public class panel extends JPanel{
 	t2.addKeyListener(new KeyAdapter() {
         @Override
         public void keyPressed(KeyEvent k) {
-            
-            if(k.getKeyChar()=='\n'){
+//        	System.out.println(t2.getText());
+        	if(t2.getText().equals(" ")){
+        	t2.setText("");}
+            if(k.getKeyChar()==32){
             if(t2.getText().equals(w7)){
             	j3.setText(w7);
 //            	j2.setText(j1.getText());
@@ -110,19 +112,23 @@ public class panel extends JPanel{
             	j41.setText("经验"+w5);
             	
             	WriteDate(w5);
-//            	outg();
-            	
+
             	j41.setBackground(new Color(0,174,239));
+            	
             }
             else{
             j41.setBackground(Color.red);	
             grade1.ex=grade1.ex-((int)((Math.random()+0.12)));
             j41.setText("经验"+w5);
+           
             }
-            t2.setText("");
+            
             System.out.println(w7);
+            t2.setText("");
             }
+            
         }
+        
     });
 	
 	
