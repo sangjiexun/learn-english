@@ -1,4 +1,5 @@
 package tool;
+//主界面的窗口
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,7 +25,7 @@ public class Panel1 extends JPanel{
 	
 public Panel1(Mianwindow w1){
 	setLayout(null);
-	setPreferredSize(new Dimension(800, 50));//工具栏的宽度；
+	setPreferredSize(new Dimension(800, 50));//主界面的宽度；
 	setBackground(new Color(0,174,239));
 	
 	
@@ -52,7 +53,7 @@ public Panel1(Mianwindow w1){
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
 			
 			MB1.setBounds(250,80, 300, 100);
 			
@@ -60,7 +61,6 @@ public Panel1(Mianwindow w1){
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
 			
 
 			MB1.setBounds(250,100, 300, 60);
@@ -160,7 +160,7 @@ public Panel1(Mianwindow w1){
 		
 		
 		
-		 JButton MB3=new JButton("后台管理");
+		 JButton MB3=new JButton("英认中");
 		    MB3.setBounds(250,400, 300, 60);
 //			MB3.setBorder(new LineBorder(Color.CYAN));
 			MB3.setBackground( new Color(28,134,238));

@@ -162,7 +162,6 @@ public class EJPopupMenu extends JPopupMenu{
 	}
 	
 
-
   
 	
 	   public void outjiaf(){

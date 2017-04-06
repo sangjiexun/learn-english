@@ -163,7 +163,7 @@ public class panel extends JPanel{
 	add(t2);add(b1);
     add(j4);add(j41);
  
-//	System.out.println(e.size());  
+	System.out.println(e.size());  
 	}
 	
 	
