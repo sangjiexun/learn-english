@@ -90,8 +90,10 @@ public class panel extends JPanel{
         @Override
         public void keyPressed(KeyEvent k) {
 //        	System.out.println(t2.getText());
-        	if(t2.getText().equals(" ")){
+        	if(t2.getText().equals(" ")||t2.getText().equals("0")){
         	t2.setText("");}
+        	
+        	
             if(k.getKeyChar()==32){
             if(t2.getText().equals(w7)){
             	j3.setText(w7);
@@ -125,8 +127,19 @@ public class panel extends JPanel{
             
             System.out.println(w7);
             t2.setText("");
+            j2.setText("中文");
             }
-            
+            if(k.getKeyChar()=='\n'){
+            	baidusousuo();
+            }
+            //提示答案
+            if(k.getKeyChar()=='0'){
+            	j2.setText(w7);
+            }
+            //隐藏答案
+            if(k.getKeyChar()=='9'){
+            	j2.setText("中文");
+            }
         }
         
     });
@@ -137,27 +150,9 @@ public class panel extends JPanel{
 	b1.setBackground( new Color(28,134,238));
 	
 	b1.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e){ 
-     	   try { 
-     		    String t=t2.getText();
-     		    String url = "http://www.baidu.com/s?wd="+t; 
-     		    java.net.URI uri = java.net.URI.create(url); 
-     		    // 获取当前系统桌面扩展 
-     		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
-     		    // 判断系统桌面是否支持要执行的功能 
-     		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
-
-     		      dp.browse(uri);// 获取系统默认浏览器打开链接 
-
-     		    } 
-     		   } catch (java.lang.NullPointerException f) { 
-     		    // 此为uri为空时抛出异常 
-     		    f.printStackTrace(); 
-     		   } catch (java.io.IOException f) { 
-     		    // 此为无法获取系统默认浏览器 
-     		    f.printStackTrace(); 
-     		   } 
-     		  }
+        public void actionPerformed(ActionEvent c){
+        	baidusousuo();
+        }
  });
 	
 	
@@ -281,5 +276,29 @@ public class panel extends JPanel{
 			}
  
 	 
+		
+		public void baidusousuo(){ 
+	     	   try { 
+	     		    String t=t2.getText();
+	     		    String url = "http://www.baidu.com/s?wd="+t; 
+	     		    java.net.URI uri = java.net.URI.create(url); 
+	     		    // 获取当前系统桌面扩展 
+	     		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
+	     		    // 判断系统桌面是否支持要执行的功能 
+	     		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
+
+	     		      dp.browse(uri);// 获取系统默认浏览器打开链接 
+
+	     		    } 
+	     		   } catch (java.lang.NullPointerException f) { 
+	     		    // 此为uri为空时抛出异常 
+	     		    f.printStackTrace(); 
+	     		   } catch (java.io.IOException f) { 
+	     		    // 此为无法获取系统默认浏览器 
+	     		    f.printStackTrace(); 
+	     		   } 
+	     		  }
+		
+		
 	
 }
