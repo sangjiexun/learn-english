@@ -1,4 +1,4 @@
-package english_learn;
+package english_reader;
 //创建一个窗口
 import java.awt.BorderLayout;
 import java.awt.TextArea;

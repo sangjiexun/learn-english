@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import Lis.openact;
-import english_learn.window;
+import english_reader.window;
 import worldshow.wordjlabel;
 
 

@@ -14,7 +14,7 @@ import java.util.Scanner;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import english_learn.window;
+import english_reader.window;
  
 
 public class Word extends JPanel{
@@ -44,7 +44,7 @@ public class Word extends JPanel{
 		word1=inword();
 		word2=innowword();
 //        String sentence =widd.text;
-        Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
+//        Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
        
 
 //  改进方案：
@@ -77,7 +77,7 @@ public class Word extends JPanel{
          	  creatWJL(x, y, "?");
                 tn="";   
          	   }
-     	  else if(c==36){//?的ascll值是63；
+     	  else if(c==36){//$的ascll值是63；
                x=50;
                y+=20;
                tn="";   
@@ -85,6 +85,7 @@ public class Word extends JPanel{
      	   else {
      	
      	  creatWJL(x, y, tn);
+//     	  System.out.println(tn);
      	   tn="";
   
      		   }
@@ -196,6 +197,7 @@ public class Word extends JPanel{
     	int len=fm.stringWidth( z );
     	if(!(z.equals(""))){
     	add(new wordjlabel(x,y,len,z,wz,widd,ifWsords(z),ifnowWords(z)));
+//    	System.out.println(z);
     	if(!(ifWsords(z))){
     	count1++;	
     	}

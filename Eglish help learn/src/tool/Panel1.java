@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import english_learn.window;
+import english_reader.window;
 import mian.Mianwindow;
 import reciteenlish.recitewindow;
 

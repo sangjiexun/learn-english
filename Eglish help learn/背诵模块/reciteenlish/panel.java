@@ -90,7 +90,8 @@ public class panel extends JPanel{
         @Override
         public void keyPressed(KeyEvent k) {
 //        	System.out.println(t2.getText());
-        	if(t2.getText().equals(" ")||t2.getText().equals("0")){
+        	if(t2.getText().equals(" ")||t2.getText().equals("0")
+        			){
         	t2.setText("");}
         	
         	
@@ -137,12 +138,36 @@ public class panel extends JPanel{
             	j2.setText(w7);
             }
             //隐藏答案
-            if(k.getKeyChar()=='9'){
-            	j2.setText("中文");
-            }
+//            if(k.getKeyChar()=='9'){
+//            	j2.setText("中文");
+//            }
         }
-        
+      
+		
+
     });
+	t2.addKeyListener(new KeyListener() {
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if(e.getKeyChar()=='0'){
+        		j2.setText("中文");
+        		System.out.println("asf");
+            }
+			
+		}});
 	
 	
 	b1=new JButton("问度娘");

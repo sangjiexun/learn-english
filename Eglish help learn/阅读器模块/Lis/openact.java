@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-import english_learn.window;
+import english_reader.window;
 
 
 public class openact implements ActionListener{

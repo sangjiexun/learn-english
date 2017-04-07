@@ -20,7 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JRadioButtonMenuItem;
 
-import english_learn.window;
+import english_reader.window;
 import worldshow.wordjlabel;
 
 public class EJPopupMenu extends JPopupMenu{
@@ -62,7 +62,7 @@ public class EJPopupMenu extends JPopupMenu{
 		
 		item3.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
-	           if (!(wj.ifknow)){
+	           if (!((wj.ifknow)||(wj.ifnow))){
 	           outnowjiaf();}//加入正在学习的单词
 	        }
 	    });
@@ -204,8 +204,8 @@ public class EJPopupMenu extends JPopupMenu{
 
 		   
 		   widd.wo.word2.add(wj.name.toLowerCase());
-//		   widd.wo.word2.remove("hello world");//bug解决区
-		   System.out.println("jiar");
+//		   widd.wo.word2.remove("tame");//1号bug解决区
+//		   System.out.println("jiar");
 		   outnow();
 	    	
 	    	
