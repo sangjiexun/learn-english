@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
@@ -39,6 +40,7 @@ public class panel extends JPanel{
 	private static final long serialVersionUID = 1L;
     public recitewindow widd; 
     private jtable j1,j2,j3,j11,j21,j31,j4,j41;
+    private JLabel jex;
     private TextField t1;
     private JPasswordField t2 ;
     private String w1,w2,w3,w4,w5,w6,w7;
@@ -70,6 +72,13 @@ public class panel extends JPanel{
 	j3=new jtable(500,200,200,100,"start");
 	j31=new jtable(500,300,200,100,"start");
 	
+	
+	
+	jex=new JLabel();
+	jex.setBounds(20,120,680,80);
+	jex.setBackground(new Color(240,128,128));
+	jex.setOpaque(true);
+	
 	j1.setFont(new Font("Dialog",2, 25));
 	j2.setFont(new Font("Dialog",2, 50));
 	j3.setFont(new Font("Dialog",2, 30));
@@ -80,6 +89,9 @@ public class panel extends JPanel{
 	
 	j4.setFont(new Font("Dialog",2, 40));
 	j41.setFont(new Font("Dialog",2, 40));
+	
+	
+	
 	
 	t1=new TextField();
 	t2 = new JPasswordField();
@@ -110,12 +122,13 @@ public class panel extends JPanel{
             	
             	grade1.ex++;
             	w5=""+grade1.ex;
-            	w6=""+grade1.grade;
+            	
+            	w6=""+grade1.getgrade();
             	j4.setText("等级"+w6);
             	j41.setText("经验"+w5);
-            	
+            	jex.setBounds(20,120,(int)(grade1.getlen()*680),80);
             	WriteDate(w5);
-
+                
             	j41.setBackground(new Color(0,174,239));
             	
             }
@@ -188,7 +201,8 @@ public class panel extends JPanel{
 	add(j3);add(j31);
 	add(t2);add(b1);
     add(j4);add(j41);
- 
+    add(jex);
+    
 	System.out.println(e.size());  
 	}
 	
