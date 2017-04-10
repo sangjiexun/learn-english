@@ -159,7 +159,7 @@ public class Word extends JPanel{
         
    
         
-        public boolean ifWsords(String input) {
+        protected boolean ifWsords(String input) {//判断是否是未知单词
        	boolean isFound = false;
 
 //	
@@ -167,15 +167,14 @@ public class Word extends JPanel{
    		if (word1.contains(input.toLowerCase())){
    			isFound=true;
    		}
-   		
-   		
+
        	
 		return isFound;
 
    	}
       
         
-        public boolean ifnowWords(String input) {
+        protected boolean ifnowWords(String input) {//判断是否是正在学习单词
        	boolean isFound = false;
 
    		if (word2.contains(input.toLowerCase())){

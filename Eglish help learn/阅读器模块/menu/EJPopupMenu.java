@@ -1,11 +1,9 @@
 package menu;
 //ÓÒ»÷ÏÔÊ¾µÄÄÚÈÝ
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -18,7 +16,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
-import javax.swing.JRadioButtonMenuItem;
 
 import english_reader.window;
 import worldshow.wordjlabel;
@@ -59,6 +56,7 @@ public class EJPopupMenu extends JPopupMenu{
 	           widd.tp.t1.setText(wj.name.toLowerCase()); 
 	        }
 	    });
+		
 		
 		item3.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
@@ -107,9 +105,7 @@ public class EJPopupMenu extends JPopupMenu{
 	        		  }
 	    });
 		
-		
-		
-		
+
 		
 		add(item1);
 		add(item2);

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -27,6 +28,8 @@ public class Mianwindow extends JFrame{
 	private static TextArea ta;
     private static StringBuffer ba;
     public static Mianwindow widm;
+
+    public ArrayList<String> kd1=new ArrayList();
 	public static void main(String[] args) {
 		 widm = new Mianwindow();
 //		 actionPerformed();
@@ -107,6 +110,10 @@ public class Mianwindow extends JFrame{
 		     	   else {
 		     		   if(!(c==13||c==36||c==20)&&(c==32)){
 		     	 System.out.println(tn);
+		     	 if(!(tn.equals(""))){
+		     		 kd1.add(tn);
+		     		 
+		     	 }
 		     	 tn="";}
 //		     	   System.out.println(c);
 		     	
@@ -117,32 +124,11 @@ public class Mianwindow extends JFrame{
 		     	   }
 		        
 				
-				
+				System.out.println(kd1);
 				
 			}} );
 	       
 
-		
-		        
-		
-		
-//		for (int i = 0; i < arrayMenu.length; i++) {
-//			// 实例化一个JMenu的对象
-//			JMenu menu = new JMenu(arrayMenu[i]);
-//			// 将menu添加到jmb对象中
-//			jmb.add(menu);
-//			for (int j = 0; j < arrayMenuItem[i].length; j++) {
-//				// 实例化JMenuItem的对象
-//				JMenuItem jmi = new JMenuItem(arrayMenuItem[i][j]);
-//				// 将jmi对象添加到menu中
-//				menu.add(jmi);
-//			}
-//		}
-		
-		
-		
-		
-		
 		
 		
 		return jmb;
