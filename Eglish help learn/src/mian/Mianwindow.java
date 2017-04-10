@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -28,9 +30,21 @@ public class Mianwindow extends JFrame{
 	private static TextArea ta;
     private static StringBuffer ba;
     public static Mianwindow widm;
-
+//模块共用数据
+    protected static ArrayList<String> word1;//已会单词
+    protected static ArrayList<String> word2;//正在学习的单词
+    
+    
     public ArrayList<String> kd1=new ArrayList();
 	public static void main(String[] args) {
+		//获取数据
+		
+		word1=inword();
+		word2=innowword();
+		
+		
+		
+		
 		 widm = new Mianwindow();
 //		 actionPerformed();
 	}
@@ -168,8 +182,47 @@ public class Mianwindow extends JFrame{
 	
 	
 	
+	public static ArrayList<String> inword(){
+    	
+    	ArrayList<String> w1 = null;
+    	try {
+			ObjectInputStream in=new ObjectInputStream(
+	new FileInputStream("C:/Users/Administrator/Desktop/代码合集/obj.txt"));
+			
+			w1=(ArrayList<String>) in.readObject();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return w1;
+    	
+    }
 	
-	
+	public static ArrayList<String> innowword(){
+    	
+    	ArrayList<String> w1 = null;
+    	try {
+			ObjectInputStream in=new ObjectInputStream(
+	new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
+			
+			w1=(ArrayList<String>) in.readObject();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return w1;
+    	
+    }
 	
 	
 	

@@ -23,8 +23,10 @@ public class Word extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private window widd;
-	public ArrayList<String> word1;
-	public ArrayList<String> word2;
+	
+	
+	public ArrayList<String> word1;//已会单词
+	public ArrayList<String> word2;//正在学习的单词
 	
 	int x=50;
 	int y=10;
@@ -41,8 +43,10 @@ public class Word extends JPanel{
 		word1=new ArrayList<String>();
 //		word1=getWal();
 //		outf();
-		word1=inword();
-		word2=innowword();
+		
+//		word1=inword();
+//		word2=innowword();
+		
 //        String sentence =widd.text;
 //        Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
        
