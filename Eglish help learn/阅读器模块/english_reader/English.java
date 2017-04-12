@@ -8,7 +8,7 @@ public class English {
 	
 	public static void main(String[] args) { 
 		@SuppressWarnings("unused")
-		window wid = new window();
+		window wid = new window(null, null);
 //		System.out.println("成功运行");
 
 	}

@@ -16,18 +16,24 @@ import english_reader.window;
 import mian.Mianwindow;
 import reciteenlish.recitewindow;
 
+
+
+
 //主界面的工具栏
 public class Panel1 extends JPanel{
 /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+private static final int Arrylist = 0;
+private static final int String = 0;
+	private Mianwindow Mianwindow1;
 public Panel1(Mianwindow w1){
+	this.Mianwindow1=w1;
+	
 	setLayout(null);
 	setPreferredSize(new Dimension(800, 50));//主界面的宽度；
 	setBackground(new Color(0,174,239));
-	
 	
 	
     JButton MB1=new JButton("阅读器");
@@ -229,13 +235,7 @@ public Panel1(Mianwindow w1){
     add(MB2);
     add(MB3);
     
-    
-    
-    
 
-    
-    
-    
     
 }
 
@@ -243,13 +243,13 @@ public Panel1(Mianwindow w1){
 public void englishreader(){
 	@SuppressWarnings("unused")
 	
-	window wid = new window();
+	window wid = new window(Mianwindow1.word1,Mianwindow1.word2);
 
 }
 
 public void reciteword(){
 	@SuppressWarnings("unused")
-	recitewindow Win=new recitewindow();
+	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );
 	
 }
 

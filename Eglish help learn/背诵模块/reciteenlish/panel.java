@@ -52,7 +52,7 @@ public class panel extends JPanel{
 	public panel(recitewindow widd){
 	i1=Integer.parseInt(readDate());
 	grade1=new grade(i1);
-	e=innowword();
+	e=widd.word2;
 	this.widd=widd;
 	w1=e.get((int) (Math.random()*e.size()));
 	w3=w1;
@@ -246,26 +246,26 @@ public class panel extends JPanel{
 	
 	
 	
-	 public ArrayList<String> innowword(){
-     	
-     	ArrayList<String> w1 = null;
-     	try {
-				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
-				
-				w1=(ArrayList<String>) in.readObject();
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-     	
-     	return w1;
-     	
-     }
+//	 public ArrayList<String> innowword(){
+//     	
+//     	ArrayList<String> w1 = null;
+//     	try {
+//				ObjectInputStream in=new ObjectInputStream(
+//		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
+//				
+//				w1=(ArrayList<String>) in.readObject();
+//				
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (ClassNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//     	
+//     	return w1;
+//     	
+//     }
 	
 	
 	 public static void WriteDate(String nfile) {

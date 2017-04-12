@@ -1,5 +1,6 @@
 package worldshow;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.TextArea;
@@ -37,21 +38,15 @@ public class Word extends JPanel{
 	public  Word (window window,String sentence){
 		
 		widd=window;
-		setLayout(null);
 		
-		
-		word1=new ArrayList<String>();
-//		word1=getWal();
-//		outf();
-		
-//		word1=inword();
-//		word2=innowword();
-		
-//        String sentence =widd.text;
-//        Scanner s = new Scanner(sentence).useDelimiter(" ");//用空格分离单词
-       
+//	    this.setBackground(Color.BLUE);
+		word1=widd.word1;
+		word2=widd.word2;
 
-//  改进方案：
+		
+	    
+	    setLayout(null);
+	    
         sentence+="%";
         int l=sentence.length();
         int ti=0;
@@ -113,48 +108,48 @@ public class Word extends JPanel{
 
         
         
-        public ArrayList<String> inword(){
-        	
-        	ArrayList<String> w1 = null;
-        	try {
-				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/obj.txt"));
-				
-				w1=(ArrayList<String>) in.readObject();
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-        	return w1;
-        	
-        }
+//        public ArrayList<String> inword(){
+//        	
+//        	ArrayList<String> w1 = null;
+//        	try {
+//				ObjectInputStream in=new ObjectInputStream(
+//		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/obj.txt"));
+//				
+//				w1=(ArrayList<String>) in.readObject();
+//				
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (ClassNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//        	
+//        	return w1;
+//        	
+//        }
         
         
- public ArrayList<String> innowword(){
-        	
-        	ArrayList<String> w1 = null;
-        	try {
-				ObjectInputStream in=new ObjectInputStream(
-		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
-				
-				w1=(ArrayList<String>) in.readObject();
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        	
-        	return w1;
-        	
-        }
+// public ArrayList<String> innowword(){
+//        	
+//        	ArrayList<String> w1 = null;
+//        	try {
+//				ObjectInputStream in=new ObjectInputStream(
+//		new FileInputStream("C:/Users/Administrator/Desktop/代码合集/now.txt"));
+//				
+//				w1=(ArrayList<String>) in.readObject();
+//				
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (ClassNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//        	
+//        	return w1;
+//        	
+//        }
         
         
         

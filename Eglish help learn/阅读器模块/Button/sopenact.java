@@ -23,6 +23,7 @@ public class sopenact implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ba=new StringBuffer();
+		
         db.qingkong();
         
 		ba=new StringBuffer();
@@ -49,7 +50,7 @@ public class sopenact implements ActionListener {
 		db.text=ba.toString();
 		db.zairu();
 
-        
+
 	}
 	
 

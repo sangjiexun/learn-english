@@ -12,7 +12,6 @@ import english_reader.window;
 
 
 public class openact implements ActionListener{
-	     private TextArea ta;
 	     private StringBuffer ba;
 	     window db;
 		 public openact(window Drb){
@@ -23,7 +22,7 @@ public class openact implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ta=new TextArea();
+		new TextArea();
 		ba=new StringBuffer();
 		FileDialog my=new FileDialog(db);
         my.setVisible(true);

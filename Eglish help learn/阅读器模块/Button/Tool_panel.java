@@ -42,7 +42,7 @@ public  class Tool_panel extends JPanel{
 		setLayout(null);
 		setPreferredSize(new Dimension(200, 50));//工具栏的宽度；
 		setBackground(Color.CYAN);
-		
+	
 		}//工具栏的基本属性
 		
 		fy=new wordshuxing(10, 10, 60,"这里是翻译");

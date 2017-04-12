@@ -1,6 +1,7 @@
 package reciteenlish;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -14,8 +15,13 @@ public class recitewindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
-	public recitewindow(){
+	public ArrayList<String> word1;//已会单词
+    public ArrayList<String> word2;//正在学习的单词
+    
+	public recitewindow(ArrayList<String>w1, ArrayList<String> w2){
+		word1=w1;
+		word2=w2;
+		
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(300,30,900,700);
 	setTitle("English help");

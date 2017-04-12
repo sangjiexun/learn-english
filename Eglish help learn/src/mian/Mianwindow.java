@@ -30,27 +30,26 @@ public class Mianwindow extends JFrame{
 	private static TextArea ta;
     private static StringBuffer ba;
     public static Mianwindow widm;
-//模块共用数据
-    protected static ArrayList<String> word1;//已会单词
-    protected static ArrayList<String> word2;//正在学习的单词
+    public ArrayList<String> word1;//已会单词
+    public ArrayList<String> word2;//正在学习的单词
     
     
     public ArrayList<String> kd1=new ArrayList();
 	public static void main(String[] args) {
 		//获取数据
 		
-		word1=inword();
-		word2=innowword();
+		ArrayList<String> wordin = inword();
+		ArrayList<String> wordnow = innowword();
+
 		
-		
-		
-		
-		 widm = new Mianwindow();
+		 widm = new Mianwindow(wordin,wordnow);
 //		 actionPerformed();
 	}
 	
 	
-	public Mianwindow() {
+	public Mianwindow(ArrayList<String> w1 ,ArrayList<String> w2) {
+		this.word1=w1;
+		this.word2 =w2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击关闭按钮后，程序结束
 		setBounds(300,30,900,700);//设置大小
 		setTitle("主窗口");
@@ -225,12 +224,7 @@ public class Mianwindow extends JFrame{
     }
 	
 	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
