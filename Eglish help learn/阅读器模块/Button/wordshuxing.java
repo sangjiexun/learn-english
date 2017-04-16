@@ -1,4 +1,6 @@
 package Button;
+import java.awt.Color;
+
 //label的属性
 //传入位置，高度，标签内容
 //产生标签
@@ -14,6 +16,8 @@ public class wordshuxing extends JLabel {
 		super(name);
 		
 		setBounds(x,y,150,h);
+		setForeground(Color.white);
+		setBackground(new Color(60,60,60));
 		setOpaque(true);
 	
 	}

@@ -42,7 +42,7 @@ public class Word extends JPanel{
 //	    this.setBackground(Color.BLUE);
 		word1=widd.word1;
 		word2=widd.word2;
-
+		setBackground(new Color(50,50,50));
 		
 	    
 	    setLayout(null);
@@ -66,14 +66,14 @@ public class Word extends JPanel{
      	   }
      	   else if(c==46){//.的ascll值是44；
          	   
-         	  creatWJL(x, y, tn);
-         	 creatWJL(x, y, ".");
+            creatWJL(x, y, tn);
+         	creatWJL(x, y, ".");
                 tn="";   
          	   }
      	   else if(c==63){//?的ascll值是63；
          	  
-         	  creatWJL(x, y, tn);
-         	  creatWJL(x, y, "?");
+         	 creatWJL(x, y, tn);
+         	 creatWJL(x, y, "?");
                 tn="";   
          	   }
      	  else if(c==36){//$的ascll值是63；
@@ -97,6 +97,7 @@ public class Word extends JPanel{
 		widd.tp.unknowl.setText("未知率："+count1*100/count+"%");
 		widd.tp.wordnumber.setText("总单词数："+count);
 		widd.tp.learning.setText("在学单词数："+count2);
+		repaint();
 	}
 	
 	
@@ -161,8 +162,7 @@ public class Word extends JPanel{
         protected boolean ifWsords(String input) {//判断是否是未知单词
        	boolean isFound = false;
 
-//	
-//   		}
+
    		if (word1.contains(input.toLowerCase())){
    			isFound=true;
    		}
@@ -179,8 +179,7 @@ public class Word extends JPanel{
    		if (word2.contains(input.toLowerCase())){
    			isFound=true;
    		}
-   		
-   		
+
        	
 		return isFound;
 
@@ -190,9 +189,9 @@ public class Word extends JPanel{
         
         
     public void creatWJL( int x,int y,String z){//创建单词标签
-		Font wz=new Font("宋体",Font.PLAIN,16);
+		Font wz=new java.awt.Font("Dialog", 1,15);
 		FontMetrics fm = new JLabel().getFontMetrics(wz);
-    	int len=fm.stringWidth( z );
+    	int len=(int) ((fm.stringWidth( z )));
     	if(!(z.equals(""))){
     	add(new wordjlabel(x,y,len,z,wz,widd,ifWsords(z),ifnowWords(z)));
 //    	System.out.println(z);

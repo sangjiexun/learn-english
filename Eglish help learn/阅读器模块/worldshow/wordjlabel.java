@@ -20,6 +20,7 @@ public class wordjlabel extends JLabel{
 	public wordjlabel(int i,int j,int l,String name,
 			Font z,window widd,boolean g,boolean g1){
 		super(name);//	起始位置，长度，单词，标签高，是否是不会的单词，是否是正在学习的单词
+
 		
 		ifknow=g;
 		ifnow=g1;
@@ -28,14 +29,24 @@ public class wordjlabel extends JLabel{
 		this.setFont(z);
 		this.setLayout(null);
 		this.setBounds(i,j,l,15);
+		setForeground(Color.white);
 		this.setBackground(Color.lightGray);
-		if(g1){
-		this.setBackground(Color.yellow );
-//		System.out.println(name);//查1号bug区
-		}
 
-		if(!g){
-		setOpaque(true);}
+
+		if(!(ifknow)){
+//		setOpaque(true);
+		setForeground(Color.lightGray);
+
+		}
+		
+		
+		if(ifnow){
+//			this.setBackground(Color.yellow );
+			setForeground(Color.yellow);
+//			System.out.println(name);//查1号bug区
+			}
+		
+		
 		ejm=new EJPopupMenu(this,widd);
 		this.add(ejm);
 		this.addMouseListener(new Emouselistener(this));

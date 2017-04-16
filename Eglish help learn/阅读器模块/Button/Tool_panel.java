@@ -41,16 +41,16 @@ public  class Tool_panel extends JPanel{
 		{
 		setLayout(null);
 		setPreferredSize(new Dimension(200, 50));//工具栏的宽度；
-		setBackground(Color.CYAN);
+		setBackground(new Color(60,60,60));
 	
 		}//工具栏的基本属性
 		
-		fy=new wordshuxing(10, 10, 60,"这里是翻译");
-		unknow=new wordshuxing(10, 80,40, "未知单词数：");
-		unknowl=new wordshuxing(10, 140,40, "未知：");
-		add(new wordshuxing(10, 200,40, "陌生率："));
-		wordnumber=new wordshuxing(10, 260,40, "总单词数：");
-		learning=new wordshuxing(10, 320,40, "属性2");
+		fy=new wordshuxing(10, 10, 60," 这里是翻译");
+		unknow=new wordshuxing(10, 80,40, " 未知单词数：");
+		unknowl=new wordshuxing(10, 140,40, " 未知：");
+		add(new wordshuxing(10, 200,40, " 陌生率："));
+		wordnumber=new wordshuxing(10, 260,40, " 总单词数：");
+		learning=new wordshuxing(10, 320,40, " 属性2");
 		
 		t1 =new Etextfield(10 , 450 ,150 ,20);
 		t2=new Etextfield(10 , 490 ,150 ,20);
@@ -65,19 +65,23 @@ public  class Tool_panel extends JPanel{
 		add(t2);
 	
 		
-		JButton OT=new JButton("open");
+		JButton OT=new JButton(" open");
+		OT.setBackground(new Color(20,20,20));
+		OT.setForeground(Color.white);
+		OT.setBorder(new LineBorder(new Color(40,40,40)));
 		OT.setBounds(10,370, 70, 60);
-		OT.setBorder(new LineBorder(Color.CYAN));
 		
-		JButton OT2=new JButton("刷新");
+		JButton OT2=new JButton(" 刷新");
 		OT2.setBounds(90,370, 70, 30);
-		OT2.setBorder(new LineBorder(Color.CYAN));
+		OT2.setBackground(new Color(20,20,20));
+		OT2.setForeground(Color.white);
+		OT2.setBorder(new LineBorder(new Color(40,40,40)));
 		
-		JButton OT3=new JButton("自留按钮");
+		JButton OT3=new JButton(" 自留按钮");
 		OT3.setBounds(20,580, 120, 30);
 		OT3.setBorder(new LineBorder(Color.CYAN));
 		
-		JButton FT=new JButton("添加翻译");
+		JButton FT=new JButton(" 添加翻译");
 		FT.setBackground(new Color(0,166,80));
 		FT.setBounds(20,540, 120, 30);
 		FT.setBorder(new LineBorder(Color.CYAN));

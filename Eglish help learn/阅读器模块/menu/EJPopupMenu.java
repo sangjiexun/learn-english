@@ -60,8 +60,10 @@ public class EJPopupMenu extends JPopupMenu{
 		
 		item3.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
+//	        	System.out.println("jiaruchgong");
 	           if (!((wj.ifknow)||(wj.ifnow))){
-	           outnowjiaf();}//加入正在学习的单词
+	           outnowjiaf();
+	           }//加入正在学习的单词
 	        }
 	    });
 		
@@ -104,7 +106,6 @@ public class EJPopupMenu extends JPopupMenu{
 	        		   } 
 	        		  }
 	    });
-		
 
 		
 		add(item1);

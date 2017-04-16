@@ -49,8 +49,8 @@ public class sopenact implements ActionListener {
 	
 		db.text=ba.toString();
 		db.zairu();
-
-
+//        System.out.println(db.text);
+//        db.repaint();
 	}
 	
 
