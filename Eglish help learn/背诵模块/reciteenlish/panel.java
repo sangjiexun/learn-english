@@ -319,7 +319,7 @@ public class panel extends JPanel{
 		public void baidusousuo(){ 
 	     	   try { 
 	     		    String t=t2.getText();
-	     		    String url = "http://www.baidu.com/s?wd="+t; 
+	     		    String url = "http://www.iciba.com/"+t; 
 	     		    java.net.URI uri = java.net.URI.create(url); 
 	     		    // 获取当前系统桌面扩展 
 	     		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
