@@ -17,8 +17,6 @@ import mian.Mianwindow;
 import reciteenlish.recitewindow;
 
 
-
-
 //主界面的工具栏
 public class Panel1 extends JPanel{
 /**
@@ -109,7 +107,6 @@ public Panel1(Mianwindow w1){
 			public void actionPerformed(ActionEvent e) {
 				
 
-				
 			}
 			
 			

@@ -7,9 +7,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,14 +39,15 @@ public class Mianwindow extends JFrame{
     
     public ArrayList<String> kd1=new ArrayList();
 	public static void main(String[] args) {
-		//获取数据
 		
+		//获取数据
 		ArrayList<String> wordin = inword();
 		ArrayList<String> wordnow = innowword();
 
 		
 		 widm = new Mianwindow(wordin,wordnow);
 //		 actionPerformed();
+		 
 	}
 	
 	
@@ -88,7 +92,7 @@ public class Mianwindow extends JFrame{
 			        my.setVisible(true);
 			        String t=my.getDirectory()+my.getFile();
 //			        db.t=t;
-			        System.out.println(t);
+//			        System.out.println(t);
 			        try {
 			        	
 								BufferedReader bufferedReader = new BufferedReader(
@@ -105,7 +109,8 @@ public class Mianwindow extends JFrame{
 			           System.out.println("读取文件内容出错");
 			           e1.printStackTrace();
 			       }
-			        System.out.println(ba);
+			       
+//			        System.out.println(ba);
 				}
 				String bba=ba.toString();
 //			 Scanner s = new Scanner(bba).useDelimiter(" ");//用空格分离单词
@@ -122,7 +127,7 @@ public class Mianwindow extends JFrame{
 		            } 
 		     	   else {
 		     		   if(!(c==13||c==36||c==20)&&(c==32)){
-		     	 System.out.println(tn);
+//		     	 System.out.println(tn);
 		     	 if(!(tn.equals(""))){
 		     		 kd1.add(tn);
 		     		 
@@ -130,19 +135,34 @@ public class Mianwindow extends JFrame{
 		     	 tn="";}
 //		     	   System.out.println(c);
 		     	
-		     	
-		  
+
 		     		   }
 		     	   ti++;
 		     	   }
 		        
+		        				
+				System.out.println("要导入的单词："+kd1);
 				
-				System.out.println(kd1);
+				for (int i=0;i<kd1.size();i++){
+	
+			if(ifinWords(kd1.get(i))&&
+			!(word2.contains(kd1.get(i)))){
+                 if(word1.contains(kd1.get(i))){
+                	 word1.remove(kd1.get(i)); 
+                 }
+				     word2.add(kd1.get(i));
+			}
+			
+
+		}
+			
+				outnow();	
+				out();
 				
-			}} );
+			}
+			} );
 	       
 
-		
 		
 		return jmb;
 	}
@@ -163,7 +183,7 @@ public class Mianwindow extends JFrame{
 							new InputStreamReader(
 				                    new FileInputStream(t)));
                    String lineTxt = null;
-                   while(  (lineTxt = bufferedReader.readLine())!= null)  
+                   while((lineTxt = bufferedReader.readLine())!= null)  
                    { 
 //                   ta.append(lineTxt);
                    ba.append(lineTxt+" $ "+"\r\n");
@@ -224,10 +244,71 @@ public class Mianwindow extends JFrame{
     }
 	
 	
+	protected boolean ifinWords(String inputWord) {
+		boolean isFound = false;
+		try {
+            BufferedReader br = new BufferedReader(
+         new FileReader("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
+            
+            String line ;
+            System.out.println(inputWord);
+            if(inputWord.equals("")){
+                return isFound;
+            }
+                         
+            while((line = br.readLine()) != null){
+                Scanner in = new Scanner(line);
+ 
+                if(in.next().equals(inputWord)){
+                    int offset = inputWord.length();
+                  
+                    isFound = true;
+                    break;
+                }
+ 
+        }
+            
+		}
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+		
+		
+		return isFound;
 
+	}
 	
 	
+	public void outnow(){
+		   		   
+    	try{
+	    		
+	    		ObjectOutputStream out=new ObjectOutputStream(
+	    				new FileOutputStream(
+	    						"C:/Users/Administrator/Desktop/代码合集/now.txt"));
+	    		out.writeObject(word2);
+	    		out.close();
+	    	}catch(IOException e ){
+	    		e.printStackTrace();
+	    	}
+	    	
+	   }
 	
+	public void out(){
+		   
+		   
+    	try{
+	    		
+	    		ObjectOutputStream out=new ObjectOutputStream(
+	    				new FileOutputStream(
+	    						"C:/Users/Administrator/Desktop/代码合集/obj.txt"));
+	    		out.writeObject(word1);
+	    		out.close();
+	    	}catch(IOException e ){
+	    		e.printStackTrace();
+	    	}
+	    	
+	   }
 	
 	
 }

@@ -21,7 +21,6 @@ public class wordjlabel extends JLabel{
 			Font z,window widd,boolean g,boolean g1){
 		super(name);//	起始位置，长度，单词，标签高，是否是不会的单词，是否是正在学习的单词
 
-		
 		ifknow=g;
 		ifnow=g1;
 		this.name=name;
@@ -36,9 +35,7 @@ public class wordjlabel extends JLabel{
 		if(!(ifknow)){
 //		setOpaque(true);
 		setForeground(Color.lightGray);
-
 		}
-		
 		
 		if(ifnow){
 //			this.setBackground(Color.yellow );
