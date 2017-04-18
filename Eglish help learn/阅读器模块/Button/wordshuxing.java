@@ -15,9 +15,9 @@ public class wordshuxing extends JLabel {
 	public wordshuxing (int x,int y ,int h,String name){
 		super(name);
 		
-		setBounds(x,y,150,h);
+		setBounds(x,y,200,h);
 		setForeground(Color.white);
-		setBackground(new Color(60,60,60));
+		setBackground(new Color(60,160,60));
 		setOpaque(true);
 	
 	}

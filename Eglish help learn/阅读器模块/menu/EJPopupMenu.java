@@ -127,24 +127,44 @@ public class EJPopupMenu extends JPopupMenu{
             String line ;
             boolean isFound = false;
              
-            System.out.println(inputWord);
+//            System.out.println(inputWord.substring(0,inputWord.length()-1));
             if(inputWord.equals("")){
                 return;
             }
                          
             while((line = br.readLine()) != null){
                 Scanner in = new Scanner(line);
- 
-                if(in.next().equals(inputWord)){
+            	String sword=in.next();//in.next()使用后会自动换行
+                if(sword.equals(inputWord)){
+
                     int offset = inputWord.length();
                     wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("我就是原型");
                     wj.widd.tp.repaint();
                     System.out.println(wj.widd.tp.fy.getText());
                     isFound = true;
                     break;
+      
                 }
-            
-             
+               
+                else if(sword.equals(inputWord.substring(0,inputWord.length()-1))){
+                    int offset = inputWord.length();
+                    wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("原型："+sword);
+                    wj.widd.tp.repaint();
+                    System.out.println(wj.widd.tp.fy.getText()+"(有一个后缀");
+                    isFound = true;
+                    break;
+                }
+                else if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
+                    int offset = inputWord.length();
+                    wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("原型："+sword);
+                    wj.widd.tp.repaint();
+                    System.out.println(wj.widd.tp.fy.getText()+"(有两个后缀");
+                    isFound = true;
+                    break;
+                }
             if(!isFound){
                 wj.widd.tp.fy.setText("没找到相应项>..<");
             }

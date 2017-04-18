@@ -30,7 +30,7 @@ public  class Tool_panel extends JPanel{
 	
 	
 	private window widd;
-	public wordshuxing fy,wordnumber,unknow,unknowl,learning;
+	public wordshuxing fy,fy1,wordnumber,unknow,unknowl,learning;
 	public JTextField t1,t2;
 	
 	
@@ -45,12 +45,13 @@ public  class Tool_panel extends JPanel{
 	
 		}//工具栏的基本属性
 		
-		fy=new wordshuxing(10, 10, 60," 这里是翻译");
-		unknow=new wordshuxing(10, 80,40, " 未知单词数：");
-		unknowl=new wordshuxing(10, 140,40, " 未知：");
-		add(new wordshuxing(10, 200,40, " 陌生率："));
-		wordnumber=new wordshuxing(10, 260,40, " 总单词数：");
-		learning=new wordshuxing(10, 320,40, " 属性2");
+		fy=new wordshuxing(10, 10, 40,"我是翻译:");
+		fy1=new wordshuxing(10, 60, 40,"我是备注:");
+		unknow=new wordshuxing(10, 110,30, " 未知单词数：");
+		unknowl=new wordshuxing(10, 150,30, " 未知：");
+		add(new wordshuxing(10, 190,30, " 陌生率："));
+		wordnumber=new wordshuxing(10, 230,30, " 总单词数：");
+		learning=new wordshuxing(10, 270,60, " 空白备用区域");
 		
 		t1 =new Etextfield(10 , 450 ,150 ,20);
 		t2=new Etextfield(10 , 490 ,150 ,20);
@@ -59,6 +60,7 @@ public  class Tool_panel extends JPanel{
 		add(unknow);
 		add(unknowl);
 		add(fy);
+		add(fy1);
 		add(wordnumber);
 		add(learning);	
 		add(t1);
