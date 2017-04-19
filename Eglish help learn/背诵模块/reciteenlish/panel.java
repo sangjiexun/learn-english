@@ -183,7 +183,7 @@ public class panel extends JPanel{
 		}});
 	
 	
-	b1=new JButton("ÎÊ¶ÈÄï");
+	b1=new JButton("²é×Öµä");
 	b1.setBounds(320, 500, 95, 30);
 	b1.setBackground( new Color(28,134,238));
 	
@@ -338,6 +338,5 @@ public class panel extends JPanel{
 	     		   } 
 	     		  }
 		
-		
-	
+
 }

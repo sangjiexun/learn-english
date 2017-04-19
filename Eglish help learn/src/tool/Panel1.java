@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import english_reader.window;
+import englishchinese.select_chinese_window;
 import mian.Mianwindow;
 import reciteenlish.recitewindow;
 
@@ -165,15 +166,14 @@ public Panel1(Mianwindow w1){
 		
 		 JButton MB3=new JButton("”¢»œ÷–");
 		    MB3.setBounds(250,400, 300, 60);
-//			MB3.setBorder(new LineBorder(Color.CYAN));
 			MB3.setBackground( new Color(28,134,238));
 			MB3.addActionListener(new ActionListener(){
 
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
-
+					selectchinese();
+					w1.setVisible(false);
 					
 				}
 				
@@ -249,6 +249,13 @@ public void reciteword(){
 	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );
 	
 }
+
+public void selectchinese(){
+	@SuppressWarnings("unused")
+	select_chinese_window Wic=new select_chinese_window(Mianwindow1.word1,Mianwindow1.word2 );
+	
+}
+
 
 
 }
