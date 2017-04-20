@@ -33,7 +33,7 @@ public class select_chinese_window extends JFrame {
     public ArrayList<String> word2;//正在学习的单词
 	public Word wo;
 	public String text,t;
-	public int wnum;
+	public int wnum,num=500;
 	public JPanel jpanel1;
 	public static select_chinese_window test;
 	public chineselabel cq,cw, ce,cr,cd,cf;
@@ -67,8 +67,11 @@ public class select_chinese_window extends JFrame {
 	
 	
 	private void setdata() {
-		english_w1=word1.get((int) (Math.random()*word1.size()));
-
+//		english_w1=word1.get((int) (Math.random()*word1.size()));
+		english_w1=word1.get(num);
+		System.out.println(search(english_w1));
+		num++;
+		System.out.println(num);
 		chinese_w1=search(word1.get((int) (Math.random()*word1.size())));
 		chinese_w2=search(word1.get((int) (Math.random()*word1.size())));
 		chinese_w3=search(word1.get((int) (Math.random()*word1.size())));
@@ -156,7 +159,7 @@ public class select_chinese_window extends JFrame {
 		e1.setForeground(Color.white);
 		e1.setBackground(new Color(140,140,200));
 		e1.setOpaque(true);
-		
+		e1.setFont(new java.awt.Font("Dialog", 1,30));
 		
 		p0=new JLabel();
 		p1=new JLabel();
@@ -292,6 +295,14 @@ public class select_chinese_window extends JFrame {
 			case 'p':{ 
 				word1.remove(english_w1);
 				out();
+				showword();
+				setdata();	
+				reshow();
+				break;}
+			case 'l':{
+				showword();
+				setdata();	
+				reshow();
 				break;}
 			
 			case 'k':{ 
