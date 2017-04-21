@@ -53,7 +53,6 @@ public Panel1(Mianwindow w1){
 	MB1.addMouseListener(new MouseListener(){
 
 
-
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			
