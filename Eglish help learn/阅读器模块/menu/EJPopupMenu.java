@@ -41,14 +41,15 @@ public class EJPopupMenu extends JPopupMenu{
 	public EJPopupMenu(wordjlabel wordjlabel,window widd){
 		this.wj=wordjlabel;
 		this.widd=widd;
-
+//		searchWords( wj.name.toLowerCase());
 		
 		
 		item1.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
-	           if (!(wj.ifknow)){
-	           outjiaf();}//加入字符串容器，并且保存到本地；
-	        }
+	           
+	           outjiaf();
+	           }//加入字符串容器，并且保存到本地；
+	        
 	    });
 		
 		item2.addActionListener(new ActionListener(){

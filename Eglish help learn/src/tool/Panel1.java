@@ -7,9 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
 import english_reader.window;
 import englishchinese.select_chinese_window;
 import mian.Mianwindow;
@@ -51,6 +53,7 @@ public Panel1(Mianwindow w1){
 		
 	});
 	MB1.addMouseListener(new MouseListener(){
+
 
 
 		@Override

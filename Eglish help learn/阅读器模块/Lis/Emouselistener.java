@@ -3,6 +3,9 @@ package Lis;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
 
 import worldshow.wordjlabel;
 
@@ -11,8 +14,66 @@ public class Emouselistener implements MouseListener{
 	
 	public  Emouselistener(wordjlabel wj) {
 		this.wj=wj;		
+
 	}
 	
+	protected void searchWords(String inputWord) {
+		try {
+            BufferedReader br = new BufferedReader(
+         new FileReader("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
+            String line ;
+            boolean isFound = false;
+//             
+            System.out.println(inputWord.substring(0,inputWord.length()-1));
+            if(inputWord.equals("")){
+                return;
+            }
+                         
+            while((line = br.readLine()) != null){
+                Scanner in = new Scanner(line);
+            	String sword=in.next();//in.next()使用后会自动换行
+                if(sword.equals(inputWord)){
+
+                    int offset = inputWord.length();
+                    wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("我就是原型");
+                    wj.widd.tp.repaint();
+                    System.out.println(wj.widd.tp.fy.getText());
+                    isFound = true;
+                    break;
+      
+                }
+               
+                else if(sword.equals(inputWord.substring(0,inputWord.length()-1))){
+                    int offset = inputWord.length();
+                    wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("原型："+sword);
+                    wj.widd.tp.repaint();
+                    System.out.println(wj.widd.tp.fy.getText()+"(有一个后缀");
+                    isFound = true;
+                    break;
+                }
+                else if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
+                    int offset = inputWord.length();
+                    wj.widd.tp.fy.setText(line.substring(offset));
+                    wj.widd.tp.fy1.setText("原型："+sword);
+                    wj.widd.tp.repaint();
+                    System.out.println(wj.widd.tp.fy.getText()+"(有两个后缀");
+                    isFound = true;
+                    break;
+                }
+            if(!isFound){
+                wj.widd.tp.fy.setText("没找到相应项>..<");
+            }
+        }
+		}
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+		
+		
+		
+	}
 	
 	
 
@@ -23,7 +84,7 @@ public class Emouselistener implements MouseListener{
         	  System.out.println("右击成功");
         	  System.out.println("认识"+wj.ifknow);
         	  System.out.println("正在学习"+wj.ifnow);
-        	  
+        	  searchWords(wj.name.toLowerCase());
         	  
         	  wj.ejm.show(wj, e.getX(), e.getY());
           }

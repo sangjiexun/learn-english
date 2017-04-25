@@ -54,7 +54,14 @@ public class panel extends JPanel{
 	grade1=new grade(i1);
 	e=widd.word2;
 	this.widd=widd;
+	double ram=Math.random();
+	if (ram<0.3){
 	w1=e.get((int) (Math.random()*e.size()));
+	}
+	else{
+	w1=e.get((int) (Math.random()*150));
+	}
+	
 	w3=w1;
 	setLayout(null);
 	setPreferredSize(new Dimension(200, 700));
@@ -246,27 +253,7 @@ public class panel extends JPanel{
 	
 	
 	
-//	 public ArrayList<String> innowword(){
-//     	
-//     	ArrayList<String> w1 = null;
-//     	try {
-//				ObjectInputStream in=new ObjectInputStream(
-//		new FileInputStream("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
-//				
-//				w1=(ArrayList<String>) in.readObject();
-//				
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//     	
-//     	return w1;
-//     	
-//     }
-	
+
 	
 	 public static void WriteDate(String nfile) {
 

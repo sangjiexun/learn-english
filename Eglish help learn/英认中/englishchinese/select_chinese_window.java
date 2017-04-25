@@ -8,8 +8,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Button.Tool_panel;
+import others.grade;
 import tool.Panel1;
 import worldshow.Word;
 
@@ -33,18 +36,16 @@ public class select_chinese_window extends JFrame {
     public ArrayList<String> word2;//正在学习的单词
 	public Word wo;
 	public String text,t;
-	public int wnum,num=500;
+	public int wnum,c;
 	public JPanel jpanel1;
 	public static select_chinese_window test;
 	public chineselabel cq,cw, ce,cr,cd,cf;
-	public JLabel e1,ex1,p0,p1,p2; 
+	public JLabel e1,ex1,p0,p1,p2,g1,g2,b1,b2;//b1,b2为单词属性窗口 
 	public JButton j1, j2, j3, j4;
 	public String english_w1,english_wr;
 	public String chinese_w1,chinese_w2,chinese_w3,chinese_w4,chinese_w5,chinese_w6;
-	
-//	public static void main(String[] args) {
-//		test=new select_chinese_window();
-//	}
+	public grade grade1;
+
 
 	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) {
         word1=w1;
@@ -68,16 +69,23 @@ public class select_chinese_window extends JFrame {
 	
 	private void setdata() {
 //		english_w1=word1.get((int) (Math.random()*word1.size()));
-		english_w1=word1.get(num);
+		if (Math.random()<0.3){
+		word =word1;
+		c=1;
+		
+		}
+		else{
+		word=word2;
+		c=2;}//这边调整
+		
+		english_w1=word.get((int) (Math.random()*word.size()));
 		System.out.println(search(english_w1));
-		num++;
-		System.out.println(num);
-		chinese_w1=search(word1.get((int) (Math.random()*word1.size())));
-		chinese_w2=search(word1.get((int) (Math.random()*word1.size())));
-		chinese_w3=search(word1.get((int) (Math.random()*word1.size())));
-		chinese_w4=search(word1.get((int) (Math.random()*word1.size())));
-		chinese_w5=search(word1.get((int) (Math.random()*word1.size())));
-		chinese_w6=search(word1.get((int) (Math.random()*word1.size())));
+		chinese_w1=search(word.get((int) (Math.random()*word.size())));
+		chinese_w2=search(word.get((int) (Math.random()*word.size())));
+		chinese_w3=search(word.get((int) (Math.random()*word.size())));
+		chinese_w4=search(word.get((int) (Math.random()*word.size())));
+		chinese_w5=search(word.get((int) (Math.random()*word.size())));
+		chinese_w6=search(word.get((int) (Math.random()*word.size())));
 		int ram16=new Random().nextInt(6)+1;
 		switch(ram16){
 		case 1:{chinese_w1=search(english_w1);
@@ -143,15 +151,45 @@ public class select_chinese_window extends JFrame {
 
 
 	private void setjpanel1() {//对主界面进行设计
+		
+		
+		int i1;
+		i1=Integer.parseInt(readDate());
+		grade1=new grade(i1);
+		
+		
+		
 		jpanel1.setLayout(null);
 		jpanel1.setPreferredSize(new Dimension(950, 150));//宽度950
 		jpanel1.setBackground(new Color(60,60,60));
 		
 		
 		ex1=new JLabel();
-		ex1.setBounds(20, 30, 180,550);
+		ex1.setBounds(20, 200, 180,550);
 		ex1.setBackground(new Color(220,220,30));
 		ex1.setOpaque(true);
+		
+		b1=new JLabel();
+		b1.setBounds(10, 150, 150, 50);
+		b1.setOpaque(true);
+		
+		
+		
+		
+		g1=new JLabel();
+		g2=new JLabel();
+		g1.setBounds(10, 30, 150, 50);
+		g2.setBounds(10, 80, 180, 50);
+		g1.setBackground(new Color(220,220,30));
+		g2.setBackground(new Color(20,220,70));
+		g1.setOpaque(true);
+		g2.setOpaque(true);
+		g1.setFont(new java.awt.Font("Dialog", 1,30));
+		g1.setText("等级：");
+		g2.setFont(new java.awt.Font("Dialog", 1,20));
+		g2.setText("经验："+grade1.ex);
+	
+		
 		
 		
 		e1=new JLabel(english_w1);
@@ -164,9 +202,11 @@ public class select_chinese_window extends JFrame {
 		p0=new JLabel();
 		p1=new JLabel();
 		p2=new JLabel();
+		
 		p0.setBounds(550, 70, 300,70);
 		p1.setBounds(550, 160, 300,70);
 		p2.setBounds(550, 250, 300,70);
+	
 		p0.setFont(new java.awt.Font("Dialog", 1,20));
 		p1.setFont(new java.awt.Font("Dialog", 1,30));
 		p2.setFont(new java.awt.Font("Dialog", 1,30));
@@ -186,6 +226,12 @@ public class select_chinese_window extends JFrame {
 		cf=new chineselabel(220, 6, chinese_w6);
 		
 		
+		
+		
+		
+		jpanel1.add(b1);
+//		jpanel1.add(g1);
+		jpanel1.add(g2);
 		jpanel1.add(p0);
 		jpanel1.add(p1);
 		jpanel1.add(p2);
@@ -197,6 +243,7 @@ public class select_chinese_window extends JFrame {
 		jpanel1.add(cr);
 		jpanel1.add(cd);
 		jpanel1.add(cf);
+		
 		
 		
 		//按钮合集
@@ -234,9 +281,10 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 				}
-				else
+				else{
 					cq.setBackground(Color.RED);
-				
+				chengfa();
+				}
 				break;}
 			case 'w':{ 
 				if(search(english_w1).equals(chinese_w2)){
@@ -244,9 +292,9 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 					}
-				else
+				else{
 					cw.setBackground(Color.RED);
-				
+				chengfa();}
 				break;}
 			case 'e':{ 
 				if(search(english_w1).equals(chinese_w3)){
@@ -254,8 +302,9 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 					}
-				else
+				else{
 					ce.setBackground(Color.RED);
+				chengfa();}
 				break;}
 			case 'r':{ 
 				if(search(english_w1).equals(chinese_w4)){
@@ -263,8 +312,9 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 					}
-				else
+				else{
 					cr.setBackground(Color.RED);
+				chengfa();}
 				break;}
 			case 'd':{ 
 				if(search(english_w1).equals(chinese_w5)){
@@ -272,9 +322,9 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 					}
-				else
+				else{
 					cd.setBackground(Color.RED);
-				
+				chengfa();}
 				break;}
 			case 'f':{ 
 				if(search(english_w1).equals(chinese_w6)){
@@ -282,8 +332,9 @@ public class select_chinese_window extends JFrame {
 					setdata();	
 					reshow();
 					}
-				else
+				else{
 					cf.setBackground(Color.RED);
+				chengfa();}
 				break;}
 			case 'o':{ 
 				word2.add(english_w1);
@@ -293,11 +344,14 @@ public class select_chinese_window extends JFrame {
 				break;}
 					
 			case 'p':{ 
+				
 				word1.remove(english_w1);
 				out();
 				showword();
-				setdata();	
-				reshow();
+				setdata();
+				reshow();				
+				chengfa();	
+				
 				break;}
 			case 'l':{
 				showword();
@@ -337,6 +391,17 @@ public class select_chinese_window extends JFrame {
 		cf.setBackground(new Color(60,160,60));
 		p0.setText("词量:"+word1.size()+"在学："+word2.size());
 		
+//		b1.setText(text);
+//		b2.setText(已知单词);
+		if (c==2){
+			b1.setText("正在学习");	
+			b1.setBackground(new Color(20,220,70));
+		}
+		if (c==1){
+			b1.setText("认识的单词");	
+			b1.setBackground(new Color(50,70,200));
+		}
+		c=0;
 		repaint();
 		
 	}
@@ -344,7 +409,11 @@ public class select_chinese_window extends JFrame {
 	public void showword(){
 		p1.setText(english_w1);
 		p2.setText(search(english_w1));
+		grade1.ex++;
 		
+		WriteDate(grade1.ex+"");
+		 
+		g2.setText("经验："+grade1.ex);
 	}
 	
 	public void baidusousuo(String t){ 
@@ -401,6 +470,54 @@ public class select_chinese_window extends JFrame {
 		    	
 		   }
 	
-	
+	 public static String readDate(){
+			String sb = new String();
+			
+			try{
+        
+         
+		    BufferedReader br = new BufferedReader(new FileReader
+		    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
+			
+         sb=br.readLine();
+
+         System.out.println(sb);
+
+			} catch (Exception ex) {
+
+			System.out.println(ex);
+
+			}
+
+			return sb;
+			
+			}
+	 
+	 public static void WriteDate(String nfile) {
+
+			try{
+
+			BufferedWriter output = new BufferedWriter(new FileWriter
+					("C:/Users/Administrator/Desktop/代码合集/grade.txt"));//保存TXT位置
+
+			output.write(String.valueOf(nfile)+"\r\n");
+
+
+			output.close();
+
+			} catch (Exception ex) {
+
+			System.out.println(ex);
+
+			}
+
+			}
+	 public void chengfa(){
+//		 cq.setBackground(Color.RED);
+		 grade1.ex-=1;
+		 WriteDate(grade1.ex+"");
+		 g2.setText("经验："+grade1.ex);
+//		 repaint();
+	 }
 	
 }

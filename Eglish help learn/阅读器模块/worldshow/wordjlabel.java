@@ -47,6 +47,7 @@ public class wordjlabel extends JLabel{
 		ejm=new EJPopupMenu(this,widd);
 		this.add(ejm);
 		this.addMouseListener(new Emouselistener(this));
+		
 	}
 	
 
