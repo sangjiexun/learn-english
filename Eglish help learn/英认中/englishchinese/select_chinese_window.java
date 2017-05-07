@@ -346,7 +346,9 @@ public class select_chinese_window extends JFrame {
 			case 'p':{ 
 				
 				word1.remove(english_w1);
+//				Deletew();
 				out();
+				System.out.println(word1.size());
 				showword();
 				setdata();
 				reshow();				
@@ -512,12 +514,33 @@ public class select_chinese_window extends JFrame {
 			}
 
 			}
-	 public void chengfa(){
+	 public void chengfa(){//快速识别删除
 //		 cq.setBackground(Color.RED);
 		 grade1.ex-=1;
 		 WriteDate(grade1.ex+"");
 		 g2.setText("经验："+grade1.ex);
+		
 //		 repaint();
 	 }
 	
+	 public void Deletew(){	 
+   for (int i=0;i<word1.size();i++){
+	   
+//	   if(word1.get(i).length()>7){
+//		   System.out.println(word1.get(i)+word1.get(i).length());
+//		   word1.remove(i);
+//	   }
+////	   
+//	  for (int j=0;j<word1.get(i).length();j++){
+//		if(word1.get(i).substring(j, j+1).equals("-")){
+//			word1.remove(i);
+//			break;
+//		}
+//	  }
+
+	   
+   }		 
+	 }
+	 
+	 
 }

@@ -54,14 +54,19 @@ public class panel extends JPanel{
 	grade1=new grade(i1);
 	e=widd.word2;
 	this.widd=widd;
-	double ram=Math.random();
-	if (ram<0.3){
-	w1=e.get((int) (Math.random()*e.size()));
-	}
-	else{
-	w1=e.get((int) (Math.random()*150));
-	}
-	
+//	double ram=Math.random();
+////	System.out.println(ram);
+//	if (ram<0.2){
+//
+//	w1=e.get((int) (Math.random()*5));
+//	}
+//	else if(ram<0.8){
+//	w1=e.get((int) (Math.random()*100));
+//	
+//	}
+//	else
+//	{w1=e.get((int) (Math.random()*e.size()));}
+	w1=e.get(10);
 	w3=w1;
 	setLayout(null);
 	setPreferredSize(new Dimension(200, 700));
@@ -119,7 +124,41 @@ public class panel extends JPanel{
             	j3.setText(w7);
 //            	j2.setText(j1.getText());
             	w7=j1.getText();
-            	w1=e.get((int) (Math.random()*e.size()));
+            	
+            	
+            	
+//            	w1=e.get((int) (Math.random()*e.size()));
+            	double ram=Math.random();
+            	System.out.println(ram);
+            	if (ram<0.1){
+
+            	w1=e.get((int) (Math.random()*10));
+            	}
+            	else if(ram<0.2){
+            	w1=e.get((int) (Math.random()*30));
+            	
+            	}
+            	else if(ram<0.3){
+                	w1=e.get((int) (Math.random()*50));
+                	
+                	}
+            	else if(ram<0.4){
+                	w1=e.get((int) (Math.random()*80));
+                	
+                	}
+            	else if(ram<0.5){
+                	w1=e.get((int) (Math.random()*100));
+                	
+                	}
+            	else if(ram<0.7){
+                	w1=e.get((int) (Math.random()*150));
+                	
+                	}
+            	else
+            	{w1=e.get((int) (Math.random()*e.size()));}
+            	
+            	
+            	
             	j1.setText(w1);
             	
             	j31.setText(j21.getText());

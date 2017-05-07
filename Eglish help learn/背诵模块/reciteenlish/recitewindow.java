@@ -26,7 +26,7 @@ public class recitewindow extends JFrame {
 	setBounds(300,30,900,700);
 	setTitle("English help");
 	add(new panel(this),BorderLayout.NORTH);
-	
+//	System.out.println(word2);
 	addKeyListener(new mykey());  
 	
 	setVisible(true);
