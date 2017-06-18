@@ -108,10 +108,6 @@ public class select_chinese_window extends JFrame {
 
 
 
-
-
-
-
 	private String search(String inputWord) {
 		
 		try {

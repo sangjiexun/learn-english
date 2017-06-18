@@ -23,49 +23,43 @@ public class Emouselistener implements MouseListener{
          new FileReader("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
             String line ;
             boolean isFound = false;
-//             
-            System.out.println(inputWord.substring(0,inputWord.length()-1));
+             
+//            System.out.println(inputWord.substring(0,inputWord.length()-1));
             if(inputWord.equals("")){
                 return;
             }
-                         
+     int hz=0;
+     while (hz<=3){
             while((line = br.readLine()) != null){
                 Scanner in = new Scanner(line);
             	String sword=in.next();//in.next()使用后会自动换行
-                if(sword.equals(inputWord)){
+//            	if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
+
+                if(sword.equals(inputWord.substring(0,inputWord.length()-hz))){
 
                     int offset = inputWord.length();
                     wj.widd.tp.fy.setText(line.substring(offset));
-                    wj.widd.tp.fy1.setText("我就是原型");
+                    wj.widd.tp.fy1.setText("有"+hz+"个后缀");
                     wj.widd.tp.repaint();
                     System.out.println(wj.widd.tp.fy.getText());
                     isFound = true;
                     break;
-      
+
+                }  
+
                 }
-               
-                else if(sword.equals(inputWord.substring(0,inputWord.length()-1))){
-                    int offset = inputWord.length();
-                    wj.widd.tp.fy.setText(line.substring(offset));
-                    wj.widd.tp.fy1.setText("原型："+sword);
-                    wj.widd.tp.repaint();
-                    System.out.println(wj.widd.tp.fy.getText()+"(有一个后缀");
-                    isFound = true;
-                    break;
-                }
-                else if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
-                    int offset = inputWord.length();
-                    wj.widd.tp.fy.setText(line.substring(offset));
-                    wj.widd.tp.fy1.setText("原型："+sword);
-                    wj.widd.tp.repaint();
-                    System.out.println(wj.widd.tp.fy.getText()+"(有两个后缀");
-                    isFound = true;
-                    break;
-                }
+
+     if (isFound){
+  	   break;}
+     hz++;
+		}
+            
+            
             if(!isFound){
                 wj.widd.tp.fy.setText("没找到相应项>..<");
             }
-        }
+        
+
 		}
         catch (Exception ex) {
             ex.printStackTrace();
