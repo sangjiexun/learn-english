@@ -15,10 +15,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
 import tool.Panel1;
 
 
@@ -41,7 +43,7 @@ public class Mianwindow extends JFrame{
 		//获取数据
 		ArrayList<String> wordin = inword();
 		ArrayList<String> wordnow = innowword();
-
+		
 		
 		 widm = new Mianwindow(wordin,wordnow);
 //		 actionPerformed();

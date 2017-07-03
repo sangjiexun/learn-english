@@ -34,7 +34,7 @@ public class Emouselistener implements MouseListener{
                 Scanner in = new Scanner(line);
             	String sword=in.next();//in.next()使用后会自动换行
 //            	if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
-
+//System.out.println(33);
                 if(sword.equals(inputWord.substring(0,inputWord.length()-hz))){
 
                     int offset = inputWord.length();
@@ -52,6 +52,10 @@ public class Emouselistener implements MouseListener{
      if (isFound){
   	   break;}
      hz++;
+     br.close();
+     br = new BufferedReader(
+     new FileReader("C:/Users/Administrator/Desktop/代码合集/dictionary.txt"));
+     System.out.println(inputWord.substring(0,inputWord.length()-hz));
 		}
             
             
@@ -65,8 +69,7 @@ public class Emouselistener implements MouseListener{
             ex.printStackTrace();
         }
 		
-		
-		
+	
 	}
 	
 	
