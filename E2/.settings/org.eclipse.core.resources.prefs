@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
-encoding/<project>=GBK
+encoding//src/mian/Mianwindow.java=UTF-8
+encoding//src/tool/log4j.properties=UTF-8

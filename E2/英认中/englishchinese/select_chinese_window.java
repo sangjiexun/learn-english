@@ -33,15 +33,15 @@ public class select_chinese_window extends JFrame {
 	
 	public TextArea ta;
 	public ArrayList<String> word=null;
-	public ArrayList<String> word1;//ÒÑ»áµ¥´Ê
-    public ArrayList<String> word2;//ÕıÔÚÑ§Ï°µÄµ¥´Ê
+	public ArrayList<String> word1;
+    public ArrayList<String> word2;
 	public Word wo;
 	public String text,t;
 	public int wnum,c;
 	public JPanel jpanel1;
 	public static select_chinese_window test;
 	public chineselabel cq,cw, ce,cr,cd,cf;
-	public JLabel e1,ex1,p0,p1,p2,g1,g2,b1,b2;//b1,b2Îªµ¥´ÊÊôĞÔ´°¿Ú 
+	public JLabel e1,ex1,p0,p1,p2,g1,g2,b1,b2;//b1,b2ä¸ºå•è¯å±æ€§çª—å£ 
 	public JButton j1, j2, j3, j4;
 	public String english_w1,english_wr;
 	public String chinese_w1,chinese_w2,chinese_w3,chinese_w4,chinese_w5,chinese_w6;
@@ -51,8 +51,8 @@ public class select_chinese_window extends JFrame {
 	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) {
         word1=w1;
         word2=w2;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//µã»÷¹Ø±Õ°´Å¥ºó£¬³ÌĞò½áÊø
-		setBounds(200,30,1000,700);//ÉèÖÃ´óĞ¡
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(200,30,1000,700);
 		getContentPane().setBackground(new Color(30,30,30));
 		setTitle("select chinese");
 		jpanel1=new JPanel();
@@ -64,10 +64,6 @@ public class select_chinese_window extends JFrame {
 	}
 
 	
-	
-
-	
-	
 	private void setdata() {
 //		english_w1=word1.get((int) (Math.random()*word1.size()));
 		if (Math.random()<0.3){
@@ -77,7 +73,7 @@ public class select_chinese_window extends JFrame {
 		}
 		else{
 		word=word2;
-		c=2;}//Õâ±ßµ÷Õû
+		c=2;}//ï¿½ï¿½ßµï¿½ï¿½ï¿½
 		
 		english_w1=word.get((int) (Math.random()*word.size()));
 		System.out.println(search(english_w1));
@@ -113,7 +109,7 @@ public class select_chinese_window extends JFrame {
 		
 		try {
             BufferedReader br = new BufferedReader(
-         new FileReader("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));
+         new FileReader("C:/Users/Administrator/Desktop/ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½/dictionary.txt"));
             String line ;
             boolean isFound = false;
              
@@ -124,7 +120,7 @@ public class select_chinese_window extends JFrame {
                          
             while((line = br.readLine()) != null){
                 Scanner in = new Scanner(line);
-            	String sword=in.next();//in.next()Ê¹ÓÃºó»á×Ô¶¯»»ĞĞ
+            	String sword=in.next();//in.next()ä½¿ç”¨åä¼šè‡ªåŠ¨æ¢è¡Œ
                 if(sword.equals(inputWord)){
 
                     int offset = inputWord.length();
@@ -144,10 +140,7 @@ public class select_chinese_window extends JFrame {
 
 
 
-
-
-
-	private void setjpanel1() {//¶ÔÖ÷½çÃæ½øĞĞÉè¼Æ
+	private void setjpanel1() {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		
 		int i1;
@@ -157,7 +150,7 @@ public class select_chinese_window extends JFrame {
 		
 		
 		jpanel1.setLayout(null);
-		jpanel1.setPreferredSize(new Dimension(950, 150));//¿í¶È950
+		jpanel1.setPreferredSize(new Dimension(950, 150));//ï¿½ï¿½ï¿½950
 		jpanel1.setBackground(new Color(60,60,60));
 		
 		
@@ -182,9 +175,9 @@ public class select_chinese_window extends JFrame {
 		g1.setOpaque(true);
 		g2.setOpaque(true);
 		g1.setFont(new java.awt.Font("Dialog", 1,30));
-		g1.setText("µÈ¼¶£º");
+		g1.setText("ï¿½È¼ï¿½ï¿½ï¿½");
 		g2.setFont(new java.awt.Font("Dialog", 1,20));
-		g2.setText("¾­Ñé£º"+grade1.ex);
+		g2.setText("ï¿½ï¿½ï¿½é£º"+grade1.ex);
 	
 		
 		
@@ -232,7 +225,7 @@ public class select_chinese_window extends JFrame {
 		jpanel1.add(p1);
 		jpanel1.add(p2);
 		jpanel1.add(e1);
-//		jpanel1.add(ex1);//¾­ÑéÏµÍ³
+//		jpanel1.add(ex1);//ï¿½ï¿½ï¿½ï¿½ÏµÍ³
 		jpanel1.add(cq);
 		jpanel1.add(cw);
 		jpanel1.add(ce);
@@ -242,11 +235,11 @@ public class select_chinese_window extends JFrame {
 		
 		
 		
-		//°´Å¥ºÏ¼¯
-		j1=new JButton ("O ¼ÓÈëÕıÔÚÑ§Ï°");
-		j2=new JButton ("P ²»ÈÏÊ¶");
-		j3=new JButton ("K °Ù¶ÈËÑË÷");
-		j4=new JButton ("L ±¸ÓÃ°´Å¥");
+		//ï¿½ï¿½Å¥ï¿½Ï¼ï¿½
+		j1=new JButton ("O ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°");
+		j2=new JButton ("P ï¿½ï¿½ï¿½ï¿½Ê¶");
+		j3=new JButton ("K ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½");
+		j4=new JButton ("L ï¿½ï¿½ï¿½Ã°ï¿½Å¥");
 		j1.setBounds(550, 430, 160, 60);
 		j2.setBounds(550, 520, 160, 60);
 		j3.setBounds(740, 430, 160, 60);
@@ -346,7 +339,7 @@ public class select_chinese_window extends JFrame {
 					e1.printStackTrace();
 				}
 				
-//				out();//Ô­À´µÄ·½°¸£»
+//				out();//Ô­ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
 //				outnow();
 				break;}
 					
@@ -401,16 +394,16 @@ public class select_chinese_window extends JFrame {
 		cr.setBackground(new Color(60,160,60));
 		cd.setBackground(new Color(60,160,60));
 		cf.setBackground(new Color(60,160,60));
-		p0.setText("´ÊÁ¿:"+word1.size()+"ÔÚÑ§£º"+word2.size());
+		p0.setText("è¯é‡:"+word1.size()+"åœ¨å­¦ï¼š"+word2.size());
 		
 //		b1.setText(text);
-//		b2.setText(ÒÑÖªµ¥´Ê);
+//		b2.setText(ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½);
 		if (c==2){
-			b1.setText("ÕıÔÚÑ§Ï°");	
+			b1.setText("æ­£åœ¨å­¦ä¹ ");	
 			b1.setBackground(new Color(20,220,70));
 		}
 		if (c==1){
-			b1.setText("ÈÏÊ¶µÄµ¥´Ê");	
+			b1.setText("è®¤è¯†çš„å•è¯");	
 			b1.setBackground(new Color(50,70,200));
 		}
 		c=0;
@@ -425,71 +418,39 @@ public class select_chinese_window extends JFrame {
 		
 		WriteDate(grade1.ex+"");
 		 
-		g2.setText("¾­Ñé£º"+grade1.ex);
+		g2.setText("ç»éªŒ"+grade1.ex);
 	}
 	
 	public void baidusousuo(String t){ 
-  	   try { 
-  		   
-  		    String url = "http://www.iciba.com/"+t; 
-  		    java.net.URI uri = java.net.URI.create(url); 
-  		    // »ñÈ¡µ±Ç°ÏµÍ³×ÀÃæÀ©Õ¹ 
-  		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
-  		    // ÅĞ¶ÏÏµÍ³×ÀÃæÊÇ·ñÖ§³ÖÒªÖ´ĞĞµÄ¹¦ÄÜ 
-  		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
+	  	   try { 
+	  		   
+	  		    String url = "http://www.iciba.com/"+t; 
+	  		    java.net.URI uri = java.net.URI.create(url); 
+	  		    // è·å–å½“å‰ç³»ç»Ÿæ¡Œé¢æ‰©å±• 
+	  		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
+	  		    // åˆ¤æ–­ç³»ç»Ÿæ¡Œé¢æ˜¯å¦æ”¯æŒè¦æ‰§è¡Œçš„åŠŸèƒ½ 
+	  		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
 
-  		      dp.browse(uri);// »ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷´ò¿ªÁ´½Ó 
+	  		      dp.browse(uri);// è·å–ç³»ç»Ÿé»˜è®¤æµè§ˆå™¨æ‰“å¼€é“¾æ¥ 
 
-  		    } 
-  		   } catch (java.lang.NullPointerException f) { 
-  		    // ´ËÎªuriÎª¿ÕÊ±Å×³öÒì³£ 
-  		    f.printStackTrace(); 
-  		   } catch (java.io.IOException f) { 
-  		    // ´ËÎªÎŞ·¨»ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷ 
-  		    f.printStackTrace(); 
-  		   } 
-  		  }
+	  		    } 
+	  		   } catch (java.lang.NullPointerException f) { 
+	  		    // æ­¤ä¸ºuriä¸ºç©ºæ—¶æŠ›å‡ºå¼‚å¸¸ 
+	  		    f.printStackTrace(); 
+	  		   } catch (java.io.IOException f) { 
+	  		    // æ­¤ä¸ºæ— æ³•è·å–ç³»ç»Ÿé»˜è®¤æµè§ˆå™¨ 
+	  		    f.printStackTrace(); 
+	  		   } 
+	  		  }
 	
-//	 public void out(){
-//		   
-//		   
-//	    	try{
-//		    		
-//		    		ObjectOutputStream out=new ObjectOutputStream(
-//		    				new FileOutputStream(
-//		    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/obj.txt"));
-//		    		out.writeObject(word1);
-//		    		out.close();
-//		    	}catch(IOException e ){
-//		    		e.printStackTrace();
-//		    	}
-//		    	
-//		   }
-	
-//	 public void outnow(){
-//		   
-//		   
-//	    	try{
-//		    		
-//		    		ObjectOutputStream out=new ObjectOutputStream(
-//		    				new FileOutputStream(
-//		    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
-//		    		out.writeObject(word2);
-//		    		out.close();
-//		    	}catch(IOException e ){
-//		    		e.printStackTrace();
-//		    	}
-//		    	
-//		   }
-	
+
 	 public static String readDate(){
 			String sb = new String();
 			
 			try{
-        
-         
+
 		    BufferedReader br = new BufferedReader(new FileReader
-		    		("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/grade.txt"));
+		    		("C:/Users/Administrator/Desktop/ä»£ç åˆé›†/grade.txt"));
 			
          sb=br.readLine();
 
@@ -500,7 +461,6 @@ public class select_chinese_window extends JFrame {
 			System.out.println(ex);
 
 			}
-
 			return sb;
 			
 			}
@@ -510,7 +470,7 @@ public class select_chinese_window extends JFrame {
 			try{
 
 			BufferedWriter output = new BufferedWriter(new FileWriter
-					("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/grade.txt"));//±£´æTXTÎ»ÖÃ
+					("C:/Users/Administrator/Desktop/ä»£ç åˆé›†/grade.txt"));
 
 			output.write(String.valueOf(nfile)+"\r\n");
 
@@ -524,33 +484,20 @@ public class select_chinese_window extends JFrame {
 			}
 
 			}
-	 public void chengfa(){//¿ìËÙÊ¶±ğÉ¾³ı
+	 public void chengfa(){//å¿«é€Ÿè¯†åˆ«åˆ é™¤
 //		 cq.setBackground(Color.RED);
 		 grade1.ex-=1;
 		 WriteDate(grade1.ex+"");
-		 g2.setText("¾­Ñé£º"+grade1.ex);
+		 g2.setText("ç»éªŒï¼š"+grade1.ex);
 		
 //		 repaint();
 	 }
 	
 	 public void Deletew(){	 
    for (int i=0;i<word1.size();i++){
-	   
-//	   if(word1.get(i).length()>7){
-//		   System.out.println(word1.get(i)+word1.get(i).length());
-//		   word1.remove(i);
-//	   }
-////	   
-//	  for (int j=0;j<word1.get(i).length();j++){
-//		if(word1.get(i).substring(j, j+1).equals("-")){
-//			word1.remove(i);
-//			break;
-//		}
-//	  }
 
 	   
    }		 
 	 }
-	 
-	 
+
 }

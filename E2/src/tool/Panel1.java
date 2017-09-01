@@ -1,5 +1,5 @@
 package tool;
-//Ö÷½çÃæµÄ´°¿Ú
+
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,9 +18,9 @@ import mian.Mianwindow;
 import reciteenlish.recitewindow;
 
 
-//Ö÷½çÃæµÄ¹¤¾ßÀ¸
+//ä¸»ç•Œé¢çš„å·¥å…·æ 
 public class Panel1 extends JPanel{
-/**
+/**ä¸»ç•Œé¢çš„çª—å£
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -29,44 +29,34 @@ private static final int String = 0;
 	private Mianwindow Mianwindow1;
 public Panel1(Mianwindow w1){
 	this.Mianwindow1=w1;
-	
 	setLayout(null);
-	setPreferredSize(new Dimension(800, 50));//Ö÷½çÃæµÄ¿í¶È£»
+	setPreferredSize(new Dimension(800, 50));//ä¸»ç•Œé¢çš„å®½åº¦ï¼›
 	setBackground(new Color(0,174,239));
-	
-	
-    JButton MB1=new JButton("ÔÄ¶ÁÆ÷");
+    JButton MB1=new JButton("é˜…è¯»å™¨");
     MB1.setBounds(250,100, 300, 60);
 	MB1.setBorder(new LineBorder(new Color(28,134,238)));
 	MB1.setBackground(new Color(0,166,80));
 	MB1.addActionListener(new ActionListener(){
 
-		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			englishreader();//Ö´ĞĞº¯Êı£¬´ò¿ªÔÄ¶ÁÆ÷¡£
+			englishreader();//æ‰§è¡Œå‡½æ•°ï¼Œæ‰“å¼€é˜…è¯»å™¨ã€‚
             w1.setVisible(false);
-			
 		}
-		
-		
-		
+
 	});
 	MB1.addMouseListener(new MouseListener(){
 
 
-
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			
-			
+	
 			MB1.setBounds(250,80, 300, 100);
 			
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			
 
 			MB1.setBounds(250,100, 300, 60);
 			
@@ -74,19 +64,16 @@ public Panel1(Mianwindow w1){
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
 			
 		}
 		
@@ -97,31 +84,24 @@ public Panel1(Mianwindow w1){
 	
 	
 	
-	 JButton MB2=new JButton("±³µ¥´Ê");
+	 JButton MB2=new JButton("èƒŒå•è¯");
 	    MB2.setBounds(250,250, 300, 60);
 //		MB2.setBorder(new LineBorder(Color.CYAN));
 		MB2.setBackground( new Color(220,50,238));
 		MB2.addActionListener(new ActionListener(){
 
-			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {			
 
 			}
-			
-			
-			
+	
 		});
 	
-		
+
 		MB2.addMouseListener(new MouseListener(){
-
-
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 				MB2.setBounds(250,230, 300, 100);
 				
@@ -129,7 +109,6 @@ public Panel1(Mianwindow w1){
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 
 				MB2.setBounds(250,250, 300, 60);
@@ -138,64 +117,50 @@ public Panel1(Mianwindow w1){
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
 				reciteword();
 				w1.setVisible(false);
-				
-				
-			}
+						}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
-			
+
 		});
 		
 	
 		
 		
-		 JButton MB3=new JButton("Ó¢ÈÏÖĞ");
+		 JButton MB3=new JButton("è‹±è®¤ä¸­");
 		    MB3.setBounds(250,400, 300, 60);
 			MB3.setBackground( new Color(28,134,238));
 			MB3.addActionListener(new ActionListener(){
 
-				
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					selectchinese();
 					w1.setVisible(false);
 					
 				}
-				
-				
-				
+	
 			});
 		
-	
-			
+
 			MB3.addMouseListener(new MouseListener(){
-
-
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
 					
 					MB3.setBounds(250,380, 300, 100);
 					
 				}
-
 				@Override
 				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
 					
 
 					MB3.setBounds(250,400, 300, 60);
@@ -204,24 +169,20 @@ public Panel1(Mianwindow w1){
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					// TODO Auto-generated method stub
 					
 				}
 
 				@Override
 				public void mousePressed(MouseEvent e) {
-					// TODO Auto-generated method stub
 					
 				}
 
 				@Override
 				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
 					
 				}
 				
 			});
-			
 
 	
     add(MB1);
@@ -232,18 +193,16 @@ public Panel1(Mianwindow w1){
     
 }
 
-//º¯Êıµ÷ÓÃÏÂ
+//å‡½æ•°è°ƒç”¨ä¸‹
 public void englishreader(){
 	@SuppressWarnings("unused")
-	
 	window wid = new window(Mianwindow1.word1,Mianwindow1.word2);
 
 }
 
 public void reciteword(){
 	@SuppressWarnings("unused")
-	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );
-	
+	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );	
 }
 
 public void selectchinese(){
@@ -251,7 +210,5 @@ public void selectchinese(){
 	select_chinese_window Wic=new select_chinese_window(Mianwindow1.word1,Mianwindow1.word2 );
 	
 }
-
-
 
 }

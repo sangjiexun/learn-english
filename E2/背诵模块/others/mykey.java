@@ -17,7 +17,6 @@ public class mykey implements KeyListener {
 		if(e.getKeyChar()=='a'){
 			System.out.println("sdfsf");
 		}
-
 	}
 
 	@Override

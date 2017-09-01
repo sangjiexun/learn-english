@@ -1,19 +1,9 @@
 package menu;
-//ÓÒ»÷ÏÔÊ¾µÄÄÚÈİ
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Scanner;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JFrame;
+
+
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
@@ -24,17 +14,12 @@ import worldshow.wordjlabel;
 public class EJPopupMenu extends JPopupMenu{
 	private static final long serialVersionUID = 1L;
 	
-	JMenuItem item1 = new JMenuItem("¼ÓÈëÒÑ»áµ¥´Ê");
-
-	JMenuItem item2 = new JMenuItem("Ìí¼Ó·­Òë"); 
- 
-	JMenuItem item3 = new JMenuItem("¼ÓÈëÕıÔÚÑ§Ï°µÄµ¥´Ê");
-	
-	JMenuItem item4 = new JMenuItem("·­Òë");
-	
-	JMenuItem item5 = new JMenuItem("¼ÓÈëÎ´Öªµ¥´Ê");
-	
-	JMenuItem item6 = new JMenuItem("°Ù¶ÈËÑË÷");
+	JMenuItem item1 = new JMenuItem("åŠ å…¥å·²ä¼šå•è¯");
+	JMenuItem item2 = new JMenuItem("æ·»åŠ ç¿»è¯‘"); 
+	JMenuItem item3 = new JMenuItem("åŠ å…¥æ­£åœ¨å­¦ä¹ çš„å•è¯");
+	JMenuItem item4 = new JMenuItem("ç¿»è¯‘");
+	JMenuItem item5 = new JMenuItem("åŠ å…¥æœªçŸ¥å•è¯");
+	JMenuItem item6 = new JMenuItem("ç™¾åº¦æœç´¢");
 	
 	
 	private wordjlabel wj;
@@ -53,7 +38,7 @@ public class EJPopupMenu extends JPopupMenu{
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
-	           }//¼ÓÈë×Ö·û´®ÈİÆ÷£¬²¢ÇÒ±£´æµ½±¾µØ£»
+	           }//åŠ å…¥å­—ç¬¦ä¸²å®¹å™¨ï¼Œå¹¶ä¸”ä¿å­˜åˆ°æœ¬åœ°ï¼›
 	        
 	    });
 		
@@ -75,7 +60,7 @@ public class EJPopupMenu extends JPopupMenu{
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
-	           }//¼ÓÈëÕıÔÚÑ§Ï°µÄµ¥´Ê
+	           }//åŠ å…¥æ­£åœ¨å­¦ä¹ çš„å•è¯
 	        }
 	    });
 		
@@ -98,7 +83,7 @@ public class EJPopupMenu extends JPopupMenu{
 		item5.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	           if (wj.ifknow){
-	           outjianf();}//É¾³ı×Ö·û´®ÈİÆ÷£¬²¢ÇÒ±£´æµ½µçÄÔ£»
+	           outjianf();}//åˆ é™¤å­—ç¬¦ä¸²å®¹å™¨ï¼Œå¹¶ä¸”ä¿å­˜åˆ°ç”µè„‘ï¼›
 	        }
 	    });
 		
@@ -108,19 +93,19 @@ public class EJPopupMenu extends JPopupMenu{
 	        	   try { 
 	        		    String url = "http://www.baidu.com/s?wd="+wj.name; 
 	        		    java.net.URI uri = java.net.URI.create(url); 
-	        		    // »ñÈ¡µ±Ç°ÏµÍ³×ÀÃæÀ©Õ¹ 
+	        		    // è·å–å½“å‰ç³»ç»Ÿæ¡Œé¢æ‰©å±• 
 	        		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
-	        		    // ÅĞ¶ÏÏµÍ³×ÀÃæÊÇ·ñÖ§³ÖÒªÖ´ĞĞµÄ¹¦ÄÜ 
+	        		    // åˆ¤æ–­ç³»ç»Ÿæ¡Œé¢æ˜¯å¦æ”¯æŒè¦æ‰§è¡Œçš„åŠŸèƒ½ 
 	        		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
 
-	        		      dp.browse(uri);// »ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷´ò¿ªÁ´½Ó 
+	        		      dp.browse(uri);// è·å–ç³»ç»Ÿé»˜è®¤æµè§ˆå™¨æ‰“å¼€é“¾æ¥ 
 
 	        		    } 
 	        		   } catch (java.lang.NullPointerException f) { 
-	        		    // ´ËÎªuriÎª¿ÕÊ±Å×³öÒì³£ 
+	        		    // æ­¤ä¸ºuriä¸ºç©ºæ—¶æŠ›å‡ºå¼‚å¸¸ 
 	        		    f.printStackTrace(); 
 	        		   } catch (java.io.IOException f) { 
-	        		    // ´ËÎªÎŞ·¨»ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷ 
+	        		    // æ­¤ä¸ºæ— æ³•è·å–ç³»ç»Ÿé»˜è®¤æµè§ˆå™¨ 
 	        		    f.printStackTrace(); 
 	        		   } 
 	        		  }
@@ -138,63 +123,11 @@ public class EJPopupMenu extends JPopupMenu{
 
 
 	
-
-//	protected void searchWords(String inputWord) {
-//		try {
-//            BufferedReader br = new BufferedReader(
-//         new FileReader("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));
-//            String line ;
-//            boolean isFound = false;
-//             
-////            System.out.println(inputWord.substring(0,inputWord.length()-1));
-//            if(inputWord.equals("")){
-//                return;
-//            }
-//     int hz=0;
-//     while (hz<=3){
-//            while((line = br.readLine()) != null){
-//                Scanner in = new Scanner(line);
-//            	String sword=in.next();//in.next()Ê¹ÓÃºó»á×Ô¶¯»»ĞĞ
-////            	if(sword.equals(inputWord.substring(0,inputWord.length()-2))){
-//                if(sword.equals(inputWord.substring(0,inputWord.length()-hz))){
-//
-//                    int offset = inputWord.length();
-//                    wj.widd.tp.fy.setText(line.substring(offset));
-//                    wj.widd.tp.fy1.setText("ÓĞ"+hz+"¸öºó×º");
-//                    wj.widd.tp.repaint();
-//                    System.out.println(wj.widd.tp.fy.getText());
-//                    isFound = true;
-//                    break;
-//
-//                }  
-//
-//                }
-//
-//     if (isFound){
-//  	   break;}
-//     hz++;
-//		}
-//            
-//            
-//            if(!isFound){
-//                wj.widd.tp.fy.setText("Ã»ÕÒµ½ÏàÓ¦Ïî>..<");
-//            }
-//        
-//		}
-//        catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//
-//	}
-	
- 
-	
 	   public void outjiaf() throws ClassNotFoundException{
 
 		   T1 tt1=new T1();
 		   widd.wo.word1.add(wj.name.toLowerCase());
 		   outnowjianf();
-//		   out();
 		   tt1.addinword(wj.name.toLowerCase());
 	    	
 	    	
@@ -207,36 +140,19 @@ public class EJPopupMenu extends JPopupMenu{
 		   try {
 			tt1.delinword(wj.name.toLowerCase());
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		   out();
 	    	
 	    }
 	
-//	   public void out(){
-//		   
-//		   
-//    	try{
-//	    		
-//	    		ObjectOutputStream out=new ObjectOutputStream(
-//	    				new FileOutputStream(
-//	    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/obj.txt"));
-//	    		out.writeObject(widd.wo.word1);
-//	    		out.close();
-//	    	}catch(IOException e ){
-//	    		e.printStackTrace();
-//	    	}
-//	    	
-//	   }
+
 	
 	
 	   public void outnowjiaf() throws ClassNotFoundException{
-		   T1 tt1=new T1();//ÄÃ¹¤¾ßÀà
+		   T1 tt1=new T1();//ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		   tt1.addnowword(wj.name.toLowerCase());
 		   widd.wo.word2.add(wj.name.toLowerCase());
 
-//		   outnow();
  	
 	    }
 	   
@@ -247,24 +163,8 @@ public class EJPopupMenu extends JPopupMenu{
 		   widd.wo.word2.remove(wj.name.toLowerCase());
 //		   System.out.println("jiar");
 		   tt1.delnowword(wj.name.toLowerCase());
-//		   outnow();
 	    	
 	    }
-	   
-	   
-//	   public void outnow(){
-//	   
-//	    	try{
-//		    		
-//		    		ObjectOutputStream out=new ObjectOutputStream(
-//		    				new FileOutputStream(
-//		    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
-//		    		out.writeObject(widd.wo.word2);
-//		    		out.close();
-//		    	}catch(IOException e ){
-//		    		e.printStackTrace();
-//		    	}	
-//		   }
 
 
 	}

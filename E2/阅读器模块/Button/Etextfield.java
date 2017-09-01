@@ -1,6 +1,5 @@
 package Button;
 
-
 import javax.swing.JTextField;
 
 public class Etextfield extends JTextField{
@@ -14,7 +13,5 @@ public class Etextfield extends JTextField{
 	public Etextfield(int x,int y,int i,int j){
 		setBounds(x,y,i,j);
 	}
-	
 
-	
 }

@@ -26,8 +26,8 @@ public class Word extends JPanel{
 	private window widd;
 	
 	
-	public ArrayList<String> word1;//“—ª·µ•¥ 
-	public ArrayList<String> word2;//’˝‘⁄—ßœ∞µƒµ•¥ 
+	public ArrayList<String> word1;//in
+	public ArrayList<String> word2;//now
 	
 	int x=50;
 	int y=10;
@@ -57,26 +57,26 @@ public class Word extends JPanel{
      	   if((c>=65&&c<=90)||(c>=97&&c<=125)){
      	   tn+=c;
             }
-     	   else if(c==44){//,µƒascll÷µ «44£ª
+     	   else if(c==44){//,ÔøΩÔøΩascll÷µÔøΩÔøΩ44ÔøΩÔøΩ
      	   
      	   creatWJL(x, y, tn);
      	   creatWJL(x, y, ",");
      	  
             tn="";   
      	   }
-     	   else if(c==46){//.µƒascll÷µ «44£ª
+     	   else if(c==46){//.ÔøΩÔøΩascll÷µÔøΩÔøΩ44ÔøΩÔøΩ
          	   
             creatWJL(x, y, tn);
          	creatWJL(x, y, ".");
                 tn="";   
          	   }
-     	   else if(c==63){//?µƒascll÷µ «63£ª
+     	   else if(c==63){//?ÔøΩÔøΩascll÷µÔøΩÔøΩ63ÔøΩÔøΩ
          	  
          	 creatWJL(x, y, tn);
          	 creatWJL(x, y, "?");
                 tn="";   
          	   }
-     	  else if(c==36){//$µƒascll÷µ «63£ª
+     	  else if(c==36){//$ÔøΩÔøΩascll÷µÔøΩÔøΩ63ÔøΩÔøΩ
                x=50;
                y+=20;
                tn="";   
@@ -91,12 +91,10 @@ public class Word extends JPanel{
      	   ti++;
      	   }
         
- 
-        
-		widd.tp.unknow.setText("Œ¥÷™µ•¥  ˝£∫"+count1);
-		widd.tp.unknowl.setText("Œ¥÷™¬ £∫"+count1*100/count+"%");
-		widd.tp.wordnumber.setText("◊‹µ•¥  ˝£∫"+count);
-		widd.tp.learning.setText("‘⁄—ßµ•¥  ˝£∫"+count2);
+		widd.tp.unknow.setText("Êú™Áü•ÂçïËØçÊï∞Ôºö"+count1);
+		widd.tp.unknowl.setText("Êú™Áü•ÁéáÔºö"+count1*100/count+"%");
+		widd.tp.wordnumber.setText("ÊÄªÂçïËØçÊï∞Ôºö"+count);
+		widd.tp.learning.setText("Âú®Â≠¶ÂçïËØçÊï∞Ôºö"+count2);
 		repaint();
 	}
 	
@@ -105,61 +103,9 @@ public class Word extends JPanel{
 		TextArea t=widd.ta;
 	} 
 	
-        
 
         
-        
-//        public ArrayList<String> inword(){
-//        	
-//        	ArrayList<String> w1 = null;
-//        	try {
-//				ObjectInputStream in=new ObjectInputStream(
-//		new FileInputStream("C:/Users/Administrator/Desktop/¥˙¬Î∫œºØ/obj.txt"));
-//				
-//				w1=(ArrayList<String>) in.readObject();
-//				
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//        	
-//        	return w1;
-//        	
-//        }
-        
-        
-// public ArrayList<String> innowword(){
-//        	
-//        	ArrayList<String> w1 = null;
-//        	try {
-//				ObjectInputStream in=new ObjectInputStream(
-//		new FileInputStream("C:/Users/Administrator/Desktop/¥˙¬Î∫œºØ/now.txt"));
-//				
-//				w1=(ArrayList<String>) in.readObject();
-//				
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//        	
-//        	return w1;
-//        	
-//        }
-        
-        
-        
-        
-        
-        
-   
-        
-        protected boolean ifWsords(String input) {//≈–∂œ «∑Ò «Œ¥÷™µ•¥ 
+        protected boolean ifWsords(String input) {
        	boolean isFound = false;
 
 
@@ -167,20 +113,18 @@ public class Word extends JPanel{
    			isFound=true;
    		}
 
-       	
 		return isFound;
 
    	}
       
         
-        protected boolean ifnowWords(String input) {//≈–∂œ «∑Ò «’˝‘⁄—ßœ∞µ•¥ 
+        protected boolean ifnowWords(String input) {
        	boolean isFound = false;
 
    		if (word2.contains(input.toLowerCase())){
    			isFound=true;
    		}
 
-       	
 		return isFound;
 
    	}
@@ -188,7 +132,7 @@ public class Word extends JPanel{
         
         
         
-    public void creatWJL( int x,int y,String z){//¥¥Ω®µ•¥ ±Í«©
+    public void creatWJL( int x,int y,String z){//ÂàõÂª∫ÂçïËØçÊ†áÁ≠æ
 		Font wz=new java.awt.Font("Dialog", 1,15);
 		FontMetrics fm = new JLabel().getFontMetrics(wz);
     	int len=(int) ((fm.stringWidth( z )));
@@ -212,21 +156,5 @@ public class Word extends JPanel{
     	}
     	
 }
-        
-    public void outf(){
-    	try{
-    		
-    		ObjectOutputStream out=new ObjectOutputStream(
-    				new FileOutputStream(
-    						"C:/Users/Administrator/Desktop/¥˙¬Î∫œºØ/obj.txt"));
-    		out.writeObject(word1);
-    		out.close();
-    	}catch(IOException e ){
-    		e.printStackTrace();
-    	}
-    	
-    	
-    }
-   
 
 }

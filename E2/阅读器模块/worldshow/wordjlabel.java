@@ -1,6 +1,6 @@
 package worldshow;
-//ÔÄ¶ÁµÄµ¥´ÊÓÉ±êÇ©¹¹³É
-//±êÇ©ÀàµÄÉè¼Æ
+//é˜…è¯»çš„å•è¯ç”±æ ‡ç­¾æ„æˆ
+//æ ‡ç­¾ç±»çš„è®¾è®¡
 import java.awt.Color;
 import java.awt.Font;
 
@@ -19,7 +19,7 @@ public class wordjlabel extends JLabel{
 	public boolean  ifknow ,ifnow;
 	public wordjlabel(int i,int j,int l,String name,
 			Font z,window widd,boolean g,boolean g1){
-		super(name);//	ÆğÊ¼Î»ÖÃ£¬³¤¶È£¬µ¥´Ê£¬±êÇ©¸ß£¬ÊÇ·ñÊÇ²»»áµÄµ¥´Ê£¬ÊÇ·ñÊÇÕıÔÚÑ§Ï°µÄµ¥´Ê
+		super(name);//	èµ·å§‹ä½ç½®ï¼Œé•¿åº¦ï¼Œå•è¯ï¼Œæ ‡ç­¾é«˜ï¼Œæ˜¯å¦æ˜¯ä¸ä¼šçš„å•è¯ï¼Œæ˜¯å¦æ˜¯æ­£åœ¨å­¦ä¹ çš„å•è¯
 
 		ifknow=g;
 		ifnow=g1;
@@ -31,7 +31,6 @@ public class wordjlabel extends JLabel{
 		setForeground(Color.white);
 		this.setBackground(Color.lightGray);
 
-
 		if(!(ifknow)){
 //		setOpaque(true);
 		setForeground(Color.lightGray);
@@ -40,15 +39,13 @@ public class wordjlabel extends JLabel{
 		if(ifnow){
 //			this.setBackground(Color.yellow );
 			setForeground(Color.yellow);
-//			System.out.println(name);//²é1ºÅbugÇø
+//			System.out.println(name);//æŸ¥1å·bugåŒº
 			}
-		
 		
 		ejm=new EJPopupMenu(this,widd);
 		this.add(ejm);
 		this.addMouseListener(new Emouselistener(this));
 		
 	}
-	
 
 }

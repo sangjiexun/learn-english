@@ -1,5 +1,5 @@
 package others;
-//µÈ¼¶Óë¾­Ñé¹ÜÀí
+//ç­‰çº§ä¸ç»éªŒç®¡ç†
 public class grade {
 public int ex;
 public int grade ,lastex,nextex;
@@ -8,8 +8,6 @@ public grade (int x){
 	ex=x;
 	
 	}	
-
-
 
 public int getgrade(){
 	grade = (int) (((float) Math.log((float)ex/(float)500+1))/ (float)Math.log(1.1))+1;
@@ -23,8 +21,6 @@ public double getlen(){
     l=(double)(ex-lastex)/(double)(nextex-lastex);
 	return l;
 }
-
-
 
 }
 

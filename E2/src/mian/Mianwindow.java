@@ -7,14 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -30,90 +24,78 @@ public class Mianwindow extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	public Panel1 tp1;
-	private static TextArea ta;
-    private static StringBuffer ba;
+	private static StringBuffer ba;
     public static Mianwindow widm;
-    public ArrayList<String> word1;//ÒÑ»áµ¥´Ê
-    public ArrayList<String> word2;//ÕıÔÚÑ§Ï°µÄµ¥´Ê
+    public ArrayList<String> word1;//å·²ä¼šå•è¯
+    public ArrayList<String> word2;//æ­£åœ¨å­¦ä¹ çš„å•è¯
     
     
-    public ArrayList<String> kd1=new ArrayList();
+    public ArrayList<String> kd1=new ArrayList<String>();
 	public static void main(String[] args) throws ClassNotFoundException {
-		T1 tt1=new T1();//´´½¨¹¤¾ßÀà
-		//»ñÈ¡Êı¾İ
+		T1 tt1=new T1();//åˆ›å»ºå·¥å…·ç±»
+		
 		ArrayList<String> wordin = tt1.getinworld();
 		ArrayList<String> wordnow = tt1.getnowworld();		
 		
 		 widm = new Mianwindow(wordin,wordnow);
-//		 actionPerformed();
-		 
-	}
-	
+	 
+	}	
 	
 	public Mianwindow(ArrayList<String> w1 ,ArrayList<String> w2) {
 		this.word1=w1;
 		this.word2 =w2;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//µã»÷¹Ø±Õ°´Å¥ºó£¬³ÌĞò½áÊø
-		setBounds(300,30,900,700);//ÉèÖÃ´óĞ¡
-		setTitle("Ö÷´°¿Ú");
-		tp1=new Panel1(this);//Ìí¼Ó¹¤¾ßÀ¸
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//ç‚¹å‡»å…³é—­æŒ‰é’®åï¼Œç¨‹åºç»“æŸ
+		setBounds(300,30,900,700);//è®¾ç½®å¤§å°
+		setTitle("ä¸»çª—å£");//çª—å£çš„åå­—
+		tp1=new Panel1(this);//åˆ›å»ºå·¥å…·æ å¹¶åˆ©ç”¨thisä¼ é€’å‚æ•°
 		add(tp1,BorderLayout.WEST);
 		JMenuBar jmb = createMenuBar();
 		this.setJMenuBar(jmb);
 		
-		setVisible(true);
-
+		setVisible(true);//è®¾ç½®ä¸ºå¯è§
 	}
 	
 	private JMenuBar createMenuBar() {
-		// ÊµÀı»¯Ò»¸öJMenuBarµÄ¶ÔÏó
+		// å®ä¾‹åŒ–ä¸€ä¸ªJMenuBarçš„å¯¹è±¡
 		JMenuBar jmb = new JMenuBar();
-		// ²Ëµ¥ÏîµÄÊı×é
-		String[] arrayMenu = { "Êı¾İ²Ù×÷", "ÆäËû¹¦ÄÜ", "°ïÖú" };
-		// ²Ëµ¥×ÓÏîµÄÊı×é
-		String[][] arrayMenuItem = { { "µ¼ÈëÕıÔÚÑ§Ï°µ¥´Ê", "Ìí¼Ó´Êµä", "¸ü¸Ä´Êµä´ÊÒå" }, 
-				{ "×Ô¶¯Æ¥ÅäÎÄÕÂ" ,"Ñ§Ï°¼ÇÂ¼"},{ "°ïÖúÖ÷Ìâ", "¹ØÓÚÈí¼ş" } };
-		// ¸ù¾İÊı¾İÑ­»·À´´´½¨²Ëµ¥À¸
-		JMenu menu1 = new JMenu("Êı¾İ²Ù×÷");
+//æ•°ç»„æš‚æ—¶æ²¡ä½¿ç”¨
+//		// èœå•é¡¹çš„æ•°ç»„
+//		String[] arrayMenu = { "æ•°æ®æ“ä½œ", "å…¶ä»–åŠŸèƒ½", "å¸®åŠ©" };
+//		// èœå•å­é¡¹çš„æ•°ç»„
+//		String[][] arrayMenuItem = { { "å¯¼å…¥æ­£åœ¨å­¦ä¹ å•è¯", "æ·»åŠ è¯å…¸", "æ›´æ”¹è¯å…¸è¯ä¹‰" }, 
+//				{ "è‡ªåŠ¨åŒ¹é…æ–‡ç« " ,"å­¦ä¹ è®°å½•"},{ "å¸®åŠ©ä¸»é¢˜", "å…³äºè½¯ä»¶" } };
+		// æ ¹æ®æ•°æ®å¾ªç¯æ¥åˆ›å»ºèœå•æ 
+		JMenu menu1 = new JMenu("æ•°æ®æ“ä½œ");
 		jmb.add(menu1);
-		JMenuItem jmi1 = new JMenuItem("µ¼ÈëÕıÔÚÑ§Ï°µ¥´Ê");
+		JMenuItem jmi1 = new JMenuItem("å¯¼å…¥æ­£åœ¨å­¦ä¹ å•è¯");
 		menu1.add(jmi1);
 		jmi1.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {	
 				{
-					ta=new TextArea();
+					new TextArea();
 					ba=new StringBuffer();
 					FileDialog my=new FileDialog(widm);
 			        my.setVisible(true);
 			        String t=my.getDirectory()+my.getFile();
-
-			        try {
-			        	
+			        try {			        	
 								BufferedReader bufferedReader = new BufferedReader(
 										new InputStreamReader(
 							                    new FileInputStream(t)));
 			                   String lineTxt = null;
 			                   while(  (lineTxt = bufferedReader.readLine())!= null)  
 			                   { 
-
 			                   ba.append(lineTxt+" $ "+"\r\n");
 			                   }
 			                   bufferedReader.close();
 			        }catch (Exception e1) {
-			           System.out.println("¶ÁÈ¡ÎÄ¼şÄÚÈİ³ö´í");
+			           System.out.println("è¯»å–æ–‡ä»¶å†…å®¹å‡ºé”™");
 			           e1.printStackTrace();
 			       }
-			       
-
 				}
 				String bba=ba.toString();
-
-				bba+="%";
-				
-				int l=bba.length();
+				bba+="%";	
 		        int ti=0;
 		        String tn="";
 
@@ -129,45 +111,42 @@ public class Mianwindow extends JFrame{
 		     		 kd1.add(tn);		     		 
 		     	 }
 		     	 tn="";}
-//		     	   System.out.println(c);		     	
-
 		     		   }
 		     	   ti++;
 		     	   }		        
 		        				
-				System.out.println("Òªµ¼ÈëµÄµ¥´Ê£º"+kd1);
+				System.out.println("è¦å¯¼å…¥çš„å•è¯ï¼š"+kd1);
+				
+				T1 tt1 =new T1();
 				
 				for (int i=0;i<kd1.size();i++){
 	
-			if(ifinWords(kd1.get(i))&&
-			!(word2.contains(kd1.get(i)))){
-                 if(word1.contains(kd1.get(i))){
-                	 word1.remove(kd1.get(i)); 
-                 }
-				     word2.add(kd1.get(i));
-			}
-			
-		}
-		
-				outnow();	
-				out();
-				
+      
+                 try {
+					tt1.delinword(kd1.get(i));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+                 try {
+					tt1.addnowword(kd1.get(i));
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+				}
 			}
 			} );
-	       
-	
+
 		return jmb;
 	}
 	
 	
 	
 	public static void actionPerformed() {
-		ta=new TextArea();
+		new TextArea();
 		ba=new StringBuffer();
 		FileDialog my=new FileDialog(widm);
         my.setVisible(true);
         String t=my.getDirectory()+my.getFile();
-//        db.t=t;
         System.out.println(t);
         try {
         	
@@ -175,120 +154,17 @@ public class Mianwindow extends JFrame{
 							new InputStreamReader(
 				                    new FileInputStream(t)));
                    String lineTxt = null;
-                   while((lineTxt = bufferedReader.readLine())!= null)  
-                   { 
-//                   ta.append(lineTxt);
+                   while((lineTxt = bufferedReader.readLine())!= null){
                    ba.append(lineTxt+" $ "+"\r\n");
                    }
                    bufferedReader.close();
         }catch (Exception e1) {
-           System.out.println("¶ÁÈ¡ÎÄ¼şÄÚÈİ³ö´í");
+           System.out.println("è¯»å–æ–‡ä»¶å†…å®¹å‡ºé”™");
            e1.printStackTrace();
        }
-	
-//		db.text=ba.toString();
-//		db.zairu();
 	}
 	
-	
-	
-	public static ArrayList<String> inword(){
-    	
-    	ArrayList<String> w1 = null;
-    	try {
-			ObjectInputStream in=new ObjectInputStream(
-	new FileInputStream("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/obj.txt"));
-			
-			w1=(ArrayList<String>) in.readObject();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}   	
-    	return w1;	
-    }
-	
-	public static ArrayList<String> innowword(){
-    	
-    	ArrayList<String> w1 = null;
-    	try {
-			ObjectInputStream in=new ObjectInputStream(
-	new FileInputStream("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
-			
-			w1=(ArrayList<String>) in.readObject();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return w1; 	
-    }
-	
-	
-	protected boolean ifinWords(String inputWord) {
-		boolean isFound = false;
-		try {
-            BufferedReader br = new BufferedReader(
-         new FileReader("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));
-            
-            String line ;
-            System.out.println(inputWord);
-            if(inputWord.equals("")){
-                return isFound;
-            }
-                         
-            while((line = br.readLine()) != null){
-                Scanner in = new Scanner(line);
- 
-                if(in.next().equals(inputWord)){
-                    int offset = inputWord.length();    
-                    isFound = true;
-                    break;
-                }
-        }
-            
-		}
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-	
-		return isFound;
-	}
-	
-	
-	public void outnow(){
-		   		   
-    	try{
-	    		
-	    		ObjectOutputStream out=new ObjectOutputStream(
-	    				new FileOutputStream(
-	    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
-	    		out.writeObject(word2);
-	    		out.close();
-	    	}catch(IOException e ){
-	    		e.printStackTrace();
-	    	}
-	    	
-	   }
-	
-	public void out(){
-   
-    	try{	    		
-	    		ObjectOutputStream out=new ObjectOutputStream(
-	    				new FileOutputStream(
-	    						"C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/obj.txt"));
-	    		out.writeObject(word1);
-	    		out.close();
-	    	}catch(IOException e ){
-	    		e.printStackTrace();
-	    	}	    	
-	   }		
+
 }
 
 

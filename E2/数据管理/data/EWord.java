@@ -50,23 +50,23 @@ public static  void dd (String ba){
  	   if((c>=65&&c<=90)||(c>=97&&c<=125)){
  	   tn+=c;
         }
- 	   else if(c==44){//,µÄascllÖµÊÇ44£»
+ 	   else if(c==44){//,çš„ascllå€¼æ˜¯44ï¼›
 // 	   System.out.println("999");
 // 	 wll.add(",");
  	  
         tn="";   
  	   }
- 	   else if(c==46){//.µÄascllÖµÊÇ44£»
+ 	   else if(c==46){//.çš„ascllå€¼æ˜¯44ï¼›
      	   
 // 		  wll.add(".");
             tn="";   
      	   }
- 	   else if(c==63){//?µÄascllÖµÊÇ63£»
+ 	   else if(c==63){//?çš„ascllå€¼æ˜¯63ï¼›
      	  
 // 		  wll.add("?");
             tn="";   
      	   }
- 	  else if(c==36){//$µÄascllÖµÊÇ63£»
+ 	  else if(c==36){//$çš„ascllå€¼æ˜¯63ï¼›
  		  wll.add(tn);
            tn="";   
     	   }
@@ -90,13 +90,13 @@ protected static ArrayList<EWord> daoru() {
 	ArrayList<EWord> EWL1 = null;
 	try {
         BufferedReader br = new BufferedReader(
-     new FileReader("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));
+     new FileReader("C:/Users/Administrator/Desktop/ä»£ç åˆé›†/dictionary.txt"));
         String line ;
         String chinese;
          
         while((line = br.readLine()) != null){
             Scanner in = new Scanner(line);
-        	String sword=in.next();//in.next()Ê¹ÓÃºó»á×Ô¶¯»»ĞĞ
+        	String sword=in.next();//in.next()ä½¿ç”¨åä¼šè‡ªåŠ¨æ¢è¡Œ
             int offset = sword.length();
             chinese=line.substring(offset);
             EWL1=new ArrayList<EWord>();
@@ -113,14 +113,6 @@ protected static ArrayList<EWord> daoru() {
 	
 return EWL1;
 }
-
-
-
-
-
-
-
-
 
 
 }

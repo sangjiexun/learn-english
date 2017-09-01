@@ -15,8 +15,8 @@ public class recitewindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ArrayList<String> word1;//ÒÑ»áµ¥´Ê
-    public ArrayList<String> word2;//ÕıÔÚÑ§Ï°µÄµ¥´Ê
+	public ArrayList<String> word1;//å·²ä¼šå•è¯
+    public ArrayList<String> word2;//æ­£åœ¨å­¦ä¹ çš„å•è¯
     
 	public recitewindow(ArrayList<String>w1, ArrayList<String> w2){
 		word1=w1;
@@ -27,11 +27,8 @@ public class recitewindow extends JFrame {
 	setTitle("English help");
 	add(new panel(this),BorderLayout.NORTH);
 //	System.out.println(word2);
-	addKeyListener(new mykey());  
-	
+	addKeyListener(new mykey());  	
 	setVisible(true);
 	}
-	
-	
 	
 }

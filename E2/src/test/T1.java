@@ -6,10 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 
-import com.mysql.jdbc.Statement;
 public class T1 {
  static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
  static final String DB_URL="jdbc:mysql://localhost:3306/english?"
@@ -23,7 +21,6 @@ public class T1 {
 	 ds.setDriverClassName(JDBC_DRIVER);
 	 ds.setUsername(USER);
 	 ds.setPassword(PASSWORD);
- 
  }
  
 
@@ -33,33 +30,28 @@ public class T1 {
     Connection conn=null;
 	PreparedStatement ptmt=null;
 	ResultSet rs=null; 
-	ArrayList<String> word1 =new ArrayList<String>();//已会单词
+	ArrayList<String> word1 =new ArrayList<String>();//锟窖会单锟斤拷
 	
-	//1.装载驱动程序
+	//1.瑁呰浇椹卞姩绋嬪簭
 	Class.forName(JDBC_DRIVER);
-	//2.建立链接
+	//2.寤虹珛閾炬帴
 	try { 	
 		conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-		//3、执行sql语句
-//		ptmt=conn.prepareStatement("select * from inword");	
+		//3銆佹墽琛宻ql璇彞
+
 		ptmt=conn.prepareStatement("select * from dictionary where inword=1");	
 		ptmt.setFetchSize(2);
 		rs=ptmt.executeQuery();
-		//4、执行结果
-
-		while (rs.next()){
-//		System.out.println(rs.getString("id")+": "+rs.getString("inword"));
-		
-//		word1.add(rs.getString("inword"));
+	
+		while (rs.next()){		
 		word1.add(rs.getString("english"));
 		}
-	   
 
 	} catch (SQLException e) {
-		//异常处理
+		
 		e.printStackTrace();
 	}finally{
-		//5 清理
+		//5 娓呯悊
 		try {
 		if(conn!=null)
 			conn.close();
@@ -69,8 +61,7 @@ public class T1 {
 			rs.close();
 		} catch (SQLException e) {
 	
-		}
-		
+		}	
 	}
 	return word1;
 	}
@@ -81,33 +72,32 @@ public class T1 {
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
 		ResultSet rs=null; 
-		ArrayList<String> word1 =new ArrayList<String>();//已会单词
+		ArrayList<String> word1 =new ArrayList<String>();//锟窖会单锟斤拷
 		
-		//1.装载驱动程序
+		//1.瑁呰浇椹卞姩绋嬪簭
 		Class.forName(JDBC_DRIVER);
-		//2.建立链接
+		//2.寤虹珛閾炬帴
 		try { 	
 			conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-			//3、执行sql语句
+			//3銆佹墽琛宻ql璇彞
 //			ptmt=conn.prepareStatement("select * from nowword");	
 			ptmt=conn.prepareStatement("select * from dictionary where nowword=1");	
 			ptmt.setFetchSize(2);
 			rs=ptmt.executeQuery();
-			//4、执行结果
+			//鎵ц缁撴灉
 
 			while (rs.next()){
 //			System.out.println(rs.getString("id")+": "+rs.getString("inword"));
 			
 //			word1.add(rs.getString("nowword"));
 		    word1.add(rs.getString("english"));
-			}
-		   
+			}	   
 
 		} catch (SQLException e) {
-			//异常处理
+			
 			e.printStackTrace();
 		}finally{
-			//5 清理
+			//5 娓呯悊
 			try {
 			if(conn!=null)
 				conn.close();
@@ -129,32 +119,32 @@ public class T1 {
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
 		ResultSet rs=null; 
-		String word1 =new String();//已会单词
+		String word1 =new String();//锟窖会单锟斤拷
 		
-		//1.装载驱动程序
+		//1.瑁呰浇椹卞姩绋嬪簭
 		Class.forName(JDBC_DRIVER);
-		//2.建立链接
+		//2.寤虹珛閾炬帴
 		try { 	
 			conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-			//3、执行sql语句
+			//3銆佹墽琛宻ql璇彞
 			ptmt=conn.prepareStatement("select * from dictionary where english=?");	
 			ptmt.setString(1, english);
 			ptmt.setFetchSize(2);
 			rs=ptmt.executeQuery();
-			//4、执行结果
+			//鎵ц缁撴灉
 
 			while (rs.next()){
 			word1=rs.getString("chinese");
 			}
 		   if(word1.length()==0){
-			   word1="查询不到";
+			   word1="锟斤拷询锟斤拷锟斤拷";
 		   }
 
 		} catch (SQLException e) {
-			//异常处理
+			
 			e.printStackTrace();
 		}finally{
-			//5 清理
+			//5 娓呯悊
 			try {
 			if(conn!=null)
 				conn.close();
@@ -164,8 +154,7 @@ public class T1 {
 				rs.close();
 			} catch (SQLException e) {
 		
-			}
-			
+			}	
 		}
 		return word1;
 		}
@@ -178,12 +167,12 @@ public class T1 {
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
 			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				ptmt=conn.prepareStatement("select * from inword where inword=? ");	
 				ptmt.setString(1, word);
 				rs=ptmt.executeQuery();
@@ -201,17 +190,16 @@ public class T1 {
 //				rs=ptmt.executeQuery();
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
+
+				//鎵ц缁撴灉
 //				while (rs.next()){
 //				System.out.println(rs.getString("UserName")+": "+rs.getString("CourseName"));
 //			}
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -224,42 +212,35 @@ public class T1 {
 			}
 		
 		
-		@SuppressWarnings("resource")
 		public  void insertinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				ptmt=conn.prepareStatement("insert into inword (inword,time) values (?,0)");	
 				ptmt.setString(1, word);
 				
-
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
+		
+				//鎵ц缁撴灉
 
-				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
 				if(ptmt!=null)
 					ptmt.close();
 				} catch (SQLException e) {
-			
-				}
+			}
 			}
 			}
 
@@ -270,12 +251,12 @@ public class T1 {
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
 			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				ptmt=conn.prepareStatement("select * from nowword where nowword=? ");	
 				ptmt.setString(1, word);
 				rs=ptmt.executeQuery();
@@ -293,17 +274,16 @@ public class T1 {
 //				rs=ptmt.executeQuery();
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
+		
+				//鎵ц缁撴灉
 //				while (rs.next()){
 //				System.out.println(rs.getString("UserName")+": "+rs.getString("CourseName"));
 //			}
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -316,40 +296,35 @@ public class T1 {
 			}
 		
 		
-		@SuppressWarnings("resource")
 		public  void insertnowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				ptmt=conn.prepareStatement("insert into nowword (nowword,time) values (?,0)");	
 				ptmt.setString(1, word);
 				
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
+			
+				//鎵ц缁撴灉
 
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
 				if(ptmt!=null)
 					ptmt.close();
-				} catch (SQLException e) {
-			
+				} catch (SQLException e) {	
 				}
 			}
 			}
@@ -358,38 +333,33 @@ public class T1 {
 		public  void addinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				
 				ptmt=conn.prepareStatement("update  dictionary set inword=1 where english=?");	
 				ptmt.setString(1, word);
-				
 
 				 ptmt.execute();
 				 conn.commit(); 
 				
-				
-				//4、执行结果
+				//鎵ц缁撴灉
 
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
 				if(ptmt!=null)
 					ptmt.close();
 				} catch (SQLException e) {
-			
 				}
 			}
 			}
@@ -398,31 +368,25 @@ public class T1 {
 		public  void delinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
-				
+				//3銆佹墽琛宻ql璇彞		
 				ptmt=conn.prepareStatement("update  dictionary set inword=0 where english=?");	
 				ptmt.setString(1, word);
-				
 
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
-
-				 
+		
+				//鎵ц缁撴灉
+	 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -439,14 +403,12 @@ public class T1 {
 		public  void addnowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				
 				ptmt=conn.prepareStatement("update  dictionary set nowword=1 where english=?");	
 				ptmt.setString(1, word);
@@ -456,14 +418,14 @@ public class T1 {
 				 conn.commit(); 
 				
 				
-				//4、执行结果
+				//鎵ц缁撴灉
 
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -479,14 +441,12 @@ public class T1 {
 		public  void increasetime (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				
 				ptmt=conn.prepareStatement("update  dictionary set time=time+1 where english=?");	
 				ptmt.setString(1, word);
@@ -494,16 +454,15 @@ public class T1 {
 
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
+								
+				//鎵ц缁撴灉
 
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -519,30 +478,26 @@ public class T1 {
 		public  void delnowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				
 				ptmt=conn.prepareStatement("update  dictionary set nowword=0 where english=?");	
 				ptmt.setString(1, word);
 				
 				 ptmt.execute();
 				 conn.commit(); 
-				
-				
-				//4、执行结果
-
+								
+				//鎵ц缁撴灉
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -555,17 +510,15 @@ public class T1 {
 			}
 		
 		
-		@SuppressWarnings("resource")
 		public  void insertdictionary (String english,String chinese) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
-			ResultSet rs=null; 
-			//1.装载驱动程序
+			//1.瑁呰浇椹卞姩绋嬪簭
 			Class.forName(JDBC_DRIVER);
-			//2.建立链接
+			//2.寤虹珛閾炬帴
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3、执行sql语句
+				//3銆佹墽琛宻ql璇彞
 				ptmt=conn.prepareStatement("insert into dictionary (english,chinese,time) values (?,?,0)");	
 				
 				ptmt.setString(1, english);
@@ -573,14 +526,13 @@ public class T1 {
 				 ptmt.execute();
 				 conn.commit(); 
 				
-				//4、执行结果
-
+				//鎵ц缁撴灉
 				 
 			} catch (SQLException e) {
-				//异常处理
+				
 				e.printStackTrace();
 			}finally{
-				//5 清理
+				//5 娓呯悊
 				try {
 				if(conn!=null)
 					conn.close();
@@ -591,24 +543,11 @@ public class T1 {
 				}
 			}
 			}
-		
-		
-		
-		
-		
-		
-		
+	
 		
 public static void main(String[] args) throws ClassNotFoundException{
 	T1 tt1=new T1();
-//	tt1.insertinword("gaol");
-//	tt1.insertnowword("portable");
-//	ArrayList<String> w3=new ArrayList<String>();
-//	w3=tt1.getnowworld();
-//	for (String word2:w3){
-//		System.out.println(word2);	
-//	}
-	
+
 	tt1.increasetime("sb");
 	
 }

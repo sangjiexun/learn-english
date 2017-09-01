@@ -1,5 +1,5 @@
 package Button;
-//¹¤¾ßÀ¸
+//å·¥å…·æ 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.TextField;
@@ -36,23 +36,23 @@ public  class Tool_panel extends JPanel{
 	
 	
 	public Tool_panel(window window){
-		//Ìí¼Ó²Ù×÷°´Å¥
+		//æ·»åŠ æ“ä½œæŒ‰é’®
 		this.widd=window;
 		
 		{
 		setLayout(null);
-		setPreferredSize(new Dimension(200, 50));//¹¤¾ßÀ¸µÄ¿í¶È£»
+		setPreferredSize(new Dimension(200, 50));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½È£ï¿½
 		setBackground(new Color(60,60,60));
 	
-		}//¹¤¾ßÀ¸µÄ»ù±¾ÊôĞÔ
+		}//å·¥å…·æ çš„åŸºæœ¬å±æ€§
 		
-		fy=new wordshuxing(10, 10, 40,"ÎÒÊÇ·­Òë:");
-		fy1=new wordshuxing(10, 60, 40,"ÎÒÊÇ±¸×¢:");
-		unknow=new wordshuxing(10, 110,30, " Î´Öªµ¥´ÊÊı£º");
-		unknowl=new wordshuxing(10, 150,30, " Î´Öª£º");
-		add(new wordshuxing(10, 190,30, " Ä°ÉúÂÊ£º"));
-		wordnumber=new wordshuxing(10, 230,30, " ×Üµ¥´ÊÊı£º");
-		learning=new wordshuxing(10, 270,60, " ¿Õ°×±¸ÓÃÇøÓò");
+		fy=new wordshuxing(10, 10, 40,"æˆ‘æ˜¯ç¿»è¯‘:");
+		fy1=new wordshuxing(10, 60, 40,"æˆ‘æ˜¯å¤‡æ³¨:");
+		unknow=new wordshuxing(10, 110,30, " æœªçŸ¥å•è¯æ•°ï¼š");
+		unknowl=new wordshuxing(10, 150,30, " æœªçŸ¥ï¼š");
+		add(new wordshuxing(10, 190,30, " é™Œç”Ÿç‡ï¼š"));
+		wordnumber=new wordshuxing(10, 230,30, " æ€»å•è¯æ•°ï¼š");
+		learning=new wordshuxing(10, 270,60, " ç©ºç™½å¤‡ç”¨åŒºåŸŸ");
 		
 		t1 =new Etextfield(10 , 450 ,150 ,20);
 		t2=new Etextfield(10 , 490 ,150 ,20);
@@ -74,17 +74,17 @@ public  class Tool_panel extends JPanel{
 		OT.setBorder(new LineBorder(new Color(40,40,40)));
 		OT.setBounds(10,370, 70, 60);
 		
-		JButton OT2=new JButton(" Ë¢ĞÂ");
+		JButton OT2=new JButton(" åˆ·æ–°");
 		OT2.setBounds(90,370, 70, 30);
 		OT2.setBackground(new Color(20,20,20));
 		OT2.setForeground(Color.white);
 		OT2.setBorder(new LineBorder(new Color(40,40,40)));
 		
-		JButton OT3=new JButton(" ×ÔÁô°´Å¥");
+		JButton OT3=new JButton(" è‡ªç•™æŒ‰é’®");
 		OT3.setBounds(20,580, 120, 30);
 		OT3.setBorder(new LineBorder(Color.CYAN));
 		
-		JButton FT=new JButton(" Ìí¼Ó·­Òë");
+		JButton FT=new JButton(" æ·»åŠ ç¿»è¯‘");
 		FT.setBackground(new Color(0,166,80));
 		FT.setBounds(20,540, 120, 30);
 		FT.setBorder(new LineBorder(Color.CYAN));
@@ -104,8 +104,7 @@ public  class Tool_panel extends JPanel{
 					e1.printStackTrace();
 				}
 //				WriteDate(t1.getText()+"  "+t2.getText());
-				
-		
+
 				t1.setText("");
 				t2.setText("");
 				}
@@ -113,50 +112,12 @@ public  class Tool_panel extends JPanel{
 			
 		}
 				);
-		
-		
+
 		add(FT);
 		add(OT);//open text button;
 		add(OT2);
 		add(OT3);
 		
 	}
-	
-	
-//	public static void WriteDate(String nfile) {
-//
-//		try{
-//		FileReader read = new FileReader(new File
-//				("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));//´ò¿ªtxt
-//
-//		StringBuffer sb = new StringBuffer();
-//
-//		char ch[] = new char[1024];
-//		int d = read.read(ch);
-//		while(d!=-1){
-//		String str = new String(ch,0,d);
-//		sb.append(str);
-//		d = read.read(ch);
-//
-//		}
-//
-//		System.out.println("Ìí¼ÓÁË·­Òë£º "+sb.toString());
-//
-//		BufferedWriter output = new BufferedWriter(new FileWriter
-//				("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/dictionary.txt"));//±£´æTXTÎ»ÖÃ
-//
-//		output.write(String.valueOf(sb.toString()));
-//
-//		output.write(String.valueOf(nfile)+"\r\n");
-//
-//		output.close();
-//
-//		} catch (Exception ex) {
-//		System.out.println(ex);
-//
-//		}
-//		}
-
-	
 
 }

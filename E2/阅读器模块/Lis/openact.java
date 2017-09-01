@@ -41,7 +41,7 @@ public class openact implements ActionListener{
                    }
                    bufferedReader.close();
         }catch (Exception e1) {
-           System.out.println("读取文件内容出错");
+           System.out.println("璇诲彇鏂囦欢鍐呭鍑洪敊");
            e1.printStackTrace();
        }
 	
