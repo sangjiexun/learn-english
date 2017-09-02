@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -137,7 +138,7 @@ public class T1 {
 			word1=rs.getString("chinese");
 			}
 		   if(word1.length()==0){
-			   word1="��ѯ����";
+			   word1="没有查到";
 		   }
 
 		} catch (SQLException e) {
@@ -378,7 +379,7 @@ public class T1 {
 				ptmt.setString(1, word);
 
 				 ptmt.execute();
-				 conn.commit(); 
+//				 conn.commit(); 
 		
 				//执行结果
 	 
@@ -415,7 +416,7 @@ public class T1 {
 				
 
 				 ptmt.execute();
-				 conn.commit(); 
+//				 conn.commit(); 
 				
 				
 				//执行结果
@@ -544,11 +545,103 @@ public class T1 {
 			}
 			}
 	
+		public  Timestamp getlasttime (String english) throws ClassNotFoundException{
+		    Connection conn=null;
+			PreparedStatement ptmt=null;
+			ResultSet rs=null; 
+			Timestamp Lt=null;
+			//1.装载驱动程序
+			Class.forName(JDBC_DRIVER);
+			//2.建立链接
+			try { 	
+				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
+				//3、执行sql语句
+				ptmt=conn.prepareStatement("select * from dictionary where english=?");	
+				
+				ptmt.setString(1, english);
+				ptmt.execute();
+				rs=ptmt.executeQuery();
+//				conn.commit(); 
+				
+				//执行结果
+				
+				while (rs.next()){		
+					System.out.println((rs.getString("lasttime")));
+					Lt=rs.getTimestamp("lasttime");
+					}
+				
+				 
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}finally{
+				//5 清理
+				try {
+				if(conn!=null)
+					conn.close();
+				if(ptmt!=null)
+					ptmt.close();
+				} catch (SQLException e) {
+			
+				}
+			}
+			return Lt;
+			}
+		
+		
+		public  void setlasttime (String english) throws ClassNotFoundException{
+		    Connection conn=null;
+			PreparedStatement ptmt=null;
+			//1.装载驱动程序
+			Class.forName(JDBC_DRIVER);
+			//2.建立链接
+			try { 	
+				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
+				//3、执行sql语句
+				ptmt=conn.prepareStatement("update dictionary set lasttime =? where english=?");	
+				Timestamp date=new Timestamp(System.currentTimeMillis());
+				String Dates=date.toString();
+				ptmt.setString(1, Dates);
+				ptmt.setString(2, english);
+
+				 ptmt.execute();
+//				 conn.commit(); 
+				
+				//执行结果
+				 
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}finally{
+				//5 清理
+				try {
+				if(conn!=null)
+					conn.close();
+				if(ptmt!=null)
+					ptmt.close();
+				} catch (SQLException e) {
+			
+				}
+			}
+			}	
+		
+		public int  passtime(Timestamp t1){
+			int pt =0;
+			long lpt=0;
+			Timestamp date=new Timestamp(System.currentTimeMillis());
+			lpt=date.getTime()-t1.getTime();
+			pt=(int) (lpt/86400000);
+			return pt;
+		}
+		
+				
 		
 public static void main(String[] args) throws ClassNotFoundException{
 	T1 tt1=new T1();
-
-	tt1.increasetime("sb");
+//	tt1.setlasttime("embodiment");
+//	System.out.println(tt1.getlasttime("embodiment"));
+	System.out.println(tt1.passtime(tt1.getlasttime("agent")));
+//	Timestamp date=new Timestamp(System.currentTimeMillis());
 	
 }
 }

@@ -53,13 +53,13 @@ public class panel extends JPanel{
 	setPreferredSize(new Dimension(200, 700));
 	setBackground(new Color(199,237,204));
 	
-	j4=new jtable(500,20,200,50,"µÈ¼¶");
-	j41=new jtable(500,70,200,50,"¾­Ñé");
+	j4=new jtable(500,20,200,50,"ç­‰çº§");
+	j41=new jtable(500,70,200,50,"ç»éªŒ");
 	
 	j1=new jtable(20,20,400,50,w1);
 	j11=new jtable(20,70,400,50,"starting");
 	w7=w1;
-	j2=new jtable(20,200,400,100,"ÖĞÎÄ");
+	j2=new jtable(20,200,400,100,"ä¸­æ–‡");
 	j21=new jtable(20,300,400,100,"start"); 
 	
 	j3=new jtable(500,200,200,100,"start");
@@ -154,7 +154,7 @@ public class panel extends JPanel{
             	j31.setText(j21.getText());
             	j21.setText(j11.getText());
             	
-//            	w2=searchWords(w1);//Ô­À´µÄ·½°¸
+//            	w2=searchWords(w1);//Ô­ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
             	try {
 					w2=tt1.searchWords(w1);
 				} catch (ClassNotFoundException e) {
@@ -166,8 +166,8 @@ public class panel extends JPanel{
             	w5=""+grade1.ex;
             	
             	w6=""+grade1.getgrade();
-            	j4.setText("µÈ¼¶"+w6);
-            	j41.setText("¾­Ñé"+w5);
+            	j4.setText("ç­‰çº§"+w6);
+            	j41.setText("ç»éªŒ"+w5);
             	jex.setBounds(20,120,(int)(grade1.getlen()*680),80);
             	WriteDate(w5);
                 
@@ -177,24 +177,24 @@ public class panel extends JPanel{
             else{
             j41.setBackground(Color.red);	
             grade1.ex=grade1.ex-((int)((Math.random()+0.12)));
-            j41.setText("¾­Ñé"+w5);
+            j41.setText("ç»éªŒ"+w5);
            
             }
             
             System.out.println(w7);
             t2.setText("");
-            j2.setText("ÖĞÎÄ");
+            j2.setText("ä¸­æ–‡");
             }
             if(k.getKeyChar()=='\n'){
             	baidusousuo();
             }
-            //ÌáÊ¾´ğ°¸
+            //ï¿½ï¿½Ê¾ï¿½ï¿½
             if(k.getKeyChar()=='0'){
             	j2.setText(w7);
             }
-            //Òş²Ø´ğ°¸
+            //ï¿½ï¿½ï¿½Ø´ï¿½
 //            if(k.getKeyChar()=='9'){
-//            	j2.setText("ÖĞÎÄ");
+//            	j2.setText("ï¿½ï¿½ï¿½ï¿½");
 //            }
         }
       	
@@ -215,14 +215,14 @@ public class panel extends JPanel{
 		@Override
 		public void keyReleased(KeyEvent e) {
 			if(e.getKeyChar()=='0'){
-        		j2.setText("ÖĞÎÄ");
+        		j2.setText("ä¸­æ–‡");
         		System.out.println("asf");
             }
 			
 		}});
 	
 	
-	b1=new JButton("²é×Öµä");
+	b1=new JButton("æŸ¥å­—å…¸");
 	b1.setBounds(320, 500, 95, 30);
 	b1.setBackground( new Color(28,134,238));
 	
@@ -251,7 +251,7 @@ public class panel extends JPanel{
 			try{
 
 			BufferedWriter output = new BufferedWriter(new FileWriter
-					("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/grade.txt"));//±£´æTXTÎ»ÖÃ
+					("C:/Users/Administrator/Desktop/ä»£ç åˆé›†/grade.txt"));//ï¿½ï¿½ï¿½ï¿½TXTÎ»ï¿½ï¿½
 
 			output.write(String.valueOf(nfile)+"\r\n");
 
@@ -274,7 +274,7 @@ public class panel extends JPanel{
            
             
 		    BufferedReader br = new BufferedReader(new FileReader
-		    		("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/grade.txt"));
+		    		("C:/Users/Administrator/Desktop/ä»£ç åˆé›†/grade.txt"));
 			
             sb=br.readLine();
 
@@ -295,18 +295,18 @@ public class panel extends JPanel{
 	     		    String t=t2.getText();
 	     		    String url = "http://www.iciba.com/"+t; 
 	     		    java.net.URI uri = java.net.URI.create(url); 
-	     		    // »ñÈ¡µ±Ç°ÏµÍ³×ÀÃæÀ©Õ¹ 
+	     		    // ï¿½ï¿½È¡ï¿½ï¿½Ç°ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ 
 	     		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
-	     		    // ÅĞ¶ÏÏµÍ³×ÀÃæÊÇ·ñÖ§³ÖÒªÖ´ĞĞµÄ¹¦ÄÜ 
+	     		    // ï¿½Ğ¶ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ö§ï¿½ï¿½ÒªÖ´ï¿½ĞµÄ¹ï¿½ï¿½ï¿½ 
 	     		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
 
-	     		      dp.browse(uri);// »ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷´ò¿ªÁ´½Ó 
+	     		      dp.browse(uri);// ï¿½ï¿½È¡ÏµÍ³Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	     		    } 
 	     		   } catch (java.lang.NullPointerException f) { 
-	     		    // ´ËÎªuriÎª¿ÕÊ±Å×³öÒì³£ 
+	     		    // ï¿½ï¿½ÎªuriÎªï¿½ï¿½Ê±ï¿½×³ï¿½ï¿½ì³£ 
 	     		    f.printStackTrace(); 
 	     		   } catch (java.io.IOException f) { 
-	     		    // ´ËÎªÎŞ·¨»ñÈ¡ÏµÍ³Ä¬ÈÏä¯ÀÀÆ÷ 
+	     		    // ï¿½ï¿½Îªï¿½Ş·ï¿½ï¿½ï¿½È¡ÏµÍ³Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	     		    f.printStackTrace(); 
 	     		   } 
 	     		  }

@@ -1,7 +1,11 @@
-package tool;
+package test;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -47,8 +51,16 @@ public class Mylog extends Logger{
 	
 	 public static void main(String[] args){
 		 Logger logger = getMyLog(Mylog.class);
-		 logger.error("hello log");
 		
+		 Timestamp date=new Timestamp(System.currentTimeMillis());
+//		 Timestamp date1="1970-01-01 08:01:40";
+//		  DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		  String time=format.format(date);
+//		  System.out.println(time);
+//		  logger.error(time+"        hello log");
+//		 yyyy-mm-dd hh:mm:ss
+//		 System.out.println(date1.getTime());
+		 System.out.println(date.getTime()-date.getTime());
 		 
 	 }
 	 

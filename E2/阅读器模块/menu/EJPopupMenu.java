@@ -35,6 +35,7 @@ public class EJPopupMenu extends JPopupMenu{
 	           
 	           try {
 				outjiaf();
+				
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
@@ -129,6 +130,7 @@ public class EJPopupMenu extends JPopupMenu{
 		   widd.wo.word1.add(wj.name.toLowerCase());
 		   outnowjianf();
 		   tt1.addinword(wj.name.toLowerCase());
+		   tt1.setlasttime(wj.name.toLowerCase());
 	    	
 	    	
 	    }

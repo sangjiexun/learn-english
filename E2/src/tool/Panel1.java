@@ -143,7 +143,12 @@ public Panel1(Mianwindow w1){
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					selectchinese();
+					try {
+						selectchinese();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					w1.setVisible(false);
 					
 				}
@@ -205,7 +210,7 @@ public void reciteword(){
 	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );	
 }
 
-public void selectchinese(){
+public void selectchinese() throws ClassNotFoundException{
 	@SuppressWarnings("unused")
 	select_chinese_window Wic=new select_chinese_window(Mianwindow1.word1,Mianwindow1.word2 );
 	

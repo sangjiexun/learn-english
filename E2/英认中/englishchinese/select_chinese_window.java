@@ -48,7 +48,7 @@ public class select_chinese_window extends JFrame {
 	public grade grade1;
 
 
-	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) {
+	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) throws ClassNotFoundException {
         word1=w1;
         word2=w2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,9 +64,9 @@ public class select_chinese_window extends JFrame {
 	}
 
 	
-	private void setdata() {
+	private void setdata() throws ClassNotFoundException {
 //		english_w1=word1.get((int) (Math.random()*word1.size()));
-		if (Math.random()<0.3){
+		if (Math.random()<0.9){
 		word =word1;
 		c=1;
 		
@@ -75,27 +75,29 @@ public class select_chinese_window extends JFrame {
 		word=word2;
 		c=2;}//��ߵ���
 		
+		T1 tt1=new T1();
 		english_w1=word.get((int) (Math.random()*word.size()));
-		System.out.println(search(english_w1));
-		chinese_w1=search(word.get((int) (Math.random()*word.size())));
-		chinese_w2=search(word.get((int) (Math.random()*word.size())));
-		chinese_w3=search(word.get((int) (Math.random()*word.size())));
-		chinese_w4=search(word.get((int) (Math.random()*word.size())));
-		chinese_w5=search(word.get((int) (Math.random()*word.size())));
-		chinese_w6=search(word.get((int) (Math.random()*word.size())));
+//		System.out.println(search(english_w1));
+		System.out.println(tt1.searchWords(english_w1));
+		chinese_w1=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w2=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w3=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w4=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w5=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w6=tt1.searchWords(word.get((int) (Math.random()*word.size())));
 		int ram16=new Random().nextInt(6)+1;
 		switch(ram16){
-		case 1:{chinese_w1=search(english_w1);
+		case 1:{chinese_w1=tt1.searchWords(english_w1);
 		break;}
-		case 2:{chinese_w2=search(english_w1);
+		case 2:{chinese_w2=tt1.searchWords(english_w1);
 		break;}
-		case 3:{chinese_w3=search(english_w1);;
+		case 3:{chinese_w3=tt1.searchWords(english_w1);;
 		break;}
-		case 4:{chinese_w4=search(english_w1);
+		case 4:{chinese_w4=tt1.searchWords(english_w1);
 		break;}
-		case 5:{chinese_w5=search(english_w1);
+		case 5:{chinese_w5=tt1.searchWords(english_w1);
 		break;}
-		case 6:{chinese_w6=search(english_w1);
+		case 6:{chinese_w6=tt1.searchWords(english_w1);
 		break;}
 			
 		}
@@ -105,38 +107,38 @@ public class select_chinese_window extends JFrame {
 
 
 
-	private String search(String inputWord) {
-		
-		try {
-            BufferedReader br = new BufferedReader(
-         new FileReader("C:/Users/Administrator/Desktop/����ϼ�/dictionary.txt"));
-            String line ;
-            boolean isFound = false;
-             
-//            System.out.println(inputWord.substring(0,inputWord.length()-1));
-            if(inputWord.equals("")){
-                return " ";
-            }
-                         
-            while((line = br.readLine()) != null){
-                Scanner in = new Scanner(line);
-            	String sword=in.next();//in.next()使用后会自动换行
-                if(sword.equals(inputWord)){
-
-                    int offset = inputWord.length();
-                    
-                    return line.substring(offset);
- 
-                }
-       
-        }
-		}
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-	
-		return " ";
-	}
+//	private String search(String inputWord) {
+//		
+//		try {
+//            BufferedReader br = new BufferedReader(
+//         new FileReader("C:/Users/Administrator/Desktop/����ϼ�/dictionary.txt"));
+//            String line ;
+//            boolean isFound = false;
+//             
+////            System.out.println(inputWord.substring(0,inputWord.length()-1));
+//            if(inputWord.equals("")){
+//                return " ";
+//            }
+//                         
+//            while((line = br.readLine()) != null){
+//                Scanner in = new Scanner(line);
+//            	String sword=in.next();//in.next()使用后会自动换行
+//                if(sword.equals(inputWord)){
+//
+//                    int offset = inputWord.length();
+//                    
+//                    return line.substring(offset);
+// 
+//                }
+//       
+//        }
+//		}
+//        catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//	
+//		return " ";
+//	}
 
 
 
@@ -175,9 +177,9 @@ public class select_chinese_window extends JFrame {
 		g1.setOpaque(true);
 		g2.setOpaque(true);
 		g1.setFont(new java.awt.Font("Dialog", 1,30));
-		g1.setText("�ȼ���");
+		g1.setText("等级");
 		g2.setFont(new java.awt.Font("Dialog", 1,20));
-		g2.setText("���飺"+grade1.ex);
+		g2.setText("经验"+grade1.ex);
 	
 		
 		
@@ -236,10 +238,10 @@ public class select_chinese_window extends JFrame {
 		
 		
 		//��ť�ϼ�
-		j1=new JButton ("O ��������ѧϰ");
-		j2=new JButton ("P ����ʶ");
-		j3=new JButton ("K �ٶ�����");
-		j4=new JButton ("L ���ð�ť");
+		j1=new JButton ("O 加入正在学习");
+		j2=new JButton ("P 不认识");
+		j3=new JButton ("K 百度搜索");
+		j4=new JButton ("L 备用按钮");
 		j1.setBounds(550, 430, 160, 60);
 		j2.setBounds(550, 520, 160, 60);
 		j3.setBounds(740, 430, 160, 60);
@@ -268,65 +270,95 @@ public class select_chinese_window extends JFrame {
 			
 			switch(e.getKeyChar()){
 			case 'q':{ 
-				if(search(english_w1).equals(chinese_w1)){
-					showword();
-					setdata();	
-					reshow();
-				}
-				else{
-					cq.setBackground(Color.RED);
-				chengfa();
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w1)){
+						showword();
+						setdata();	
+						reshow();
+					}
+					else{
+						cq.setBackground(Color.RED);
+					chengfa();
+					}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				break;}
 			case 'w':{ 
-				if(search(english_w1).equals(chinese_w2)){
-					showword();
-					setdata();	
-					reshow();
-					}
-				else{
-					cw.setBackground(Color.RED);
-				chengfa();}
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w2)){
+						showword();
+						setdata();	
+						reshow();
+						}
+					else{
+						cw.setBackground(Color.RED);
+					chengfa();}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;}
 			case 'e':{ 
-				if(search(english_w1).equals(chinese_w3)){
-					showword();
-					setdata();	
-					reshow();
-					}
-				else{
-					ce.setBackground(Color.RED);
-				chengfa();}
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w3)){
+						showword();
+						setdata();	
+						reshow();
+						}
+					else{
+						ce.setBackground(Color.RED);
+					chengfa();}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;}
 			case 'r':{ 
-				if(search(english_w1).equals(chinese_w4)){
-					showword();
-					setdata();	
-					reshow();
-					}
-				else{
-					cr.setBackground(Color.RED);
-				chengfa();}
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w4)){
+						showword();
+						setdata();	
+						reshow();
+						}
+					else{
+						cr.setBackground(Color.RED);
+					chengfa();}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;}
 			case 'd':{ 
-				if(search(english_w1).equals(chinese_w5)){
-					showword();
-					setdata();	
-					reshow();
-					}
-				else{
-					cd.setBackground(Color.RED);
-				chengfa();}
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w5)){
+						showword();
+						setdata();	
+						reshow();
+						}
+					else{
+						cd.setBackground(Color.RED);
+					chengfa();}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;}
 			case 'f':{ 
-				if(search(english_w1).equals(chinese_w6)){
-					showword();
-					setdata();	
-					reshow();
-					}
-				else{
-					cf.setBackground(Color.RED);
-				chengfa();}
+				try {
+					if(tt1.searchWords(english_w1).equals(chinese_w6)){
+						showword();
+						setdata();	
+						reshow();
+						}
+					else{
+						cf.setBackground(Color.RED);
+					chengfa();}
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				break;}
 			case 'o':{ 
 				word1.remove(english_w1);
@@ -354,15 +386,35 @@ public class select_chinese_window extends JFrame {
 					e1.printStackTrace();
 				}
 				System.out.println(word1.size());
-				showword();
-				setdata();
+				try {
+					showword();
+				} catch (ClassNotFoundException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				try {
+					setdata();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				reshow();				
 				chengfa();	
 				
 				break;}
 			case 'l':{
-				showword();
-				setdata();	
+				try {
+					showword();
+				} catch (ClassNotFoundException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				try {
+					setdata();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
 				reshow();
 				break;}
 			
@@ -411,9 +463,10 @@ public class select_chinese_window extends JFrame {
 		
 	}
 	
-	public void showword(){
+	public void showword() throws ClassNotFoundException{
+		T1 tt1=new T1();
 		p1.setText(english_w1);
-		p2.setText(search(english_w1));
+		p2.setText(tt1.searchWords(english_w1));
 		grade1.ex++;
 		
 		WriteDate(grade1.ex+"");
