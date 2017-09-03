@@ -49,8 +49,14 @@ public class select_chinese_window extends JFrame {
 
 
 	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) throws ClassNotFoundException {
-        word1=w1;
-        word2=w2;
+//        word1=w1;
+//        word2=w2;
+        T1 tt1=new T1();
+      
+        word1=tt1.getnearinworld();//已会回顾
+        word2=tt1.getduonowworld();//正在学习的难点
+        
+        
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200,30,1000,700);
 		getContentPane().setBackground(new Color(30,30,30));
@@ -66,16 +72,21 @@ public class select_chinese_window extends JFrame {
 	
 	private void setdata() throws ClassNotFoundException {
 //		english_w1=word1.get((int) (Math.random()*word1.size()));
-		if (Math.random()<0.9){
+		
+		if (Math.random()<0.5){
 		word =word1;
 		c=1;
 		
 		}
 		else{
 		word=word2;
-		c=2;}//��ߵ���
+		c=2;}
 		
-		T1 tt1=new T1();
+		T1 tt1=new T1();		
+		
+//		word=tt1.getduonowworld();
+		System.out.println(word.size());
+		
 		english_w1=word.get((int) (Math.random()*word.size()));
 //		System.out.println(search(english_w1));
 		System.out.println(tt1.searchWords(english_w1));

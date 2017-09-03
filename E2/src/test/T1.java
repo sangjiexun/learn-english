@@ -345,7 +345,7 @@ public class T1 {
 				ptmt.setString(1, word);
 
 				 ptmt.execute();
-				 conn.commit(); 
+//				 conn.commit(); 
 				
 				//执行结果
 
@@ -454,7 +454,7 @@ public class T1 {
 				
 
 				 ptmt.execute();
-				 conn.commit(); 
+//				 conn.commit(); 
 								
 				//执行结果
 
@@ -490,7 +490,7 @@ public class T1 {
 				ptmt.setString(1, word);
 				
 				 ptmt.execute();
-				 conn.commit(); 
+//				 conn.commit(); 
 								
 				//执行结果
 				 
@@ -634,14 +634,116 @@ public class T1 {
 			return pt;
 		}
 		
+		/*
+		*
+		*获取最近学过的单词
+		*/
+		public   ArrayList<String>  getnearinworld() throws ClassNotFoundException{
+			
+	    Connection conn=null;
+		PreparedStatement ptmt=null;
+		ResultSet rs=null; 
+		ArrayList<String> word =new ArrayList<String>();
+//		lst=this.
+		//1.装载驱动程序
+		Class.forName(JDBC_DRIVER);
+		//2.建立链接
+		try { 	
+			conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
+			//3、执行sql语句
+			Timestamp date=new Timestamp(System.currentTimeMillis());
+			System.out.println(date.getTime());
+			long time1=date.getTime();
+//			System.out.println(time1);
+			long adv= (time1-2*86400000);
+//			System.out.println(adv);
+			Timestamp date1=new Timestamp(adv);
+//			System.out.println(date1);
+			String d2=date1.toString();
+			ptmt=conn.prepareStatement("select * from dictionary where inword=1&&lasttime>?");	
+			
+			ptmt.setString(1, d2);
+			ptmt.setFetchSize(2);
+			
+			rs=ptmt.executeQuery();
+		
+			while (rs.next()){		
+			word.add(rs.getString("english"));
+			}
+
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally{
+			//5 清理
+			try {
+			if(conn!=null)
+				conn.close();
+			if(ptmt!=null)
+				ptmt.close();
+			if(rs!=null)
+				rs.close();
+			} catch (SQLException e) {
+		
+			}	
+		}
+		return word;
+		}
+	
+		
+		public   ArrayList<String>  getduonowworld () throws ClassNotFoundException{
+			
+		    Connection conn=null;
+			PreparedStatement ptmt=null;
+			ResultSet rs=null; 
+			ArrayList<String> word =new ArrayList<String>();
+//			lst=this.
+			//1.装载驱动程序
+			Class.forName(JDBC_DRIVER);
+			//2.建立链接
+			try { 	
+				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
+				//3、执行sql语句
+
+				ptmt=conn.prepareStatement("select * from dictionary where nowword=1&&time>10");	
+				
+//				ptmt.setString(1, "");
+				ptmt.setFetchSize(2);
+				
+				rs=ptmt.executeQuery();
+			
+				while (rs.next()){		
+				word.add(rs.getString("english"));
+				}
+
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}finally{
+				//5 清理
+				try {
+				if(conn!=null)
+					conn.close();
+				if(ptmt!=null)
+					ptmt.close();
+				if(rs!=null)
+					rs.close();
+				} catch (SQLException e) {
+			
+				}	
+			}
+			return word;
+			}
 				
 		
 public static void main(String[] args) throws ClassNotFoundException{
 	T1 tt1=new T1();
-//	tt1.setlasttime("embodiment");
-//	System.out.println(tt1.getlasttime("embodiment"));
-	System.out.println(tt1.passtime(tt1.getlasttime("agent")));
-//	Timestamp date=new Timestamp(System.currentTimeMillis());
+	ArrayList<String> test1=tt1.getnearinworld();
+	System.out.println(test1.size());
+
+	for(String s1:test1) {
+		System.out.println(s1);
+	}
 	
 }
 }
