@@ -14,6 +14,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import org.apache.log4j.Logger;
+
+import test.Mylog;
 import test.T1;
 import tool.Panel1;
 
@@ -37,8 +40,11 @@ public class Mianwindow extends JFrame{
 		ArrayList<String> wordin = tt1.getinworld();
 		ArrayList<String> wordnow = tt1.getnowworld();		
 		
-		 widm = new Mianwindow(wordin,wordnow);
-	 
+		widm = new Mianwindow(wordin,wordnow);
+ 
+		 Logger logger = tt1.getMyLog(Mylog.class);
+		 logger.debug("主窗口打开成功");
+	
 	}	
 	
 	public Mianwindow(ArrayList<String> w1 ,ArrayList<String> w2) {
@@ -163,7 +169,6 @@ public class Mianwindow extends JFrame{
            e1.printStackTrace();
        }
 	}
-	
 
 }
 

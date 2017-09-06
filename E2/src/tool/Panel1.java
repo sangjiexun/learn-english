@@ -12,10 +12,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import org.apache.log4j.Logger;
+
 import english_reader.window;
 import englishchinese.select_chinese_window;
 import mian.Mianwindow;
 import reciteenlish.recitewindow;
+import test.Mylog;
+import test.T1;
 
 
 //主界面的工具栏
@@ -41,6 +45,9 @@ public Panel1(Mianwindow w1){
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			englishreader();//执行函数，打开阅读器。
+			T1 tt1=new T1();
+			Logger logger = tt1.getMyLog(Mylog.class);
+			logger.debug("点击了阅读器");
             w1.setVisible(false);
 		}
 
@@ -118,6 +125,9 @@ public Panel1(Mianwindow w1){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				reciteword();
+				T1 tt1=new T1();
+				Logger logger = tt1.getMyLog(Mylog.class);
+				logger.debug("点击了背诵");
 				w1.setVisible(false);
 						}
 
@@ -145,6 +155,9 @@ public Panel1(Mianwindow w1){
 				public void actionPerformed(ActionEvent e) {
 					try {
 						selectchinese();
+						T1 tt1=new T1();
+						Logger logger = tt1.getMyLog(Mylog.class);
+						logger.debug("点击了英认中");
 					} catch (ClassNotFoundException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -203,6 +216,7 @@ public void englishreader(){
 	@SuppressWarnings("unused")
 	window wid = new window(Mianwindow1.word1,Mianwindow1.word2);
 
+	
 }
 
 public void reciteword(){

@@ -24,20 +24,10 @@ public class Mylog extends Logger{
         try {
             p.load(Mylog.class.getResourceAsStream("log4j.properties"));
             InetAddress addr = InetAddress.getLocalHost();
-//            ip = addr.getHostAddress().toString(); //
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        if(ip.contains(".19.85")){
-//            //�����ڷ�������
-//            p.setProperty("log4j.appender.logfile.File","/alidata/server/mycrawllog.log");
-//            p.setProperty("log4j.rootLogger","INFO,stdout,logfile");
-//            p.setProperty("log4j.appender.logfile.Threshold","ERROR");
-//        }else{
-//            //�����ڱ���,��־ֻ�����������̨
-////            p.setProperty("log4j.rootLogger","INFO,stdout,logfile");
-////            p.setProperty("log4j.appender.logfile.Threshold","INFO");
-//        }
+
         
         return p;
     }
@@ -45,21 +35,16 @@ public class Mylog extends Logger{
 	 public static Logger getMyLog(Class<?> c){
 	        Logger logger = Logger.getLogger(c);
 	        PropertyConfigurator.configure(setLogProperty());
-	        
 	        return logger;
 	    }
 	
 	 public static void main(String[] args){
 		 Logger logger = getMyLog(Mylog.class);
 		
+		 logger.debug("运行成功");
 		 Timestamp date=new Timestamp(System.currentTimeMillis());
-//		 Timestamp date1="1970-01-01 08:01:40";
-//		  DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		  String time=format.format(date);
-//		  System.out.println(time);
-//		  logger.error(time+"        hello log");
-//		 yyyy-mm-dd hh:mm:ss
-//		 System.out.println(date1.getTime());
+
+		 
 		 System.out.println(date.getTime()-date.getTime());
 		 
 	 }

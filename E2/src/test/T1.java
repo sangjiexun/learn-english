@@ -1,5 +1,7 @@
 package test;
 
+import java.io.IOException;
+import java.net.InetAddress;
 import java.sql.Connection;  
 import java.sql.DriverManager;  
 import java.sql.PreparedStatement;
@@ -7,7 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Properties;
+
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 public class T1 {
  static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
@@ -655,7 +661,7 @@ public class T1 {
 			System.out.println(date.getTime());
 			long time1=date.getTime();
 //			System.out.println(time1);
-			long adv= (time1-2*86400000);
+			long adv= (time1-8*86400000);
 //			System.out.println(adv);
 			Timestamp date1=new Timestamp(adv);
 //			System.out.println(date1);
@@ -736,14 +742,41 @@ public class T1 {
 			}
 				
 		
+		
+		 public  Logger getMyLog(Class<?> c){
+		        Logger logger = Logger.getLogger(c);
+		        PropertyConfigurator.configure(setLogProperty());
+		        return logger;
+		    }
+		
+			public static  Properties setLogProperty(){
+		        Properties p = new Properties();
+		        String ip = null;
+		        try {
+		            p.load(Mylog.class.getResourceAsStream("log4j.properties"));
+		            InetAddress addr = InetAddress.getLocalHost();
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+
+		        
+		        return p;
+		    }
+		 
+		 
 public static void main(String[] args) throws ClassNotFoundException{
 	T1 tt1=new T1();
-	ArrayList<String> test1=tt1.getnearinworld();
-	System.out.println(test1.size());
+	Logger logger = tt1.getMyLog(Mylog.class);
+	
 
-	for(String s1:test1) {
-		System.out.println(s1);
-	}
+	Timestamp date=new Timestamp(System.currentTimeMillis());
+	logger.debug(date+"运行成功");
+//	ArrayList<String> test1=tt1.getnearinworld();
+//	System.out.println(test1.size());
+//
+//	for(String s1:test1) {
+//		System.out.println(s1);
+//	}
 	
 }
 }

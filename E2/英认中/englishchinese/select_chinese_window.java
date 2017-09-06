@@ -118,38 +118,6 @@ public class select_chinese_window extends JFrame {
 
 
 
-//	private String search(String inputWord) {
-//		
-//		try {
-//            BufferedReader br = new BufferedReader(
-//         new FileReader("C:/Users/Administrator/Desktop/����ϼ�/dictionary.txt"));
-//            String line ;
-//            boolean isFound = false;
-//             
-////            System.out.println(inputWord.substring(0,inputWord.length()-1));
-//            if(inputWord.equals("")){
-//                return " ";
-//            }
-//                         
-//            while((line = br.readLine()) != null){
-//                Scanner in = new Scanner(line);
-//            	String sword=in.next();//in.next()使用后会自动换行
-//                if(sword.equals(inputWord)){
-//
-//                    int offset = inputWord.length();
-//                    
-//                    return line.substring(offset);
-// 
-//                }
-//       
-//        }
-//		}
-//        catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//	
-//		return " ";
-//	}
 
 
 
@@ -519,6 +487,7 @@ public class select_chinese_window extends JFrame {
          sb=br.readLine();
 
          System.out.println(sb);
+         
 
 			} catch (Exception ex) {
 
@@ -562,6 +531,6 @@ public class select_chinese_window extends JFrame {
 
 	   
    }		 
-	 }
+   }
 
 }
