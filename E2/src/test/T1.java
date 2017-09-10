@@ -15,6 +15,8 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import mian.Mianwindow;
+
 public class T1 {
  static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
  static final String DB_URL="jdbc:mysql://localhost:3306/english?"
@@ -763,6 +765,31 @@ public class T1 {
 		        return p;
 		    }
 		 
+			public  void initmain(){
+				T1 tt1=new T1();//创建工具类
+				ArrayList<String> wordin = null;
+				ArrayList<String> wordnow = null;
+				try {
+					wordin = tt1.getinworld();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					wordnow = tt1.getnowworld();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}			
+				Mianwindow widm = new Mianwindow(wordin,wordnow);
+				 Logger logger = tt1.getMyLog(Mylog.class);
+				 logger.debug("主窗口打开成功");
+			}
+			
+			
+			
+			
+			
 		 
 public static void main(String[] args) throws ClassNotFoundException{
 	T1 tt1=new T1();

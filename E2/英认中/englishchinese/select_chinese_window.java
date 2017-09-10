@@ -3,7 +3,11 @@ package englishchinese;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,9 +22,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import Button.Tool_panel;
@@ -31,6 +39,10 @@ import worldshow.Word;
 
 public class select_chinese_window extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public TextArea ta;
 	public ArrayList<String> word=null;
 	public ArrayList<String> word1;
@@ -62,9 +74,37 @@ public class select_chinese_window extends JFrame {
 		getContentPane().setBackground(new Color(30,30,30));
 		setTitle("select chinese");
 		jpanel1=new JPanel();
-		setdata();
-		setjpanel1();
-		add(jpanel1,BorderLayout.WEST);
+
+		
+		 JPanel  GImage = new JPanel() {  
+		 
+		 /**
+		 * 
+		 */
+		private static final long serialVersionUID = -8226355005112414617L;
+
+		public  void paintComponent(Graphics g) {
+//			System.out.println();
+//			System.out.println("sdkflllll");
+          ImageIcon icon = new ImageIcon("C:/Users/Administrator/Desktop/图片素材库/timg.jpg");  
+          Image img = icon.getImage();  
+          g.drawImage(img, 0, 0, icon.getIconWidth(),  
+                  icon.getIconHeight(), icon.getImageObserver());    
+      }  
+
+  };  
+	
+   GImage.setBounds(0,0,900,700);
+	
+
+		
+		
+	setdata();
+	setjpanel1();
+	   jpanel1.add(GImage);
+	add(jpanel1,BorderLayout.WEST);
+	JMenuBar jmb = createMenuBar();
+	this.setJMenuBar(jmb);
 		setVisible(true);
 
 	}
@@ -533,4 +573,29 @@ public class select_chinese_window extends JFrame {
    }		 
    }
 
+		
+		private JMenuBar createMenuBar() {
+			// 实例化一个JMenuBar的对象
+			JMenuBar jmb = new JMenuBar();
+			JMenu menu1 = new JMenu("编辑");
+			jmb.add(menu1);
+			
+			JMenuItem jmi1 = new JMenuItem("返回主页");
+			menu1.add(jmi1);
+			jmi1.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
+					T1 tt1=new T1();
+					tt1.initmain();
+					}
+				}
+			);
+			
+			return jmb;
+		}
+
+ 
+	 
 }

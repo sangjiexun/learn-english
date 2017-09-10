@@ -26,9 +26,9 @@ public class window extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	public window(ArrayList<String> w1,ArrayList<String> w2) {
+		
 		word1=w1;
 		word2=w2;
-
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300,30,900,700);
 //		getContentPane().setVisible(false);

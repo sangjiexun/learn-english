@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,8 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import org.apache.log4j.Logger;
+
 import Lis.openact;
 import english_reader.window;
+import mian.Mianwindow;
+import test.Mylog;
 import test.T1;
 import worldshow.wordjlabel;
 
@@ -80,7 +85,7 @@ public  class Tool_panel extends JPanel{
 		OT2.setForeground(Color.white);
 		OT2.setBorder(new LineBorder(new Color(40,40,40)));
 		
-		JButton OT3=new JButton(" 自留按钮");
+		JButton OT3=new JButton(" 返回主界面");
 		OT3.setBounds(20,580, 120, 30);
 		OT3.setBorder(new LineBorder(Color.CYAN));
 		
@@ -113,6 +118,15 @@ public  class Tool_panel extends JPanel{
 		}
 				);
 
+		OT3.addActionListener(
+				new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+			    widd.setVisible(false);
+			    T1 tt1=new T1();
+			    tt1.initmain();
+				}});
+		
+		
 		add(FT);
 		add(OT);//open text button;
 		add(OT2);

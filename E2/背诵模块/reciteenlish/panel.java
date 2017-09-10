@@ -140,10 +140,6 @@ public class panel extends JPanel{
                 	w1=e.get((int) (Math.random()*200));
                 	
                 	}
-            	else if(ram<0.6){
-                	w1=e.get((int) (Math.random()*250));
-                	
-                	}
             	else
             	{w1=e.get((int) (Math.random()*e.size()));}
             	

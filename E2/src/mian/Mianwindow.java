@@ -2,6 +2,8 @@
 
 import java.awt.BorderLayout;
 import java.awt.FileDialog;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +11,13 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import org.apache.log4j.Logger;
 
@@ -35,24 +40,33 @@ public class Mianwindow extends JFrame{
     
     public ArrayList<String> kd1=new ArrayList<String>();
 	public static void main(String[] args) throws ClassNotFoundException {
-		T1 tt1=new T1();//创建工具类
-		
-		ArrayList<String> wordin = tt1.getinworld();
-		ArrayList<String> wordnow = tt1.getnowworld();		
-		
-		widm = new Mianwindow(wordin,wordnow);
- 
-		 Logger logger = tt1.getMyLog(Mylog.class);
-		 logger.debug("主窗口打开成功");
-	
+
+//	initmain();
+       T1 tt1=new T1();
+       tt1.initmain();
+
 	}	
+	
+	
+//	public static void initmain() throws ClassNotFoundException{
+//		T1 tt1=new T1();//创建工具类
+//		ArrayList<String> wordin = tt1.getinworld();
+//		ArrayList<String> wordnow = tt1.getnowworld();			
+//		widm = new Mianwindow(wordin,wordnow);
+//		 Logger logger = tt1.getMyLog(Mylog.class);
+//		 logger.debug("主窗口打开成功");
+//		
+//	}
+	
 	
 	public Mianwindow(ArrayList<String> w1 ,ArrayList<String> w2) {
 		this.word1=w1;
 		this.word2 =w2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击关闭按钮后，程序结束
-		setBounds(300,30,900,700);//设置大小
+		setBounds(300,30,800,600);//设置大小
 		setTitle("主窗口");//窗口的名字
+
+ 
 		tp1=new Panel1(this);//创建工具栏并利用this传递参数
 		add(tp1,BorderLayout.WEST);
 		JMenuBar jmb = createMenuBar();
@@ -60,6 +74,9 @@ public class Mianwindow extends JFrame{
 		
 		setVisible(true);//设置为可见
 	}
+	
+
+	
 	
 	private JMenuBar createMenuBar() {
 		// 实例化一个JMenuBar的对象
@@ -171,8 +188,5 @@ public class Mianwindow extends JFrame{
 	}
 
 }
-
-
-
 
 
