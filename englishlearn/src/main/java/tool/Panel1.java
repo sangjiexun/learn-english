@@ -38,8 +38,6 @@ public Panel1(final Mianwindow w1){
 	this.Mianwindow1=w1;
 	setLayout(null);
 	setPreferredSize(new Dimension(850, 50));//主界面的宽度；
-//	setBackground(new Color(54 ,54, 54));
-
 	
 	 JPanel  GImage = new JPanel() {  
   	  
@@ -81,33 +79,27 @@ public Panel1(final Mianwindow w1){
 		public void mouseEntered(MouseEvent e) {
 	
 			MB1.setBounds(70,70, 150, 110);
-			
 		}
 
 		public void mouseExited(MouseEvent e) {
 
 			MB1.setBounds(80,80,130, 90);
-			
 		}
 
-		public void mouseClicked(MouseEvent e) {
-			
+		public void mouseClicked(MouseEvent e) {	
 		}
 
-		public void mousePressed(MouseEvent e) {
-			
+		public void mousePressed(MouseEvent e) {	
 		}
 
-		public void mouseReleased(MouseEvent e) {
-			
+		public void mouseReleased(MouseEvent e) {	
 		}
 		
 	});
 	
 	
 	
-	
-	
+
 	
 	 final JButton MB2=new JButton("背单词");
 	    MB2.setBounds(260,80, 130, 90);
@@ -161,7 +153,6 @@ public Panel1(final Mianwindow w1){
 		});
 		
 	
-		
 		
 		 final JButton MB3=new JButton("英认中");
 		    MB3.setBounds(440,80, 130, 90);
@@ -225,9 +216,10 @@ public Panel1(final Mianwindow w1){
 //函数调用下
 public void englishreader(){
 	@SuppressWarnings("unused")
+	
+	
 	window wid = new window(Mianwindow1.word1,Mianwindow1.word2);
 
-	
 }
 
 public void reciteword() throws ClassNotFoundException{

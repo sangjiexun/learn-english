@@ -19,12 +19,18 @@ import org.apache.log4j.PropertyConfigurator;
 
 import mian.Mianwindow;
 
+
+
+/**关于数据库的工具类
+ * */
 public class T1 {
  static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
  static final String DB_URL="jdbc:mysql://localhost:3306/english?"
  		+ "characterEncoding=utf8&useSSL=false&useCursorFetch=true";
  static final String USER="root";
  static final String PASSWORD="123qwe";
+ 
+ private T1 t2;
 
  public static void dbpoolInit(){
 	 BasicDataSource ds = new BasicDataSource();
@@ -41,7 +47,7 @@ public class T1 {
     Connection conn=null;
 	PreparedStatement ptmt=null;
 	ResultSet rs=null; 
-	ArrayList<String> word1 =new ArrayList<String>();//�ѻᵥ��
+	ArrayList<String> word1 =new ArrayList<String>();
 	
 	//1.装载驱动程序
 	Class.forName(JDBC_DRIVER);
@@ -168,7 +174,7 @@ public class T1 {
 			}	
 		}
 		return word1;
-		}
+		} 
 
 		
 		
@@ -375,6 +381,20 @@ public class T1 {
 			}
 			}
 		
+		public  void delinword (ArrayList<String> ImportWord) throws ClassNotFoundException{
+			for (String ImportWord1 :ImportWord){
+				t2=new T1();
+				t2.delinword(ImportWord1);
+			}
+		}
+		
+		public  void addNowWord (ArrayList<String> ImportWord) throws ClassNotFoundException{
+			for (String ImportWord1 :ImportWord){
+				t2=new T1();
+				t2.addNowWord(ImportWord1);
+			}
+		}
+		
 		
 		public  void delinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
@@ -411,7 +431,7 @@ public class T1 {
 		
 		
 		
-		public  void addnowword (String word) throws ClassNotFoundException{
+		public  void addNowWord (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -768,6 +788,7 @@ public class T1 {
 		        return p;
 		    }
 		 
+			
 			public  void initmain(){
 				T1 tt1=new T1();//创建工具类
 				ArrayList<String> wordin = null;
@@ -799,8 +820,6 @@ public class T1 {
 							("C:/Users/Administrator/Desktop/文档/新建文件夹 (2)/test.txt"));
 
 					output.write(String.valueOf(nfile)+"\r\n");
-
-
 					output.close();
 
 					} catch (Exception ex) {

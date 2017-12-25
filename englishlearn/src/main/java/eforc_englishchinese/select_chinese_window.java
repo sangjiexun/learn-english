@@ -382,7 +382,7 @@ public class select_chinese_window extends JFrame {
 			
 				try {
 					tt1.delinword(english_w1);
-					tt1.addnowword(english_w1);
+					tt1.addNowWord(english_w1);
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}

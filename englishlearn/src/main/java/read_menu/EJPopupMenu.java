@@ -47,7 +47,7 @@ public class EJPopupMenu extends JPopupMenu{
 		item2.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	        	
-	           widd.tp.t1.setText(wj.name.toLowerCase()); 
+	       widd.tp.t1.setText(wj.name.toLowerCase()); 
 	           
 	        }
 	    });
@@ -155,7 +155,7 @@ public class EJPopupMenu extends JPopupMenu{
 	
 	   public void outnowjiaf() throws ClassNotFoundException{
 		   T1 tt1=new T1();//�ù�����
-		   tt1.addnowword(wj.name.toLowerCase());
+		   tt1.addNowWord(wj.name.toLowerCase());
 		   widd.wo.word2.add(wj.name.toLowerCase());
 
  	
@@ -170,6 +170,5 @@ public class EJPopupMenu extends JPopupMenu{
 		   tt1.delnowword(wj.name.toLowerCase());
 	    	
 	    }
-
 
 	}
