@@ -12,10 +12,14 @@ public class wordshuxing extends JLabel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public wordshuxing (int x,int y ,int h,String name){
+	int x=10;
+	int y;
+	int w=200;
+	int h=40;
+	public wordshuxing (int num,String name){
 		super(name);
-		
-		setBounds(x,y,200,h);
+		y=50*num-40;
+		setBounds(x,y,w,h);
 		setForeground(Color.white);
 		setBackground(new Color(60,160,60));
 		setOpaque(true);

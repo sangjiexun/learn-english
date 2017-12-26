@@ -26,9 +26,8 @@ public class sopenact implements ActionListener {
 		ba=new StringBuffer();
 	
         String  t=db.t;
-//        System.out.println(t);
+
         try {
-        	
 					BufferedReader bufferedReader = new BufferedReader(
 							new InputStreamReader(
 				                    new FileInputStream(t)));
@@ -49,6 +48,5 @@ public class sopenact implements ActionListener {
 //        System.out.println(db.text);
 //        db.repaint();
 	}
-	
 
 }

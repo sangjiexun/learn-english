@@ -100,22 +100,18 @@ public class Mianwindow extends JFrame{
 
 				String importWordString=ba.toString();
 				
-				T2 tt2 =new T2();
 				ArrayList<String> ImportWord=new ArrayList<String>();
 
-				
-				ImportWord =tt2.getImportWord(importWordString);
+				ImportWord =T2.getImportWord(importWordString);
 		        				
 				System.out.println("要导入的单词："+ImportWord);
-				
-				
-				T1 tt1 =new T1();
-				Logger logger = tt1.getMyLog(Mylog.class);
+
+				Logger logger = T1.getMyLog(Mylog.class);
 			    logger.debug("导入了单词"+ImportWord);
 			
 				try {
-					tt1.delinword(ImportWord);
-					tt1.addNowWord(ImportWord);
+					T1.delinword(ImportWord);
+					T1.addNowWord(ImportWord);
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -128,30 +124,27 @@ public class Mianwindow extends JFrame{
 	
 
 	private  static void initmain(){
-		T1 tt1=new T1();//创建工具类
+	
 		ArrayList<String> wordin = null;
 		ArrayList<String> wordnow = null;
 		try {
-			wordin = tt1.getinworld();
+			wordin =T1.getinworld();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
-			wordnow = tt1.getnowworld();
+			wordnow = T1.getnowworld();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}			
 		Mianwindow widm = new Mianwindow(wordin,wordnow);
-		 Logger logger = tt1.getMyLog(Mylog.class);
+		 Logger logger = T1.getMyLog(Mylog.class);
 		 logger.debug("主窗口打开成功");
 	}
-	
-	
 
 	
-
 }
 
 

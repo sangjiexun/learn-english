@@ -302,7 +302,6 @@ public class panel extends JPanel{
 			String sb = new String();
 			
 			try{
-           
             
 		    BufferedReader br = new BufferedReader(new FileReader
 		    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
@@ -316,7 +315,7 @@ public class panel extends JPanel{
 			System.out.println(ex);
 			}
 			return sb;
-			
+
 			}
  
 	 

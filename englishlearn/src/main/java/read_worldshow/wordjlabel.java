@@ -39,9 +39,7 @@ public class wordjlabel extends JLabel{
 		if(ifnow){
 //			this.setBackground(Color.yellow );
 			setForeground(Color.yellow);
-//			System.out.println(name);//查1号bug区
 			}
-		
 		ejm=new EJPopupMenu(this,widd);
 		this.add(ejm);
 		this.addMouseListener(new Emouselistener(this));

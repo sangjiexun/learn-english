@@ -26,12 +26,12 @@ import test.Mylog;
 import test.T1;
 import read_worldshow.wordjlabel;
 
-
+/**
+ * 工具栏
+ */
 public  class Tool_panel extends JPanel{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2L;
 	
 	
@@ -51,13 +51,13 @@ public  class Tool_panel extends JPanel{
 	
 		}//工具栏的基本属性
 		
-		fy=new wordshuxing(10, 10, 40,"我是翻译:");
-		fy1=new wordshuxing(10, 60, 40,"我是备注:");
-		unknow=new wordshuxing(10, 110,30, " 未知单词数：");
-		unknowl=new wordshuxing(10, 150,30, " 未知：");
-		add(new wordshuxing(10, 190,30, " 陌生率："));
-		wordnumber=new wordshuxing(10, 230,30, " 总单词数：");
-		learning=new wordshuxing(10, 270,60, " 空白备用区域");
+		fy=new wordshuxing(1,"我是翻译:");
+		fy1=new wordshuxing(2,"我是备注:");
+		unknow=new wordshuxing(3, " 未知单词数：");
+		unknowl=new wordshuxing(4, " 未知：");
+		add(new wordshuxing(5, " 陌生率："));
+		wordnumber=new wordshuxing(6, " 总单词数：");
+		learning=new wordshuxing(7, " 空白备用区域");
 		
 		t1 =new Etextfield(10 , 450 ,150 ,20);
 		t2=new Etextfield(10 , 490 ,150 ,20);

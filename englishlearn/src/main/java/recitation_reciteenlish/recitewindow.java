@@ -1,26 +1,14 @@
 package recitation_reciteenlish;
 
 import java.awt.BorderLayout;
-import java.awt.FileDialog;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 
-import recitation_others.jtable;
-import recitation_others.mykey;
 import test.T1;
 
 public class recitewindow extends JFrame {
@@ -42,7 +30,7 @@ public class recitewindow extends JFrame {
 	setTitle("English help");
 	add(new panel(this),BorderLayout.NORTH);
 //	System.out.println(word2);
-	addKeyListener(new mykey());  
+//	addKeyListener(new mykey());  
 	JMenuBar jmb = createMenuBar();
 	this.setJMenuBar(jmb);
 //

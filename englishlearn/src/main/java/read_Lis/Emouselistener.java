@@ -24,9 +24,8 @@ public class Emouselistener implements MouseListener{
         	  System.out.println("右击成功");
         	  System.out.println("认识"+wj.ifknow);
         	  System.out.println("正在学习"+wj.ifnow);
-        	  T1 tt1=new T1();
         	  try {
-				wj.widd.tp.fy.setText(tt1.searchWords(wj.name.toLowerCase()));
+				wj.widd.tp.fy.setText(T1.searchWords(wj.name.toLowerCase()));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}

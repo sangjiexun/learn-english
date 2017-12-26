@@ -30,7 +30,6 @@ public class T1 {
  static final String USER="root";
  static final String PASSWORD="123qwe";
  
- private T1 t2;
 
  public static void dbpoolInit(){
 	 BasicDataSource ds = new BasicDataSource();
@@ -42,7 +41,7 @@ public class T1 {
  
 
  
-	public   ArrayList<String>  getinworld () throws ClassNotFoundException{
+	public static  ArrayList<String>  getinworld () throws ClassNotFoundException{
 		
     Connection conn=null;
 	PreparedStatement ptmt=null;
@@ -84,7 +83,7 @@ public class T1 {
 	}
 	
 	
-	public   ArrayList<String>  getnowworld () throws ClassNotFoundException{
+	public static  ArrayList<String>  getnowworld () throws ClassNotFoundException{
 		
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
@@ -96,8 +95,7 @@ public class T1 {
 		//2.建立链接
 		try { 	
 			conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-			//3、执行sql语句
-//			ptmt=conn.prepareStatement("select * from nowword");	
+			//3、执行sql语句	
 			ptmt=conn.prepareStatement("select * from dictionary where nowword=1");	
 			ptmt.setFetchSize(2);
 			rs=ptmt.executeQuery();
@@ -105,13 +103,11 @@ public class T1 {
 
 			while (rs.next()){
 //			System.out.println(rs.getString("id")+": "+rs.getString("inword"));
-			
 //			word1.add(rs.getString("nowword"));
 		    word1.add(rs.getString("english"));
 			}	   
 
-		} catch (SQLException e) {
-			
+		} catch (SQLException e) {	
 			e.printStackTrace();
 		}finally{
 			//5 清理
@@ -123,7 +119,6 @@ public class T1 {
 			if(rs!=null)
 				rs.close();
 			} catch (SQLException e) {
-		
 			}
 			
 		}
@@ -131,12 +126,12 @@ public class T1 {
 		}
 	
 	 
-		public  String searchWords (String english) throws ClassNotFoundException{
+		public static String searchWords (String english) throws ClassNotFoundException{
 			
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
 		ResultSet rs=null; 
-		String word1 =new String();//�ѻᵥ��
+		String word1 =new String();
 		
 		//1.装载驱动程序
 		Class.forName(JDBC_DRIVER);
@@ -149,14 +144,12 @@ public class T1 {
 			ptmt.setFetchSize(2);
 			rs=ptmt.executeQuery();
 			//执行结果
-
 			while (rs.next()){
 			word1=rs.getString("chinese");
 			}
 		   if(word1.length()==0){
 			   word1="没有查到";
 		   }
-
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -170,12 +163,10 @@ public class T1 {
 			if(rs!=null)
 				rs.close();
 			} catch (SQLException e) {
-		
 			}	
 		}
 		return word1;
 		} 
-
 		
 		
 		@SuppressWarnings("resource")
@@ -229,7 +220,7 @@ public class T1 {
 			}
 		
 		
-		public  void insertinword (String word) throws ClassNotFoundException{
+		public static void insertinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -263,7 +254,7 @@ public class T1 {
 
 		
 		@SuppressWarnings("resource")
-		public  void removenowword (String word) throws ClassNotFoundException{
+		public static void removenowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
@@ -313,7 +304,7 @@ public class T1 {
 			}
 		
 		
-		public  void insertnowword (String word) throws ClassNotFoundException{
+		public static void insertnowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -347,7 +338,7 @@ public class T1 {
 			}
 	
 		
-		public  void addinword (String word) throws ClassNotFoundException{
+		public static void addinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -362,12 +353,9 @@ public class T1 {
 
 				 ptmt.execute();
 //				 conn.commit(); 
-				
 				//执行结果
-
-				 
+ 
 			} catch (SQLException e) {
-				
 				e.printStackTrace();
 			}finally{
 				//5 清理
@@ -381,22 +369,20 @@ public class T1 {
 			}
 			}
 		
-		public  void delinword (ArrayList<String> ImportWord) throws ClassNotFoundException{
+		public static void delinword (ArrayList<String> ImportWord) throws ClassNotFoundException{
 			for (String ImportWord1 :ImportWord){
-				t2=new T1();
-				t2.delinword(ImportWord1);
+				T1.delinword(ImportWord1);
 			}
 		}
 		
-		public  void addNowWord (ArrayList<String> ImportWord) throws ClassNotFoundException{
+		public static void addNowWord (ArrayList<String> ImportWord) throws ClassNotFoundException{
 			for (String ImportWord1 :ImportWord){
-				t2=new T1();
-				t2.addNowWord(ImportWord1);
+				T1.addNowWord(ImportWord1);
 			}
 		}
 		
 		
-		public  void delinword (String word) throws ClassNotFoundException{
+		public static void delinword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -410,7 +396,6 @@ public class T1 {
 
 				 ptmt.execute();
 //				 conn.commit(); 
-		
 				//执行结果
 	 
 			} catch (SQLException e) {
@@ -424,14 +409,13 @@ public class T1 {
 				if(ptmt!=null)
 					ptmt.close();
 				} catch (SQLException e) {
-			
 				}
 			}
 			}
 		
 		
 		
-		public  void addNowWord (String word) throws ClassNotFoundException{
+		public static void addNowWord (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -440,15 +424,13 @@ public class T1 {
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
 				//3、执行sql语句
-				
 				ptmt=conn.prepareStatement("update  dictionary set nowword=1 where english=?");	
 				ptmt.setString(1, word);
 				
 
 				 ptmt.execute();
 //				 conn.commit(); 
-				
-				
+
 				//执行结果
 
 				 
@@ -469,7 +451,7 @@ public class T1 {
 			}
 		
 		
-		public  void increasetime (String word) throws ClassNotFoundException{
+		public static void increasetime (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -481,14 +463,11 @@ public class T1 {
 				
 				ptmt=conn.prepareStatement("update  dictionary set time=time+1 where english=?");	
 				ptmt.setString(1, word);
-				
 
 				 ptmt.execute();
-//				 conn.commit(); 
-								
+//				 conn.commit(); 				
 				//执行结果
-
-				 
+	 
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
@@ -499,14 +478,13 @@ public class T1 {
 					conn.close();
 				if(ptmt!=null)
 					ptmt.close();
-				} catch (SQLException e) {
-			
+				} catch (SQLException e) {	
 				}
 			}
 			}
 		
 		
-		public  void delnowword (String word) throws ClassNotFoundException{
+		public static void delnowword (String word) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -541,7 +519,7 @@ public class T1 {
 			}
 		
 		
-		public  void insertdictionary (String english,String chinese) throws ClassNotFoundException{
+		public static void insertdictionary (String english,String chinese) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -575,7 +553,7 @@ public class T1 {
 			}
 			}
 	
-		public  Timestamp getlasttime (String english) throws ClassNotFoundException{
+		public static Timestamp getlasttime (String english) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
@@ -599,8 +577,7 @@ public class T1 {
 					System.out.println((rs.getString("lasttime")));
 					Lt=rs.getTimestamp("lasttime");
 					}
-				
-				 
+
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
@@ -612,14 +589,13 @@ public class T1 {
 				if(ptmt!=null)
 					ptmt.close();
 				} catch (SQLException e) {
-			
 				}
 			}
 			return Lt;
 			}
 		
 		
-		public  void setlasttime (String english) throws ClassNotFoundException{
+		public static void setlasttime (String english) throws ClassNotFoundException{
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			//1.装载驱动程序
@@ -636,7 +612,6 @@ public class T1 {
 
 				 ptmt.execute();
 //				 conn.commit(); 
-				
 				//执行结果
 				 
 			} catch (SQLException e) {
@@ -650,12 +625,12 @@ public class T1 {
 				if(ptmt!=null)
 					ptmt.close();
 				} catch (SQLException e) {
-			
 				}
 			}
 			}	
 		
-		public int  passtime(Timestamp t1){
+		
+		public static int  passtime(Timestamp t1){
 			int pt =0;
 			long lpt=0;
 			Timestamp date=new Timestamp(System.currentTimeMillis());
@@ -664,11 +639,11 @@ public class T1 {
 			return pt;
 		}
 		
-		/*
+		/**
 		*
 		*获取最近学过的单词
 		*/
-		public   ArrayList<String>  getnearinworld() throws ClassNotFoundException{
+		public  static ArrayList<String>  getnearinworld() throws ClassNotFoundException{
 			
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
@@ -691,19 +666,14 @@ public class T1 {
 //			System.out.println(date1);
 			String d2=date1.toString();
 			System.out.println(d2);
-			ptmt=conn.prepareStatement("select * from dictionary where inword=1&&lasttime>?");	
-			
+			ptmt=conn.prepareStatement("select * from dictionary where inword=1&&lasttime>?");				
 			ptmt.setString(1, d2);
 			ptmt.setFetchSize(2);
-			
 			rs=ptmt.executeQuery();
-		
 			while (rs.next()){		
 			word.add(rs.getString("english"));
 			}
-
-		} catch (SQLException e) {
-			
+		} catch (SQLException e) {			
 			e.printStackTrace();
 		}finally{
 			//5 清理
@@ -714,15 +684,14 @@ public class T1 {
 				ptmt.close();
 			if(rs!=null)
 				rs.close();
-			} catch (SQLException e) {
-		
+			} catch (SQLException e) {		
 			}	
 		}
 		return word;
 		}
 	
 		
-		public   ArrayList<String>  getduonowworld () throws ClassNotFoundException{
+		public static  ArrayList<String>  getduonowworld () throws ClassNotFoundException{
 			
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
@@ -735,20 +704,15 @@ public class T1 {
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
 				//3、执行sql语句
-
 				ptmt=conn.prepareStatement("select * from dictionary where nowword=1&&time>10");	
 				
 //				ptmt.setString(1, "");
 				ptmt.setFetchSize(2);
-				
 				rs=ptmt.executeQuery();
-			
 				while (rs.next()){		
 				word.add(rs.getString("english"));
 				}
-
-			} catch (SQLException e) {
-				
+			} catch (SQLException e) {			
 				e.printStackTrace();
 			}finally{
 				//5 清理
@@ -760,15 +724,13 @@ public class T1 {
 				if(rs!=null)
 					rs.close();
 				} catch (SQLException e) {
-			
 				}	
 			}
 			return word;
 			}
-				
+
 		
-		
-		 public  Logger getMyLog(Class<?> c){
+		 public static Logger getMyLog(Class<?> c){
 		        Logger logger = Logger.getLogger(c);
 		        PropertyConfigurator.configure(setLogProperty());
 		        return logger;
@@ -783,36 +745,35 @@ public class T1 {
 		        } catch (IOException e) {
 		            e.printStackTrace();
 		        }
-
-		        
+  
 		        return p;
 		    }
 		 
 			
-			public  void initmain(){
-				T1 tt1=new T1();//创建工具类
+			public static void initmain(){
+				
 				ArrayList<String> wordin = null;
 				ArrayList<String> wordnow = null;
 				try {
-					wordin = tt1.getinworld();
+					wordin = T1.getinworld();
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				try {
-					wordnow = tt1.getnowworld();
+					wordnow = T1.getnowworld();
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}			
 				Mianwindow widm = new Mianwindow(wordin,wordnow);
-				 Logger logger = tt1.getMyLog(Mylog.class);
+				 Logger logger = T1.getMyLog(Mylog.class);
 				 logger.debug("主窗口打开成功");
 			}
 			
 			
 			
-			 public  void WriteData(String nfile) {
+			 public static void WriteData(String nfile) {
 
 					try{
 
@@ -831,7 +792,7 @@ public class T1 {
 					}
 			
 		 
-				public  String searchlianxiang (String english) throws ClassNotFoundException{
+				public static String searchlianxiang (String english) throws ClassNotFoundException{
 					
 				    Connection conn=null;
 					PreparedStatement ptmt=null;
@@ -877,7 +838,7 @@ public class T1 {
 					}
 			 
 				
-				public  void setlianxiang (String english,String lianxiang) throws ClassNotFoundException{
+				public static void setlianxiang (String english,String lianxiang) throws ClassNotFoundException{
 				    Connection conn=null;
 					PreparedStatement ptmt=null;
 					//1.装载驱动程序

@@ -36,7 +36,6 @@ public class EJPopupMenu extends JPopupMenu{
 	           
 	           try {
 				outjiaf();
-				
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
@@ -45,10 +44,8 @@ public class EJPopupMenu extends JPopupMenu{
 	    });
 		
 		item2.addActionListener(new ActionListener(){
-	        public void actionPerformed(ActionEvent e){
-	        	
-	       widd.tp.t1.setText(wj.name.toLowerCase()); 
-	           
+	        public void actionPerformed(ActionEvent e){        	
+	       widd.tp.t1.setText(wj.name.toLowerCase());      
 	        }
 	    });
 		
@@ -61,8 +58,7 @@ public class EJPopupMenu extends JPopupMenu{
 				outnowjiaf();
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
-			}
-	           
+			} 
 	           new sopenact(widd);
 	           }//加入正在学习的单词
 	        }
@@ -154,8 +150,8 @@ public class EJPopupMenu extends JPopupMenu{
 	
 	
 	   public void outnowjiaf() throws ClassNotFoundException{
-		   T1 tt1=new T1();//�ù�����
-		   tt1.addNowWord(wj.name.toLowerCase());
+		  
+		   T1.addNowWord(wj.name.toLowerCase());
 		   widd.wo.word2.add(wj.name.toLowerCase());
 
  	
@@ -164,10 +160,10 @@ public class EJPopupMenu extends JPopupMenu{
 	   
   public void outnowjianf() throws ClassNotFoundException{
 
-		   T1 tt1=new T1();
+		
 		   widd.wo.word2.remove(wj.name.toLowerCase());
 //		   System.out.println("jiar");
-		   tt1.delnowword(wj.name.toLowerCase());
+		   T1.delnowword(wj.name.toLowerCase());
 	    	
 	    }
 

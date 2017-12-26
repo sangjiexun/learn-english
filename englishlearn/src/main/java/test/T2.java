@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * */
 public class T2 {
 
-	public ArrayList<String> getImportWord(String importWordString ){
+	public static ArrayList<String> getImportWord(String importWordString ){
 		ArrayList<String> ImportWord=new ArrayList<String>();
 		importWordString+='%';
         int ti=0;
