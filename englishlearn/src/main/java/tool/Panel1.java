@@ -7,8 +7,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import org.apache.log4j.Logger;
 
-import read_english_reader.window;
+import read_english_reader.readWindow;
 import eforc_englishchinese.select_chinese_window;
 import mian.Mianwindow;
 import recitation_reciteenlish.recitewindow;
@@ -31,8 +29,6 @@ public class Panel1 extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-private static final int Arrylist = 0;
-private static final int String = 0;
 	private Mianwindow Mianwindow1;
 public Panel1(final Mianwindow w1){
 	this.Mianwindow1=w1;
@@ -59,7 +55,12 @@ public Panel1(final Mianwindow w1){
     
     ActionListener a1=new ActionListener(){
 		public void actionPerformed(ActionEvent e) {
-			englishreader();//执行函数，打开阅读器。
+			try {
+				englishreader();
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}//执行函数，打开阅读器。
 			w1.setVisible(false);
 			Logger logger = T1.getMyLog(Mylog.class);
 			logger.debug("点击了阅读器");
@@ -79,7 +80,6 @@ public Panel1(final Mianwindow w1){
 			try {
 				reciteword();
 			} catch (ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}//执行函数，打开阅读器。
 			w1.setVisible(false);
@@ -94,56 +94,15 @@ public Panel1(final Mianwindow w1){
 		MB2.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {			
-
 			}
 	
 		});
-	
 
-//		MB2.addMouseListener(new MouseListener(){
-//
-//			public void mouseEntered(MouseEvent e) {
-//				
-//				MB2.setBounds(250,70, 150, 100);
-//				
-//			}
-//
-//			public void mouseExited(MouseEvent e) {
-//				
-//
-//				MB2.setBounds(260,80, 130, 90);
-//				
-//			}
-//
-//			public void mouseClicked(MouseEvent e) {
-//				try {
-//					reciteword();
-//				} catch (ClassNotFoundException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//				T1 tt1=new T1();
-//				Logger logger = tt1.getMyLog(Mylog.class);
-//				logger.debug("点击了背诵");
-//				w1.setVisible(false);
-//						}
-//
-//			public void mousePressed(MouseEvent e) {
-//				
-//			}
-//
-//			public void mouseReleased(MouseEvent e) {
-//				
-//			}
-//
-//		});
-		
 		ActionListener a3=new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					selectchinese();
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}//执行函数，打开阅读器。
 				w1.setVisible(false);
@@ -155,50 +114,28 @@ public Panel1(final Mianwindow w1){
 
 		 final JButton MB3=new MYJButton("英认中",3,a3);
 			MB3.setBackground( new Color(28,134,238));
-//			MB3.addActionListener(new ActionListener(){
-//
-//				public void actionPerformed(ActionEvent e) {
-//					try {
-//						selectchinese();
-//						T1 tt1=new T1();
-//						Logger logger = tt1.getMyLog(Mylog.class);
-//						logger.debug("点击了英认中");
-//					} catch (ClassNotFoundException e1) {
-//						// TODO Auto-generated catch block
-//						e1.printStackTrace();
-//					}
-//					w1.setVisible(false);
-//					
-//				}
-//	
-//			});
-		
 
-
-
-	
     add(MB1);
     add(MB2);
     add(MB3);
     add(GImage); 
 
-    
 }
 
 //函数调用下
-public void englishreader(){
+public void englishreader() throws ClassNotFoundException{
 	@SuppressWarnings("unused")
-	window wid = new window(Mianwindow1.word1,Mianwindow1.word2);
+	readWindow wid = new readWindow();
 }
 
 public void reciteword() throws ClassNotFoundException{
 	@SuppressWarnings("unused")
-	recitewindow Win=new recitewindow(Mianwindow1.word1,Mianwindow1.word2 );	
+	recitewindow Win=new recitewindow();	
 }
 
 public void selectchinese() throws ClassNotFoundException{
 	@SuppressWarnings("unused")
-	select_chinese_window Wic=new select_chinese_window(Mianwindow1.word1,Mianwindow1.word2 );	
+	select_chinese_window Wic=new select_chinese_window();	
 }
 
 }

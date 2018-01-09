@@ -47,7 +47,7 @@ public class panel extends JPanel{
     public int i1;
     
 	public panel(recitewindow widd) throws ClassNotFoundException{
-	i1=Integer.parseInt(readDate());
+	i1=Integer.parseInt(T1.readDate());
 	grade1=new grade(i1);
 	e=widd.word2;
 	this.widd=widd;
@@ -120,8 +120,7 @@ public class panel extends JPanel{
 //            	j2.setText(j1.getText());
             	w7=j1.getText();
             	
-            	
-            	
+  	
 //            	w1=e.get((int) (Math.random()*e.size()));
 //            	double ram=Math.random();
 //            	System.out.println(ram);
@@ -157,7 +156,7 @@ public class panel extends JPanel{
 				}
             	System.out.println(w7+"hsdfhsdjfhsdjhfsjdhfjsdadsdh");
             	jex.setBounds(20,120,(int)(grade1.getlen()*680),80);
-            	WriteDate(w5);
+            	T1.WriteDate(w5);
             	j41.setBackground(new Color(54,54,239));
             	
             }
@@ -276,49 +275,6 @@ public class panel extends JPanel{
 	System.out.println(e.size());  
 	}
 
-	
-	 public static void WriteDate(String nfile) {
-
-			try{
-
-			BufferedWriter output = new BufferedWriter(new FileWriter
-					("C:/Users/Administrator/Desktop/代码合集/grade.txt"));//����TXTλ��
-
-			output.write(String.valueOf(nfile)+"\r\n");
-
-			output.close();
-
-			} catch (Exception ex) {
-
-			System.out.println(ex);
-
-			}
-			}
-	 
-	 
-	 
-
-		public static String readDate(){
-			String sb = new String();
-			
-			try{
-            
-		    BufferedReader br = new BufferedReader(new FileReader
-		    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
-			
-            sb=br.readLine();
-
-            System.out.println(sb);
-
-			} catch (Exception ex) {
-
-			System.out.println(ex);
-			}
-			return sb;
-
-			}
- 
-	 
 		
 		public void baidusousuo(){ 
 	     	   try { 

@@ -3,22 +3,20 @@ package read_worldshow;
 //标签类的设计
 import java.awt.Color;
 import java.awt.Font;
-
 import javax.swing.JLabel;
 
-import read_Lis.Emouselistener;
-import read_english_reader.window;
+import read_english_reader.readWindow;
 import read_menu.EJPopupMenu;
 
 public class wordjlabel extends JLabel{
 	
 	private static final long serialVersionUID = 1L;
 	public EJPopupMenu ejm;
-	public window widd;
+	public readWindow widd;
 	public String name;
 	public boolean  ifknow ,ifnow;
 	public wordjlabel(int i,int j,int l,String name,
-			Font z,window widd,boolean g,boolean g1){
+			Font z,readWindow widd,boolean g,boolean g1){
 		super(name);//	起始位置，长度，单词，标签高，是否是不会的单词，是否是正在学习的单词
 
 		ifknow=g;

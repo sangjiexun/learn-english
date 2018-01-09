@@ -1,30 +1,17 @@
-package read_Button;
+package read_menu;
 //工具栏
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import org.apache.log4j.Logger;
-
-import read_Lis.openact;
-import read_english_reader.window;
-import mian.Mianwindow;
-import test.Mylog;
+import read_english_reader.readWindow;
 import test.T1;
-import read_worldshow.wordjlabel;
+
 
 /**
  * 工具栏
@@ -35,12 +22,12 @@ public  class Tool_panel extends JPanel{
 	private static final long serialVersionUID = 2L;
 	
 	
-	private window widd;
+	private readWindow widd;
 	public wordshuxing fy,fy1,wordnumber,unknow,unknowl,learning;
 	public JTextField t1,t2;
 	
 	
-	public Tool_panel(window window){
+	public Tool_panel(readWindow window){
 		//添加操作按钮
 		this.widd=window;
 		
@@ -59,8 +46,10 @@ public  class Tool_panel extends JPanel{
 		wordnumber=new wordshuxing(6, " 总单词数：");
 		learning=new wordshuxing(7, " 空白备用区域");
 		
-		t1 =new Etextfield(10 , 450 ,150 ,20);
-		t2=new Etextfield(10 , 490 ,150 ,20);
+		t1 =new JTextField();
+		t1.setBounds(10 , 450 ,150 ,20);
+		t2=new JTextField();
+		t2.setBounds(10 , 490 ,150 ,20);
 
 		
 		add(unknow);
@@ -123,17 +112,11 @@ public  class Tool_panel extends JPanel{
 				new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 			    widd.setVisible(false);
-			    T1 tt1=new T1();
 			    String text=null;
-//			    for(String text1 )
-			    
-			    tt1.WriteData("jdkfjh");
+//			    for(String text1 )			    
+			    T1.WriteData("jdkfjh");
 				}});
-		
-		
-		
-		
-		
+
 		add(FT);
 		add(OT);//open text button;
 		add(OT2);

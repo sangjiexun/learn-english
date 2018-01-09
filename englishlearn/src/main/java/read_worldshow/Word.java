@@ -4,18 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.TextArea;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import read_english_reader.window;
+import read_english_reader.readWindow;
 import test.T1;
  
 
@@ -24,8 +20,7 @@ public class Word extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private window widd;
-	
+	private readWindow widd;
 	
 	public ArrayList<String> word1;//in
 	public ArrayList<String> word2;//now
@@ -37,16 +32,15 @@ public class Word extends JPanel{
 	int count2 =0;
 	
 	static String text;
-	public  Word (window window,String sentence){
+	public  Word (readWindow window,String sentence){
 		
 		widd=window;
-		
-//	    this.setBackground(Color.BLUE);
+
 		word1=widd.word1;
 		word2=widd.word2;
+		System.out.println("word2:"+word2);
 		setBackground(new Color(50,50,50));
-		
-	    
+
 	    setLayout(null);
 	    
         sentence+="%";
@@ -131,11 +125,8 @@ public class Word extends JPanel{
    		}
 
 		return isFound;
-
    	}
-        
-        
-        
+
         
     public void creatWJL( int x,int y,String z){//创建单词标签
     	

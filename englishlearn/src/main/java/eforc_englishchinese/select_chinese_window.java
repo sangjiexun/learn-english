@@ -6,38 +6,30 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.TextArea;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import read_Button.Tool_panel;
+import mian.XWindow;
+import read_worldshow.Word;
 import recitation_others.grade;
 import test.T1;
-import tool.Panel1;
-import read_worldshow.Word;
-
-public class select_chinese_window extends JFrame {
+import tool.T5;
+/**中文选择英文的窗口
+ * */
+public class select_chinese_window extends XWindow {
 	
 	/**
 	 * 
@@ -45,8 +37,6 @@ public class select_chinese_window extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public TextArea ta;
 	public ArrayList<String> word=null;
-	public ArrayList<String> word1;
-    public ArrayList<String> word2;
 	public Word wo;
 	public String text,t;
 	public int wnum,c;
@@ -60,16 +50,8 @@ public class select_chinese_window extends JFrame {
 	public grade grade1;
 
 
-	public select_chinese_window(ArrayList<String> w1,ArrayList<String> w2) throws ClassNotFoundException {
-//        word1=w1;
-//        word2=w2;
-        T1 tt1=new T1();
-      
-        word1=tt1.getnearinworld();//已会回顾
-        word2=tt1.getduonowworld();//正在学习的难点
-        
-        
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public select_chinese_window() throws ClassNotFoundException {
+        T5.setData(this);
 		setBounds(200,30,1000,700);
 		getContentPane().setBackground(new Color(30,30,30));
 		setTitle("select chinese");
@@ -95,15 +77,12 @@ public class select_chinese_window extends JFrame {
   };  
 	
    GImage.setBounds(0,0,900,700);
-	
 
-		
-		
 	setdata();
 	setjpanel1();
-	   jpanel1.add(GImage);
+	jpanel1.add(GImage);
 	add(jpanel1,BorderLayout.WEST);
-	JMenuBar jmb = createMenuBar();
+	JMenuBar jmb = T5.createMenuBar(this);
 	this.setJMenuBar(jmb);
 		setVisible(true);
 
@@ -122,57 +101,50 @@ public class select_chinese_window extends JFrame {
 		word=word2;
 		c=2;}
 		
-		T1 tt1=new T1();		
+//		T1 tt1=new T1();		
 		
 //		word=tt1.getduonowworld();
 		System.out.println(word.size());
 		
 		english_w1=word.get((int) (Math.random()*word.size()));
 //		System.out.println(search(english_w1));
-		System.out.println(tt1.searchWords(english_w1));
-		chinese_w1=tt1.searchWords(word.get((int) (Math.random()*word.size())));
-		chinese_w2=tt1.searchWords(word.get((int) (Math.random()*word.size())));
-		chinese_w3=tt1.searchWords(word.get((int) (Math.random()*word.size())));
-		chinese_w4=tt1.searchWords(word.get((int) (Math.random()*word.size())));
-		chinese_w5=tt1.searchWords(word.get((int) (Math.random()*word.size())));
-		chinese_w6=tt1.searchWords(word.get((int) (Math.random()*word.size())));
+		System.out.println(T1.searchWords(english_w1));
+		chinese_w1=T1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w2=T1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w3=T1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w4=T1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w5=T1.searchWords(word.get((int) (Math.random()*word.size())));
+		chinese_w6=T1.searchWords(word.get((int) (Math.random()*word.size())));
 		int ram16=new Random().nextInt(6)+1;
 		switch(ram16){
-		case 1:{chinese_w1=tt1.searchWords(english_w1);
+		case 1:{chinese_w1=T1.searchWords(english_w1);
 		break;}
-		case 2:{chinese_w2=tt1.searchWords(english_w1);
+		case 2:{chinese_w2=T1.searchWords(english_w1);
 		break;}
-		case 3:{chinese_w3=tt1.searchWords(english_w1);;
+		case 3:{chinese_w3=T1.searchWords(english_w1);;
 		break;}
-		case 4:{chinese_w4=tt1.searchWords(english_w1);
+		case 4:{chinese_w4=T1.searchWords(english_w1);
 		break;}
-		case 5:{chinese_w5=tt1.searchWords(english_w1);
+		case 5:{chinese_w5=T1.searchWords(english_w1);
 		break;}
-		case 6:{chinese_w6=tt1.searchWords(english_w1);
+		case 6:{chinese_w6=T1.searchWords(english_w1);
 		break;}
 			
 		}
 		repaint();
-		
 }
 
 
+	private void setjpanel1() {	
 
-
-
-
-	private void setjpanel1() {//��������������
-		
-		
 		int i1;
-		i1=Integer.parseInt(readDate());
+		i1=Integer.parseInt(T1.readDate());
 		grade1=new grade(i1);
 		
 
 		jpanel1.setLayout(null);
 		jpanel1.setPreferredSize(new Dimension(950, 150));//���950
 		jpanel1.setBackground(new Color(60,60,60));
-		
 		
 		ex1=new JLabel();
 		ex1.setBounds(20, 200, 180,550);
@@ -182,9 +154,7 @@ public class select_chinese_window extends JFrame {
 		b1=new JLabel();
 		b1.setBounds(10, 150, 150, 50);
 		b1.setOpaque(true);
-		
-		
-		
+
 		
 		g1=new JLabel();
 		g2=new JLabel();
@@ -198,9 +168,7 @@ public class select_chinese_window extends JFrame {
 		g1.setText("等级");
 		g2.setFont(new java.awt.Font("Dialog", 1,20));
 		g2.setText("经验"+grade1.ex);
-	
-		
-		
+
 		
 		e1=new JLabel(english_w1);
 		e1.setBounds(220, 30, 300,70);
@@ -235,8 +203,7 @@ public class select_chinese_window extends JFrame {
 		cd=new chineselabel(220, 5, chinese_w5);
 		cf=new chineselabel(220, 6, chinese_w6);
 		
-		
-	
+
 		
 		jpanel1.add(b1);
 //		jpanel1.add(g1);
@@ -253,8 +220,7 @@ public class select_chinese_window extends JFrame {
 		jpanel1.add(cd);
 		jpanel1.add(cf);
 		
-		
-		
+
 		//��ť�ϼ�
 		j1=new JButton ("O 加入正在学习");
 		j2=new JButton ("P 不认识");
@@ -405,13 +371,11 @@ public class select_chinese_window extends JFrame {
 				try {
 					showword();
 				} catch (ClassNotFoundException e2) {
-					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
 				try {
 					setdata();
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				reshow();				
@@ -484,7 +448,7 @@ public class select_chinese_window extends JFrame {
 		p2.setText(tt1.searchWords(english_w1));
 		grade1.ex++;
 		
-		WriteDate(grade1.ex+"");
+		T1.WriteDate(grade1.ex+"");
 		 
 		g2.setText("经验"+grade1.ex);
 	}
@@ -498,7 +462,6 @@ public class select_chinese_window extends JFrame {
 	  		    java.awt.Desktop dp = java.awt.Desktop.getDesktop(); 
 	  		    // 判断系统桌面是否支持要执行的功能 
 	  		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
-
 	  		      dp.browse(uri);// 获取系统默认浏览器打开链接 
 
 	  		    } 
@@ -510,87 +473,18 @@ public class select_chinese_window extends JFrame {
 	  		    f.printStackTrace(); 
 	  		   } 
 	  		  }
-	
 
-	 public static String readDate(){
-			String sb = new String();
-			
-			try{
-
-		    BufferedReader br = new BufferedReader(new FileReader
-		    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
-			
-         sb=br.readLine();
-
-         System.out.println(sb);
-         
-
-			} catch (Exception ex) {
-
-			System.out.println(ex);
-
-			}
-			return sb;
-			
-			}
 	 
-	 public static void WriteDate(String nfile) {
 
-			try{
-
-			BufferedWriter output = new BufferedWriter(new FileWriter
-					("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
-
-			output.write(String.valueOf(nfile)+"\r\n");
-
-
-			output.close();
-
-			} catch (Exception ex) {
-
-			System.out.println(ex);
-
-			}
-
-			}
 	 public void chengfa(){//快速识别删除
 //		 cq.setBackground(Color.RED);
 		 grade1.ex-=1;
-		 WriteDate(grade1.ex+"");
+		 T1.WriteDate(grade1.ex+"");
 		 g2.setText("经验："+grade1.ex);
 		
 //		 repaint();
 	 }
-	
-	 public void Deletew(){	 
-   for (int i=0;i<word1.size();i++){
 
-	   
-   }		 
-   }
 
-		
-		private JMenuBar createMenuBar() {
-			// 实例化一个JMenuBar的对象
-			JMenuBar jmb = new JMenuBar();
-			JMenu menu1 = new JMenu("编辑");
-			jmb.add(menu1);
-			
-			JMenuItem jmi1 = new JMenuItem("返回主页");
-			menu1.add(jmi1);
-			jmi1.addActionListener(new ActionListener(){
-
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-					T1 tt1=new T1();
-					tt1.initmain();
-					}
-				}
-			);
-			
-			return jmb;
-		}
-
- 
 	 
 }

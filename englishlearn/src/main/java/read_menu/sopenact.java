@@ -1,20 +1,19 @@
-package read_Button;
+package read_menu;
 
-import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-import read_english_reader.window;
+import read_english_reader.readWindow;
 
 public class sopenact implements ActionListener {
 	
-	window db;
+	readWindow db;
 	private StringBuffer ba;
 	public String t;
-	public sopenact(window Drb){
+	public sopenact(readWindow Drb){
 		 db=Drb; 
 	 }
 
@@ -22,9 +21,7 @@ public class sopenact implements ActionListener {
 		ba=new StringBuffer();
 		
         db.qingkong();
-        
 		ba=new StringBuffer();
-	
         String  t=db.t;
 
         try {
@@ -42,7 +39,6 @@ public class sopenact implements ActionListener {
            System.out.println("读取文件内容出错");
            e1.printStackTrace();
        }
-	
 		db.text=ba.toString();
 		db.zairu();
 //        System.out.println(db.text);

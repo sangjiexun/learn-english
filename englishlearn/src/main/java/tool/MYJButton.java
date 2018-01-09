@@ -37,10 +37,7 @@ public class MYJButton extends JButton {
 			 
 		 };
 		addMouseListener(e);
-		addActionListener(a1);
-       
+		addActionListener(a1); 
 	}
-	
-
 
 }

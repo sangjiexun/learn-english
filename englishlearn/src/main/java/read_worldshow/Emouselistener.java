@@ -1,4 +1,4 @@
-package read_Lis;
+package read_worldshow;
 
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
@@ -8,14 +8,12 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 import test.T1;
-import read_worldshow.wordjlabel;
 
 public class Emouselistener implements MouseListener{
 	private wordjlabel wj;
 	
 	public  Emouselistener(wordjlabel wj) {
 		this.wj=wj;		
-
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -29,11 +27,8 @@ public class Emouselistener implements MouseListener{
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			}
-//        	  searchWords(wj.name.toLowerCase());
-        	 
         	  wj.ejm.show(wj, e.getX(), e.getY());
           }
-		
 
 	}
 

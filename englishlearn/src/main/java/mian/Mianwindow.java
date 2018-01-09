@@ -43,7 +43,6 @@ public class Mianwindow extends JFrame{
 	public static void main(String[] args) throws ClassNotFoundException {		
 		initmain();
 	}
-    
 	
 	/**
 	 * 主窗口构建
@@ -54,15 +53,12 @@ public class Mianwindow extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点击关闭按钮后，程序结束
 		setBounds(300,30,800,600);//设置大小
 		setTitle("主窗口");//窗口的名字
-
 		tp1=new Panel1(this);//创建工具栏并利用this传递参数
 		add(tp1,BorderLayout.WEST);
 		JMenuBar jmb = createMenuBar();
 		this.setJMenuBar(jmb);
-		
 		setVisible(true);//设置为可见
 	}
-	
 
 	
 	/**实例化一个JMenuBar的对象
@@ -101,11 +97,8 @@ public class Mianwindow extends JFrame{
 				String importWordString=ba.toString();
 				
 				ArrayList<String> ImportWord=new ArrayList<String>();
-
-				ImportWord =T2.getImportWord(importWordString);
-		        				
+				ImportWord =T2.getImportWord(importWordString); 				
 				System.out.println("要导入的单词："+ImportWord);
-
 				Logger logger = T1.getMyLog(Mylog.class);
 			    logger.debug("导入了单词"+ImportWord);
 			
@@ -143,8 +136,6 @@ public class Mianwindow extends JFrame{
 		 Logger logger = T1.getMyLog(Mylog.class);
 		 logger.debug("主窗口打开成功");
 	}
-
-	
 }
 
 

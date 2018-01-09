@@ -1,6 +1,8 @@
 package test;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -872,10 +874,53 @@ public class T1 {
 					}
 					}	
 			 
+				public static String readDate(){
+					String sb = new String();
+					
+					try{
+		            
+				    BufferedReader br = new BufferedReader(new FileReader
+				    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
+					
+		            sb=br.readLine();
+
+		            System.out.println(sb);
+
+					} catch (Exception ex) {
+
+					System.out.println(ex);
+					}
+					return sb;
+
+					}
+				
+				 public static void WriteDate(String nfile) {
+
+						try{
+
+						BufferedWriter output = new BufferedWriter(new FileWriter
+								("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
+
+						output.write(String.valueOf(nfile)+"\r\n");
+
+
+						output.close();
+
+						} catch (Exception ex) {
+
+						System.out.println(ex);
+
+						}
+
+						}
+				
+				
+				
+				
+				
 			 
 public static void main(String[] args) throws ClassNotFoundException{
-	T1 tt1=new T1();
-System.out.println(tt1.searchlianxiang("hello"));
+System.out.println(T1.getinworld());
 	
 }
 }

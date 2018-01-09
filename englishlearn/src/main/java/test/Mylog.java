@@ -27,8 +27,6 @@ public class Mylog extends Logger{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        
         return p;
     }
 	
@@ -40,11 +38,9 @@ public class Mylog extends Logger{
 	
 	 public static void main(String[] args){
 		 Logger logger = getMyLog(Mylog.class);
-		
 		 logger.debug("运行成功");
 		 Timestamp date=new Timestamp(System.currentTimeMillis());
 
-		 
 		 System.out.println(date.getTime()-date.getTime());
 		 
 	 }

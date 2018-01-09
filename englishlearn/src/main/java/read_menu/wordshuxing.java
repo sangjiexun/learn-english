@@ -1,9 +1,5 @@
-package read_Button;
+package read_menu;
 import java.awt.Color;
-
-//label������
-//����λ�ã��߶ȣ���ǩ����
-//������ǩ
 import javax.swing.JLabel;
 
 public class wordshuxing extends JLabel {

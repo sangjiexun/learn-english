@@ -1,12 +1,12 @@
 package recitation_others;
-//等级与经验管理
+/**等级与经验管理
+ * */
 public class grade {
 public int ex;
 public int grade ,lastex,nextex;
 public double l;
 public grade (int x){
 	ex=x;
-	
 	}	
 
 public int getgrade(){

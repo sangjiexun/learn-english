@@ -1,14 +1,10 @@
 package read_menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
-import read_Button.sopenact;
-import read_english_reader.window;
+import read_english_reader.readWindow;
 import test.T1;
 import read_worldshow.wordjlabel;
 
@@ -24,8 +20,8 @@ public class EJPopupMenu extends JPopupMenu{
 	
 	
 	private wordjlabel wj;
-	private window  widd;
-	public EJPopupMenu(wordjlabel wordjlabel,final window widd){
+	private readWindow  widd;
+	public EJPopupMenu(wordjlabel wordjlabel,final readWindow widd){
 		this.wj=wordjlabel;
 		this.widd=widd;
 //		searchWords( wj.name.toLowerCase());
@@ -99,7 +95,6 @@ public class EJPopupMenu extends JPopupMenu{
 	        		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
 
 	        		      dp.browse(uri);// 获取系统默认浏览器打开链接 
-
 	        		    } 
 	        		   } catch (java.lang.NullPointerException f) { 
 	        		    // 此为uri为空时抛出异常 
@@ -110,61 +105,47 @@ public class EJPopupMenu extends JPopupMenu{
 	        		   } 
 	        		  }
 	    });
-
-		
 		add(item1);
 		add(item2);
 		add(item3);
 		add(item4);
 		add(item5);
 		add(item6);
-		
 	}
 
 
 	
 	   public void outjiaf() throws ClassNotFoundException{
-
-		   T1 tt1=new T1();
 		   widd.wo.word1.add(wj.name.toLowerCase());
 		   outnowjianf();
-		   tt1.addinword(wj.name.toLowerCase());
-		   tt1.setlasttime(wj.name.toLowerCase());
-	    	
-	    	
+		   T1.addinword(wj.name.toLowerCase());
+		   T1.setlasttime(wj.name.toLowerCase());
 	    }
 	
+	   
 	   public void outjianf(){
-
-		   T1 tt1 =new T1();
 		   widd.wo.word1.remove(wj.name.toLowerCase());
 		   try {
-			tt1.delinword(wj.name.toLowerCase());
+			T1.delinword(wj.name.toLowerCase());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-	    	
 	    }
 	
 
-	
 	
 	   public void outnowjiaf() throws ClassNotFoundException{
 		  
 		   T1.addNowWord(wj.name.toLowerCase());
 		   widd.wo.word2.add(wj.name.toLowerCase());
 
- 	
 	    }
 	   
 	   
   public void outnowjianf() throws ClassNotFoundException{
 
-		
 		   widd.wo.word2.remove(wj.name.toLowerCase());
-//		   System.out.println("jiar");
 		   T1.delnowword(wj.name.toLowerCase());
-	    	
 	    }
 
 	}

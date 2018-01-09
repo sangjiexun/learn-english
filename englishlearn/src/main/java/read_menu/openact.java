@@ -1,4 +1,4 @@
-package read_Lis;
+package read_menu;
 
 import java.awt.FileDialog;
 import java.awt.TextArea;
@@ -8,13 +8,13 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-import read_english_reader.window;
+import read_english_reader.readWindow;
 
 
 public class openact implements ActionListener{
 	     private StringBuffer ba;
-	     window db;
-		 public openact(window Drb){
+	     readWindow db;
+		 public openact(readWindow Drb){
 			 db=Drb;
 		 }
 	
@@ -43,7 +43,6 @@ public class openact implements ActionListener{
            System.out.println("读取文件内容出错");
            e1.printStackTrace();
        }
-	
 		db.text=ba.toString();
 		db.zairu();
 
