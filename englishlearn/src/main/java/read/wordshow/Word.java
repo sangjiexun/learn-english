@@ -1,18 +1,15 @@
-package read_worldshow;
+package read.wordshow;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.TextArea;
-
 import java.util.ArrayList;
-
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import read_english_reader.readWindow;
-import test.T1;
+import read.english_reader.readWindow;
  
 
 public class Word extends JPanel{

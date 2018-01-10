@@ -1,4 +1,4 @@
-package recitation_reciteenlish;
+package recitation.reciteenlish;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,10 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -24,9 +20,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 
-import recitation_others.grade;
-import recitation_others.jtable;
-import test.T1;
+import recitation.others.grade;
+import recitation.others.jtable;
+import tool.T1;
+import tool.T4;
 
 public class panel extends JPanel{
 
@@ -47,7 +44,7 @@ public class panel extends JPanel{
     public int i1;
     
 	public panel(recitewindow widd) throws ClassNotFoundException{
-	i1=Integer.parseInt(T1.readDate());
+	i1=Integer.parseInt(T4.readDate());
 	grade1=new grade(i1);
 	e=widd.word2;
 	this.widd=widd;
@@ -156,7 +153,7 @@ public class panel extends JPanel{
 				}
             	System.out.println(w7+"hsdfhsdjfhsdjhfsjdhfjsdadsdh");
             	jex.setBounds(20,120,(int)(grade1.getlen()*680),80);
-            	T1.WriteDate(w5);
+            	T4.WriteDate(w5);
             	j41.setBackground(new Color(54,54,239));
             	
             }

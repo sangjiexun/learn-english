@@ -1,4 +1,4 @@
-package test;
+package tool;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -752,23 +752,8 @@ public class T1 {
 		    }
 		 
 			
-			public static void initmain(){
-				
-				ArrayList<String> wordin = null;
-				ArrayList<String> wordnow = null;
-				try {
-					wordin = T1.getinworld();
-				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				try {
-					wordnow = T1.getnowworld();
-				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}			
-				Mianwindow widm = new Mianwindow(wordin,wordnow);
+			public static void initmain(){		
+				Mianwindow widm = new Mianwindow();
 				 Logger logger = T1.getMyLog(Mylog.class);
 				 logger.debug("主窗口打开成功");
 			}
@@ -776,21 +761,15 @@ public class T1 {
 			
 			
 			 public static void WriteData(String nfile) {
-
 					try{
-
 					BufferedWriter output = new BufferedWriter(new FileWriter
 							("C:/Users/Administrator/Desktop/文档/新建文件夹 (2)/test.txt"));
 
 					output.write(String.valueOf(nfile)+"\r\n");
 					output.close();
-
 					} catch (Exception ex) {
-
 					System.out.println(ex);
-
 					}
-
 					}
 			
 		 
@@ -873,51 +852,7 @@ public class T1 {
 						}
 					}
 					}	
-			 
-				public static String readDate(){
-					String sb = new String();
-					
-					try{
-		            
-				    BufferedReader br = new BufferedReader(new FileReader
-				    		("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
-					
-		            sb=br.readLine();
-
-		            System.out.println(sb);
-
-					} catch (Exception ex) {
-
-					System.out.println(ex);
-					}
-					return sb;
-
-					}
-				
-				 public static void WriteDate(String nfile) {
-
-						try{
-
-						BufferedWriter output = new BufferedWriter(new FileWriter
-								("C:/Users/Administrator/Desktop/代码合集/grade.txt"));
-
-						output.write(String.valueOf(nfile)+"\r\n");
-
-
-						output.close();
-
-						} catch (Exception ex) {
-
-						System.out.println(ex);
-
-						}
-
-						}
-				
-				
-				
-				
-				
+		
 			 
 public static void main(String[] args) throws ClassNotFoundException{
 System.out.println(T1.getinworld());

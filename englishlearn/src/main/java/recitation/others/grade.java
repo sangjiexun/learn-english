@@ -1,4 +1,4 @@
-package recitation_others;
+package recitation.others;
 /**等级与经验管理
  * */
 public class grade {

@@ -9,7 +9,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import mian.XWindow;
-import test.T1;
 
 /**窗口参数设定工具类*/
 public class T5 {

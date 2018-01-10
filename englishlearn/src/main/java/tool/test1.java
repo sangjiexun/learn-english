@@ -1,4 +1,4 @@
-package test;
+package tool;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -35,12 +35,12 @@ public class test1 {
 			PreparedStatement ptmt=null;
 //			ResultSet rs=null; 
 			
-			//1.×°ÔØÇý¶¯³ÌÐò
+			//1.×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Class.forName(JDBC_DRIVER);
-			//2.½¨Á¢Á´½Ó
+			//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3¡¢Ö´ÐÐsqlÓï¾ä
+				//3ï¿½ï¿½Ö´ï¿½ï¿½sqlï¿½ï¿½ï¿½
 				ptmt=conn.prepareStatement("insert into dictionary (english,chinese,time) values (?,?,0)");	
 //				System.out.println();
 				ptmt.setString(1, english);
@@ -51,15 +51,15 @@ public class test1 {
 				 conn.commit(); 
 				
 				
-				//4¡¢Ö´ÐÐ½á¹û
+				//4ï¿½ï¿½Ö´ï¿½Ð½ï¿½ï¿½
 //				while (rs.next()){
 //				System.out.println(rs.getString("UserName")+": "+rs.getString("CourseName"));
 //			}
 			} catch (SQLException e) {
-				//Òì³£´¦Àí
+				//ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 				e.printStackTrace();
 			}finally{
-				//5 ÇåÀí
+				//5 ï¿½ï¿½ï¿½ï¿½
 				try {
 				if(conn!=null)
 					conn.close();
@@ -80,7 +80,7 @@ public class test1 {
     	ArrayList<String> w1 = null;
     	try {
 			ObjectInputStream in=new ObjectInputStream(
-	new FileInputStream("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/obj.txt"));
+	new FileInputStream("C:/Users/Administrator/Desktop/ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½/obj.txt"));
 			
 			w1=(ArrayList<String>) in.readObject();
 			
@@ -99,7 +99,7 @@ public class test1 {
 //    	ArrayList<String> w1 = null;
 //    	try {
 //			ObjectInputStream in=new ObjectInputStream(
-//	new FileInputStream("C:/Users/Administrator/Desktop/´úÂëºÏ¼¯/now.txt"));
+//	new FileInputStream("C:/Users/Administrator/Desktop/ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½/now.txt"));
 //			
 //			w1=(ArrayList<String>) in.readObject();
 //			
@@ -121,14 +121,14 @@ public class test1 {
 	    Connection conn=null;
 		PreparedStatement ptmt=null;
 		ResultSet rs=null; 
-		String word1 =new String();//ÒÑ»áµ¥´Ê
+		String word1 =new String();//ï¿½Ñ»áµ¥ï¿½ï¿½
 		
-		//1.×°ÔØÇý¶¯³ÌÐò
+		//1.×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Class.forName(JDBC_DRIVER);
-		//2.½¨Á¢Á´½Ó
+		//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		try { 	
 			conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-			//3¡¢Ö´ÐÐsqlÓï¾ä
+			//3ï¿½ï¿½Ö´ï¿½ï¿½sqlï¿½ï¿½ï¿½
 			
 			for (String word:w1){
 				ptmt=conn.prepareStatement("update dictionary set inword=1 where english=?");	
@@ -141,20 +141,20 @@ public class test1 {
 //			ptmt.setString(1, word1);
 			ptmt.setFetchSize(2);
 //			rs=ptmt.executeQuery();
-//			//4¡¢Ö´ÐÐ½á¹û
+//			//4ï¿½ï¿½Ö´ï¿½Ð½ï¿½ï¿½
 //
 //			while (rs.next()){
 //			word1=rs.getString("chinese");
 //			}
 		   if(word1.length()==0){
-			   word1="²éÑ¯²»µ½";
+			   word1="ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½";
 		   }
 
 		} catch (SQLException e) {
-			//Òì³£´¦Àí
+			//ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 			e.printStackTrace();
 		}finally{
-			//5 ÇåÀí
+			//5 ï¿½ï¿½ï¿½ï¿½
 			try {
 			if(conn!=null)
 				conn.close();
@@ -175,32 +175,32 @@ public class test1 {
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
-			String word1 =new String();//ÒÑ»áµ¥´Ê
+			String word1 =new String();//ï¿½Ñ»áµ¥ï¿½ï¿½
 			
-			//1.×°ÔØÇý¶¯³ÌÐò
+			//1.×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Class.forName(JDBC_DRIVER);
-			//2.½¨Á¢Á´½Ó
+			//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3¡¢Ö´ÐÐsqlÓï¾ä
+				//3ï¿½ï¿½Ö´ï¿½ï¿½sqlï¿½ï¿½ï¿½
 				ptmt=conn.prepareStatement("select * from dictionary where english=?");	
 				ptmt.setString(1, english);
 				ptmt.setFetchSize(2);
 				rs=ptmt.executeQuery();
-				//4¡¢Ö´ÐÐ½á¹û
+				//4ï¿½ï¿½Ö´ï¿½Ð½ï¿½ï¿½
 
 				while (rs.next()){
 				word1=rs.getString("chinese");
 				}
 			   if(word1.length()==0){
-				   word1="²éÑ¯²»µ½";
+				   word1="ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½";
 			   }
 
 			} catch (SQLException e) {
-				//Òì³£´¦Àí
+				//ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 				e.printStackTrace();
 			}finally{
-				//5 ÇåÀí
+				//5 ï¿½ï¿½ï¿½ï¿½
 				try {
 				if(conn!=null)
 					conn.close();
@@ -222,14 +222,14 @@ public class test1 {
 		    Connection conn=null;
 			PreparedStatement ptmt=null;
 			ResultSet rs=null; 
-			String word1 =new String();//ÒÑ»áµ¥´Ê
+			String word1 =new String();//ï¿½Ñ»áµ¥ï¿½ï¿½
 			
-			//1.×°ÔØÇý¶¯³ÌÐò
+			//1.×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			Class.forName(JDBC_DRIVER);
-			//2.½¨Á¢Á´½Ó
+			//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			try { 	
 				conn=DriverManager.getConnection(DB_URL, USER, PASSWORD);
-				//3¡¢Ö´ÐÐsqlÓï¾ä
+				//3ï¿½ï¿½Ö´ï¿½ï¿½sqlï¿½ï¿½ï¿½
 				
 				for (String word:w1){
 					ptmt=conn.prepareStatement("update dictionary set nowword=1 where english=?");	
@@ -242,20 +242,20 @@ public class test1 {
 //				ptmt.setString(1, word1);
 				ptmt.setFetchSize(2);
 //				rs=ptmt.executeQuery();
-//				//4¡¢Ö´ÐÐ½á¹û
+//				//4ï¿½ï¿½Ö´ï¿½Ð½ï¿½ï¿½
 	//
 //				while (rs.next()){
 //				word1=rs.getString("chinese");
 //				}
 			   if(word1.length()==0){
-				   word1="²éÑ¯²»µ½";
+				   word1="ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½";
 			   }
 
 			} catch (SQLException e) {
-				//Òì³£´¦Àí
+				//ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
 				e.printStackTrace();
 			}finally{
-				//5 ÇåÀí
+				//5 ï¿½ï¿½ï¿½ï¿½
 				try {
 				if(conn!=null)
 					conn.close();

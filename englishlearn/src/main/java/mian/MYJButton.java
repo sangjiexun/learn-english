@@ -1,4 +1,4 @@
-package tool;
+package mian;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,7 +30,6 @@ public class MYJButton extends JButton {
 			public void mouseEntered(MouseEvent e) {
 				setBounds(x-10, y-10, w+20, h+20);
 			}
-
 			public void mouseExited(MouseEvent e) {
 				setBounds(x, y, w, h);				
 			}

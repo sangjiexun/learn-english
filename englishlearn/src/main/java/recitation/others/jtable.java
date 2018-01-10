@@ -1,4 +1,4 @@
-package recitation_others;
+package recitation.others;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;

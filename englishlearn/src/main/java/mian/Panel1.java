@@ -1,4 +1,4 @@
-package tool;
+package mian;
 
 
 import java.awt.Color;
@@ -15,12 +15,11 @@ import javax.swing.border.LineBorder;
 
 import org.apache.log4j.Logger;
 
-import read_english_reader.readWindow;
-import eforc_englishchinese.select_chinese_window;
-import mian.Mianwindow;
-import recitation_reciteenlish.recitewindow;
-import test.Mylog;
-import test.T1;
+import eforc.englishchinese.select_chinese_window;
+import read.english_reader.readWindow;
+import recitation.reciteenlish.recitewindow;
+import tool.Mylog;
+import tool.T1;
 
 
 //主界面的工具栏
@@ -29,11 +28,11 @@ public class Panel1 extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Mianwindow Mianwindow1;
+
 public Panel1(final Mianwindow w1){
-	this.Mianwindow1=w1;
+
 	setLayout(null);
-	setPreferredSize(new Dimension(850, 50));//主界面的宽度；
+	setPreferredSize(new Dimension(850, 50));//主界面的尺寸；
 	
 	 JPanel  GImage = new JPanel() {  
   	  

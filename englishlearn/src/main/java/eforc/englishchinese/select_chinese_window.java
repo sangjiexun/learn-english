@@ -1,32 +1,24 @@
-package eforc_englishchinese;
+package eforc.englishchinese;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.TextArea;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 import mian.XWindow;
-import read_worldshow.Word;
-import recitation_others.grade;
-import test.T1;
-import tool.T5;
+import recitation.others.grade;
+import tool.T1;
+import tool.T4;
 /**中文选择英文的窗口
  * */
 public class select_chinese_window extends XWindow {
@@ -35,13 +27,22 @@ public class select_chinese_window extends XWindow {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public TextArea ta;
+
+	public select_chinese_window() throws ClassNotFoundException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+//	public TextArea ta;
+	/**当前背的单词集合*/
 	public ArrayList<String> word=null;
-	public Word wo;
-	public String text,t;
-	public int wnum,c;
+//	public Word wo;
+//	public String text,t;
+//	public int wnum;
+	/**当前状态，提示用*/
+	private int flag;
 	public JPanel jpanel1;
-	public static select_chinese_window test;
+//	public static select_chinese_window test;
 	public chineselabel cq,cw, ce,cr,cd,cf;
 	public JLabel e1,ex1,p0,p1,p2,g1,g2,b1,b2;//b1,b2为单词属性窗口 
 	public JButton j1, j2, j3, j4;
@@ -50,43 +51,43 @@ public class select_chinese_window extends XWindow {
 	public grade grade1;
 
 
-	public select_chinese_window() throws ClassNotFoundException {
-        T5.setData(this);
-		setBounds(200,30,1000,700);
-		getContentPane().setBackground(new Color(30,30,30));
-		setTitle("select chinese");
-		jpanel1=new JPanel();
-
-		
-		 JPanel  GImage = new JPanel() {  
-		 
-		 /**
-		 * 
-		 */
-		private static final long serialVersionUID = -8226355005112414617L;
-
-		public  void paintComponent(Graphics g) {
-//			System.out.println();
-//			System.out.println("sdkflllll");
-          ImageIcon icon = new ImageIcon("C:/Users/Administrator/Desktop/图片素材库/timg.jpg");  
-          Image img = icon.getImage();  
-          g.drawImage(img, 0, 0, icon.getIconWidth(),  
-                  icon.getIconHeight(), icon.getImageObserver());    
-      }  
-
-  };  
-	
-   GImage.setBounds(0,0,900,700);
-
-	setdata();
-	setjpanel1();
-	jpanel1.add(GImage);
-	add(jpanel1,BorderLayout.WEST);
-	JMenuBar jmb = T5.createMenuBar(this);
-	this.setJMenuBar(jmb);
-		setVisible(true);
-
-	}
+//	public select_chinese_window() throws ClassNotFoundException {
+//        T5.setData(this);
+//		setBounds(200,30,1000,700);
+//		getContentPane().setBackground(new Color(30,30,30));
+//		setTitle("select chinese");
+//		jpanel1=new JPanel();
+//
+//		
+//		 JPanel  GImage = new JPanel() {  
+//		 
+//		 /**
+//		 * 
+//		 */
+//		private static final long serialVersionUID = -8226355005112414617L;
+//
+//		public  void paintComponent(Graphics g) {
+////			System.out.println();
+////			System.out.println("sdkflllll");
+//          ImageIcon icon = new ImageIcon("C:/Users/Administrator/Desktop/图片素材库/timg.jpg");  
+//          Image img = icon.getImage();  
+//          g.drawImage(img, 0, 0, icon.getIconWidth(),  
+//                  icon.getIconHeight(), icon.getImageObserver());    
+//      }  
+//
+//  };  
+//	
+//   GImage.setBounds(0,0,900,700);
+//
+//	setdata();
+//	setjpanel1();
+//	jpanel1.add(GImage);
+//	add(jpanel1,BorderLayout.WEST);
+//	JMenuBar jmb = T5.createMenuBar(this);
+//	this.setJMenuBar(jmb);
+//	
+//
+//	}
 
 	
 	private void setdata() throws ClassNotFoundException {
@@ -94,17 +95,16 @@ public class select_chinese_window extends XWindow {
 		
 		if (Math.random()<0.5){
 		word =word1;
-		c=1;
+		flag=1;
 		
 		}
 		else{
 		word=word2;
-		c=2;}
-		
+		flag=2;}
 //		T1 tt1=new T1();		
 		
 //		word=tt1.getduonowworld();
-		System.out.println(word.size());
+//		System.out.println(word.size());
 		
 		english_w1=word.get((int) (Math.random()*word.size()));
 //		System.out.println(search(english_w1));
@@ -138,7 +138,7 @@ public class select_chinese_window extends XWindow {
 	private void setjpanel1() {	
 
 		int i1;
-		i1=Integer.parseInt(T1.readDate());
+		i1=Integer.parseInt(T4.readDate());
 		grade1=new grade(i1);
 		
 
@@ -247,13 +247,12 @@ public class select_chinese_window extends XWindow {
 			}
 
 			public void keyPressed(KeyEvent e) {
-				
-			T1 tt1=new T1();
+	
 			
 			switch(e.getKeyChar()){
 			case 'q':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w1)){
+					if(T1.searchWords(english_w1).equals(chinese_w1)){
 						showword();
 						setdata();	
 						reshow();
@@ -269,7 +268,7 @@ public class select_chinese_window extends XWindow {
 				break;}
 			case 'w':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w2)){
+					if(T1.searchWords(english_w1).equals(chinese_w2)){
 						showword();
 						setdata();	
 						reshow();
@@ -284,7 +283,7 @@ public class select_chinese_window extends XWindow {
 				break;}
 			case 'e':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w3)){
+					if(T1.searchWords(english_w1).equals(chinese_w3)){
 						showword();
 						setdata();	
 						reshow();
@@ -299,7 +298,7 @@ public class select_chinese_window extends XWindow {
 				break;}
 			case 'r':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w4)){
+					if(T1.searchWords(english_w1).equals(chinese_w4)){
 						showword();
 						setdata();	
 						reshow();
@@ -314,7 +313,7 @@ public class select_chinese_window extends XWindow {
 				break;}
 			case 'd':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w5)){
+					if(T1.searchWords(english_w1).equals(chinese_w5)){
 						showword();
 						setdata();	
 						reshow();
@@ -329,7 +328,7 @@ public class select_chinese_window extends XWindow {
 				break;}
 			case 'f':{ 
 				try {
-					if(tt1.searchWords(english_w1).equals(chinese_w6)){
+					if(T1.searchWords(english_w1).equals(chinese_w6)){
 						showword();
 						setdata();	
 						reshow();
@@ -347,8 +346,8 @@ public class select_chinese_window extends XWindow {
 				word2.add(english_w1);
 			
 				try {
-					tt1.delinword(english_w1);
-					tt1.addNowWord(english_w1);
+					T1.delinword(english_w1);
+					T1.addNowWord(english_w1);
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -363,7 +362,7 @@ public class select_chinese_window extends XWindow {
 //				Deletew();
 //				out();
 				try {
-					tt1.delinword(english_w1);
+					T1.delinword(english_w1);
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
@@ -429,15 +428,15 @@ public class select_chinese_window extends XWindow {
 		
 //		b1.setText(text);
 //		b2.setText(��֪����);
-		if (c==2){
+		if (flag==2){
 			b1.setText("正在学习");	
 			b1.setBackground(new Color(20,220,70));
 		}
-		if (c==1){
+		if (flag==1){
 			b1.setText("认识的单词");	
 			b1.setBackground(new Color(50,70,200));
 		}
-		c=0;
+		flag=0;
 		repaint();
 		
 	}
@@ -447,9 +446,7 @@ public class select_chinese_window extends XWindow {
 		p1.setText(english_w1);
 		p2.setText(tt1.searchWords(english_w1));
 		grade1.ex++;
-		
-		T1.WriteDate(grade1.ex+"");
-		 
+		T4.WriteDate(grade1.ex+""); 
 		g2.setText("经验"+grade1.ex);
 	}
 	
@@ -463,7 +460,6 @@ public class select_chinese_window extends XWindow {
 	  		    // 判断系统桌面是否支持要执行的功能 
 	  		    if (dp.isSupported(java.awt.Desktop.Action.BROWSE)) { 
 	  		      dp.browse(uri);// 获取系统默认浏览器打开链接 
-
 	  		    } 
 	  		   } catch (java.lang.NullPointerException f) { 
 	  		    // 此为uri为空时抛出异常 
@@ -476,15 +472,54 @@ public class select_chinese_window extends XWindow {
 
 	 
 
-	 public void chengfa(){//快速识别删除
-//		 cq.setBackground(Color.RED);
+	 public void chengfa(){//惩罚，减经验值
+//
 		 grade1.ex-=1;
-		 T1.WriteDate(grade1.ex+"");
+		 T4.WriteDate(grade1.ex+"");
 		 g2.setText("经验："+grade1.ex);
 		
 //		 repaint();
 	 }
 
+
+	@Override
+	public void zdy() {
+		setBounds(200,30,1000,700);
+		getContentPane().setBackground(new Color(30,30,30));
+		setTitle("select chinese");
+		jpanel1=new JPanel();
+		 JPanel  GImage = new JPanel() {  
+		 
+		 /**
+		 * 
+		 */
+		private static final long serialVersionUID = -8226355005112414617L;
+
+		public  void paintComponent(Graphics g) {
+//			System.out.println();
+//			System.out.println("sdkflllll");
+          ImageIcon icon = new ImageIcon("C:/Users/Administrator/Desktop/图片素材库/timg.jpg");  
+          Image img = icon.getImage();  
+          g.drawImage(img, 0, 0, icon.getIconWidth(),  
+                  icon.getIconHeight(), icon.getImageObserver());    
+      }  
+
+		
+  };  
+	
+   GImage.setBounds(0,0,900,700);
+
+	try {
+		setdata();
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	setjpanel1();
+	jpanel1.add(GImage);
+	add(jpanel1,BorderLayout.WEST);
+		
+	}
 
 	 
 }

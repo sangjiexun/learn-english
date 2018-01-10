@@ -1,16 +1,20 @@
-package read_menu;
-//工具栏
+package read.menu;
+/**右边的工具栏*/
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import read_english_reader.readWindow;
-import test.T1;
+import read.english_reader.readWindow;
+import tool.T1;
+import tool.T4;
 
 
 /**
@@ -85,7 +89,7 @@ public  class Tool_panel extends JPanel{
 		FT.setBorder(new LineBorder(Color.CYAN));
 		
 		OT.addActionListener(new openact(widd));
-		OT2.addActionListener(new sopenact(widd));
+		OT2.addActionListener(new refurbish(widd));
 		FT.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
@@ -123,5 +127,68 @@ public  class Tool_panel extends JPanel{
 		add(OT3);
 		
 	}
+	
+	public class wordshuxing extends JLabel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		int x=10;
+		int y;
+		int w=200;
+		int h=40;
+		public wordshuxing (int num,String name){
+			super(name);
+			y=50*num-40;
+			setBounds(x,y,w,h);
+			setForeground(Color.white);
+			setBackground(new Color(60,160,60));
+			setOpaque(true);
+		}
+
+	}
+	
+	public class openact implements ActionListener{
+	     readWindow db;
+		 public openact(readWindow Drb){
+			 db=Drb;
+		 }
+	
+
+	public void actionPerformed(ActionEvent arg0) {
+		StringBuffer ba=new StringBuffer();
+		FileDialog my=new FileDialog(db);
+       my.setVisible(true);
+       String t=my.getDirectory()+my.getFile();
+       db.t=t;
+       ba=T4.getWordStringBuffer(t);
+		db.text=ba.toString();
+		db.zairu();
+	}
+
+
+}
+	
+	public class  refurbish implements ActionListener {
+		readWindow db;
+		public  refurbish(readWindow Drb){
+			 db=Drb; 
+		 }
+
+		public void actionPerformed(ActionEvent e) {
+			StringBuffer ba=new StringBuffer();
+	        db.qingkong();
+	        String  t=db.t;    
+	        ba=T4.getWordStringBuffer(t);
+			db.text=ba.toString();
+			db.zairu();
+
+		}
+
+	}
+	
+	
+	
 
 }
